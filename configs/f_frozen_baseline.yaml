@@ -1,0 +1,5 @@
+# Frozen block-2 coarse features + plain fine head, NO coarse signal.
+# Isolates: does a stable feature substrate alone (head-only forgetting) reduce forgetting?
+run: {name: f_frozen_baseline}
+model: {backbone: frozen_coarse_block2, feature_dim: 4096}
+coarse: {source: none}

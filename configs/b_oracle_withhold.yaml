@@ -1,0 +1,4 @@
+# (A) withhold ablation: concat trained with oracle, but fed uniform (no info) at eval.
+run: {name: b_oracle_withhold}
+coarse: {source: oracle}
+conditioning: {mechanism: concat, eval_withhold: true}

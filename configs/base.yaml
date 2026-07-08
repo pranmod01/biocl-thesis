@@ -31,7 +31,7 @@ conditioning:
   aux_loss_weight: 0.5
 
 train:
-  epochs_per_task: 20
+  epochs_per_task: 60     # 20 was undertrained (task-0 train acc ~0.56); 60 fits (~0.83)
   batch_size: 128
   lr: 0.1
   momentum: 0.9
@@ -39,7 +39,7 @@ train:
   optimizer: sgd
 
 coarse_train:             # only used by coarsecl.coarse.train_coarse (condition d)
-  epochs: 30
+  epochs: 60              # 30 gave only ~62% superclass acc; more epochs = stronger trained signal
   batch_size: 128
   lr: 0.1
   momentum: 0.9

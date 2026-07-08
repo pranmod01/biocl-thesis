@@ -44,6 +44,12 @@ class ConditioningStrategy(nn.Module):
                      coarse_dist: Optional[torch.Tensor], seen_mask: torch.Tensor) -> torch.Tensor:
         raise NotImplementedError
 
+    def eval_logits(self, outputs: Dict[str, torch.Tensor],
+                    coarse_dist: Optional[torch.Tensor]) -> torch.Tensor:
+        """Fine logits used for the Class-IL prediction at eval. Default: the raw
+        fine head. `gate` overrides this to fold the coarse signal in as a prior."""
+        return outputs["fine_logits"]
+
 
 @CONDITIONING.register("none")
 class NoneConditioning(ConditioningStrategy):
@@ -113,6 +119,42 @@ class AuxLossConditioning(ConditioningStrategy):
             aux = -(coarse_dist * log_p).sum(dim=1).mean()  # soft-target CE
             loss = loss + self.aux_loss_weight * aux
         return loss
+
+
+@CONDITIONING.register("gate")
+class GateConditioning(ConditioningStrategy):
+    """The coarse signal is used ONLY at inference, as a multiplicative prior on the
+    fine output — never as a training input. The fine head is trained plainly (like
+    `none`); at eval we add log P(superclass) to each fine logit, grouped by the
+    fine->coarse map. A one-hot (oracle) becomes a hard mask to the true superclass;
+    a soft/trained distribution becomes a graded prior; uniform is a no-op.
+
+    This gives the coarse scale STRUCTURE (it constrains the output space) rather than
+    being a plastic input the model must learn — and re-learn — to exploit."""
+
+    def __init__(self, feature_dim, num_fine=NUM_FINE, num_coarse=NUM_COARSE,
+                 gate_eps: float = 1e-8, **kwargs):
+        super().__init__(feature_dim, num_fine, num_coarse)
+        self.gate_eps = gate_eps
+        self.fine_head = nn.Linear(feature_dim, num_fine)
+        # fine(0..99) -> coarse(0..19); a buffer so it moves with .to(device).
+        from ..data.cifar100 import fine_to_coarse_tensor
+        self.register_buffer("fine_to_coarse", fine_to_coarse_tensor(), persistent=False)
+
+    def forward(self, features, coarse_dist=None):
+        return {"fine_logits": self.fine_head(features)}
+
+    def compute_loss(self, outputs, fine_targets, coarse_dist, seen_mask):
+        logits = masked_fine_logits(outputs["fine_logits"], seen_mask)
+        return F.cross_entropy(logits, fine_targets)
+
+    def eval_logits(self, outputs, coarse_dist):
+        logits = outputs["fine_logits"]
+        if coarse_dist is None:
+            return logits
+        log_coarse = torch.log(coarse_dist.clamp_min(self.gate_eps))  # [B, 20]
+        log_prior = log_coarse[:, self.fine_to_coarse]                # [B, 100]
+        return logits + log_prior
 
 
 def build_conditioning(mechanism: str, feature_dim: int, cond_cfg) -> ConditioningStrategy:

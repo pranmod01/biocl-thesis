@@ -67,7 +67,8 @@ def run_continual(cfg: Config) -> List[List[float]]:
 
         row = [
             evaluate_task(model, stream.test_subset(j), coarse_source, seen_mask,
-                          device, num_workers=cfg.data.num_workers)
+                          device, num_workers=cfg.data.num_workers,
+                          withhold=cfg.conditioning.eval_withhold)
             for j in range(task_id + 1)
         ]
         acc_matrix.append(row)

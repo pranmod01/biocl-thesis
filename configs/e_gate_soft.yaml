@@ -1,0 +1,4 @@
+# (B) gate at soft fidelity (smooth=0.3): graded coarse prior at inference.
+run: {name: e_gate_soft}
+coarse: {source: soft, soft: {smooth: 0.3}}
+conditioning: {mechanism: gate}

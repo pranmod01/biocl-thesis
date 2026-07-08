@@ -1,0 +1,8 @@
+# Sanity gate for condition (a): baseline, reduced epochs (5 instead of 20).
+# Full 10x10 Class-IL structure kept so forgetting is real and comparable to b.
+run:
+  name: a_baseline_sanity
+coarse:
+  source: none
+train:
+  epochs_per_task: 5

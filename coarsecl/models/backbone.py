@@ -68,7 +68,42 @@ class ResNetBackbone(nn.Module):
         return out  # [B, 512]
 
 
-def build_backbone(name: str, feature_dim: int) -> ResNetBackbone:
+class FrozenCoarseBackbone(nn.Module):
+    """Frozen mid-stack features from a coarse-trained CoarseNet (default: block 2, the
+    tap that best preserves fine information per the layer-wise probe). A stable
+    'cortical' substrate — features never drift, so continual forgetting is head-only.
+
+    Loaded frozen: params require no grad, BN stays in eval mode regardless of the
+    parent's train/eval state, and the forward runs under no_grad."""
+
+    def __init__(self, ckpt_path: str, tap_upto: int = 13) -> None:
+        super().__init__()
+        from .coarse_net import build_coarse_net  # local import avoids a cycle
+        cnet = build_coarse_net()
+        state = torch.load(ckpt_path, map_location="cpu")
+        cnet.load_state_dict(state["model"])
+        # keep only the conv trunk up to (and including) the tap layer
+        self.trunk = nn.Sequential(*list(cnet.features)[: tap_upto + 1])
+        for p in self.trunk.parameters():
+            p.requires_grad_(False)
+        self.trunk.eval()
+        with torch.no_grad():
+            self.feature_dim = self.trunk(torch.zeros(1, 3, 32, 32)).flatten(1).shape[1]
+
+    def train(self, mode: bool = True) -> "FrozenCoarseBackbone":
+        # frozen: never enter train mode, so BN running stats stay fixed
+        return super().train(False)
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        with torch.no_grad():
+            return self.trunk(x).flatten(1)
+
+
+def build_backbone(name: str, feature_dim: int, coarse_ckpt: str = None):
     if name == "resnet18_small":
         return ResNetBackbone(feature_dim=feature_dim)
+    if name == "frozen_coarse_block2":
+        if coarse_ckpt is None:
+            raise ValueError("frozen_coarse_block2 needs the coarse-net checkpoint path")
+        return FrozenCoarseBackbone(coarse_ckpt, tap_upto=13)  # block 2 (2nd maxpool)
     raise ValueError(f"unknown backbone {name!r}")

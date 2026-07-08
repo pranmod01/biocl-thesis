@@ -36,7 +36,8 @@ class ConditionedClassifier(nn.Module):
     @torch.no_grad()
     def predict(self, images, coarse_dist, seen_mask) -> torch.Tensor:
         """Class-IL prediction: argmax over the seen-class set only."""
-        logits = self.forward(images, coarse_dist)["fine_logits"]
+        outputs = self.forward(images, coarse_dist)
+        logits = self.strategy.eval_logits(outputs, coarse_dist)
         return masked_fine_logits(logits, seen_mask).argmax(dim=1)
 
 
@@ -46,7 +47,8 @@ def conditioning_for(cfg: Config) -> str:
 
 
 def build_classifier(cfg: Config) -> ConditionedClassifier:
-    backbone = build_backbone(cfg.model.backbone, cfg.model.feature_dim)
+    backbone = build_backbone(cfg.model.backbone, cfg.model.feature_dim,
+                              coarse_ckpt=cfg.coarse.trained.ckpt)
     strategy = build_conditioning(
         conditioning_for(cfg), backbone.feature_dim, cfg.conditioning
     )

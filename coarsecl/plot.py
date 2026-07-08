@@ -42,14 +42,16 @@ def plot_runs(run_paths: List[str], out_path: str) -> None:
 
     names = [r["_name"] for r in runs]
     accs = [r["metrics"]["average_accuracy"] for r in runs]
+    retained = [r["metrics"]["retained_accuracy"] for r in runs]
     forgets = [r["metrics"]["average_forgetting"] for r in runs]
     x = range(len(names))
-    width = 0.38
-    ax_bar.bar([i - width / 2 for i in x], accs, width, label="avg accuracy")
-    ax_bar.bar([i + width / 2 for i in x], forgets, width, label="avg forgetting")
+    width = 0.28
+    ax_bar.bar([i - width for i in x], accs, width, label="avg accuracy")
+    ax_bar.bar(list(x), retained, width, label="retained accuracy")
+    ax_bar.bar([i + width for i in x], forgets, width, label="avg forgetting")
     ax_bar.set_xticks(list(x))
     ax_bar.set_xticklabels(names, rotation=20, ha="right")
-    ax_bar.set_title("Final average accuracy & forgetting")
+    ax_bar.set_title("Final accuracy, retention & forgetting")
     ax_bar.grid(True, axis="y", alpha=0.3)
     ax_bar.legend()
 

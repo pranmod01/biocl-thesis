@@ -1,0 +1,10 @@
+# Sanity gate for condition (b): oracle, reduced epochs (5 instead of 20).
+# Same reduced protocol as a_baseline_sanity so the a-vs-b comparison is clean.
+run:
+  name: b_oracle_sanity
+coarse:
+  source: oracle
+conditioning:
+  mechanism: concat
+train:
+  epochs_per_task: 5

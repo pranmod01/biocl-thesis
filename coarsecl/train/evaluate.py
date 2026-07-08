@@ -11,10 +11,13 @@ from __future__ import annotations
 import torch
 from torch.utils.data import DataLoader
 
+from ..config import NUM_COARSE
+
 
 @torch.no_grad()
 def evaluate_task(model, dataset, coarse_source, seen_mask, device,
-                  batch_size: int = 256, num_workers: int = 4) -> float:
+                  batch_size: int = 256, num_workers: int = 4,
+                  withhold: bool = False) -> float:
     model.eval()
     loader = DataLoader(dataset, batch_size=batch_size, shuffle=False,
                         num_workers=num_workers)
@@ -22,7 +25,11 @@ def evaluate_task(model, dataset, coarse_source, seen_mask, device,
     for images, fine in loader:
         images = images.to(device)
         fine = fine.to(device)
-        coarse_dist = coarse_source.get_coarse_dist(images, fine)
+        if withhold:
+            # ablation: hide the real signal, feed a no-information uniform dist
+            coarse_dist = images.new_full((images.size(0), NUM_COARSE), 1.0 / NUM_COARSE)
+        else:
+            coarse_dist = coarse_source.get_coarse_dist(images, fine)
         pred = model.predict(images, coarse_dist, seen_mask)
         correct += (pred == fine).sum().item()
         total += fine.numel()

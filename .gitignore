@@ -15,6 +15,10 @@ checkpoints/
 *.pt
 *.pth
 
+# Local-only docs (not published)
+CLAUDE.md
+DESIGN.md
+
 # Editor / OS
 .vscode/
 .idea/

@@ -1,0 +1,4 @@
+# (B) gate at trained fidelity: coarse-net softmax as an inference prior.
+run: {name: e_gate_trained}
+coarse: {source: trained}
+conditioning: {mechanism: gate}

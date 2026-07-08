@@ -58,9 +58,10 @@ class CoarseCfg:
 
 @dataclass
 class CondCfg:
-    mechanism: str = "concat"  # concat | aux_loss  (ignored when source == none)
+    mechanism: str = "concat"  # concat | aux_loss | gate  (ignored when source == none)
     embed_dim: int = 32  # concat only
     aux_loss_weight: float = 0.5  # aux_loss only
+    eval_withhold: bool = False  # concat ablation: feed uniform (no info) at eval time
 
 
 @dataclass
