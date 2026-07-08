@@ -1,0 +1,7 @@
+# Condition (b): oracle — ground-truth superclass as a one-hot, via concat.
+run:
+  name: b_oracle
+coarse:
+  source: oracle
+conditioning:
+  mechanism: concat

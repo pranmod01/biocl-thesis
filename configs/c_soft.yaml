@@ -1,0 +1,9 @@
+# Condition (c): soft distribution proxy — fidelity set by coarse.soft.smooth.
+run:
+  name: c_soft
+coarse:
+  source: soft
+  soft:
+    smooth: 0.3        # sweep this from ~0 (near oracle) to ~1 (near uniform)
+conditioning:
+  mechanism: concat

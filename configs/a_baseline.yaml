@@ -1,0 +1,5 @@
+# Condition (a): baseline — no coarse signal.
+run:
+  name: a_baseline
+coarse:
+  source: none

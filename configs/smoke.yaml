@@ -1,0 +1,14 @@
+# Tiny end-to-end pipeline check: 2 tasks x 50 classes, 1 epoch. Not a real result.
+run:
+  name: smoke
+data:
+  num_tasks: 2
+  classes_per_task: 50
+  num_workers: 2
+coarse:
+  source: oracle
+conditioning:
+  mechanism: concat
+train:
+  epochs_per_task: 1
+  batch_size: 128

@@ -1,0 +1,12 @@
+# Condition (d): trained coarse classifier — frozen coarse-net softmax, via concat.
+# First train the coarse net once:
+#   python -m coarsecl.coarse.train_coarse --config configs/d_trained.yaml
+run:
+  name: d_trained
+coarse:
+  source: trained
+  trained:
+    ckpt: checkpoints/coarse_net.pt
+    continual: false
+conditioning:
+  mechanism: concat

@@ -1,0 +1,46 @@
+# Defaults inherited by every run config (deep-merged; run files override).
+run:
+  name: base
+  seed: 0
+  output_dir: results
+  device: auto            # auto | cpu | cuda
+
+data:
+  dataset: cifar100
+  num_tasks: 10           # num_tasks * classes_per_task must equal 100
+  classes_per_task: 10
+  order_seed: 0
+  data_root: data
+  num_workers: 4
+
+model:
+  backbone: resnet18_small
+  feature_dim: 512
+
+coarse:
+  source: none            # none | oracle | soft | trained
+  soft:
+    smooth: 0.3           # 0 -> one-hot (oracle), 1 -> uniform (no info)
+  trained:
+    ckpt: checkpoints/coarse_net.pt
+    continual: false      # dormant hook; only the upfront-trained branch exists
+
+conditioning:
+  mechanism: concat       # concat | aux_loss  (ignored when coarse.source == none)
+  embed_dim: 32
+  aux_loss_weight: 0.5
+
+train:
+  epochs_per_task: 20
+  batch_size: 128
+  lr: 0.1
+  momentum: 0.9
+  weight_decay: 0.0005
+  optimizer: sgd
+
+coarse_train:             # only used by coarsecl.coarse.train_coarse (condition d)
+  epochs: 30
+  batch_size: 128
+  lr: 0.1
+  momentum: 0.9
+  weight_decay: 0.0005
