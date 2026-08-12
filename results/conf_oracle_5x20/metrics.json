@@ -52,6 +52,8 @@
   "metrics": {
     "average_accuracy": 0.1879,
     "average_forgetting": 0.814125,
+    "average_incremental_accuracy": 0.40068833333333337,
+    "retained_accuracy": 0.034100000000000005,
     "final_per_task": [
       0.0,
       0.0,
@@ -92,6 +94,13 @@
         0.0765,
         0.863
       ]
-    ]
+    ],
+    "null_kind": "seen",
+    "null_average_accuracy": 0.01,
+    "null_average_incremental_accuracy": 0.022833333333333334,
+    "null_retained_accuracy": 0.013583333333333333,
+    "average_accuracy_vs_null": 18.79,
+    "average_incremental_accuracy_vs_null": 17.548394160583943,
+    "retained_accuracy_vs_null": 2.5104294478527613
   }
 }

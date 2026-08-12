@@ -8,9 +8,11 @@ __pycache__/
 .venv/
 venv/
 
-# Data and run artifacts
-data/
-checkpoints/
+# Data and run artifacts. Leading slash matters: an unanchored `data/` also
+# matches the package module coarsecl/data/, which silently kept the dataset and
+# task-stream code out of every commit.
+/data/
+/checkpoints/
 *.pt
 *.pth
 

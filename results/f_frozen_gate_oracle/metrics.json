@@ -155,6 +155,13 @@
         0.0,
         0.962
       ]
-    ]
+    ],
+    "null_kind": "superclass",
+    "null_average_accuracy": 0.19999999999999998,
+    "null_average_incremental_accuracy": 0.4166269841269841,
+    "null_retained_accuracy": 0.29392592592592587,
+    "average_accuracy_vs_null": 0.49450000000000005,
+    "average_incremental_accuracy_vs_null": 0.7448507476902563,
+    "retained_accuracy_vs_null": 0.05950100806451616
   }
 }

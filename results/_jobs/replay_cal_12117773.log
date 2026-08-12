@@ -4,3 +4,19 @@ cuda: NVIDIA RTX A6000
 [i_replay_cal500] task 2/10 avg_seen_acc=0.4940  per_task=[0.217, 0.771]
 [i_replay_cal500] task 3/10 avg_seen_acc=0.4323  per_task=[0.237, 0.229, 0.831]
 [i_replay_cal500] task 4/10 avg_seen_acc=0.3088  per_task=[0.128, 0.142, 0.191, 0.774]
+[i_replay_cal500] task 5/10 avg_seen_acc=0.2684  per_task=[0.094, 0.108, 0.161, 0.156, 0.823]
+[i_replay_cal500] task 6/10 avg_seen_acc=0.2547  per_task=[0.111, 0.154, 0.175, 0.133, 0.137, 0.818]
+[i_replay_cal500] task 7/10 avg_seen_acc=0.2653  per_task=[0.133, 0.158, 0.182, 0.174, 0.137, 0.247, 0.826]
+[i_replay_cal500] task 8/10 avg_seen_acc=0.1643  per_task=[0.033, 0.077, 0.091, 0.044, 0.069, 0.104, 0.032, 0.864]
+[i_replay_cal500] task 9/10 avg_seen_acc=0.1569  per_task=[0.045, 0.075, 0.059, 0.057, 0.036, 0.136, 0.039, 0.089, 0.876]
+[i_replay_cal500] task 10/10 avg_seen_acc=0.1206  per_task=[0.02, 0.028, 0.07, 0.08, 0.044, 0.022, 0.012, 0.049, 0.032, 0.849]
+
+[i_replay_cal500] done.
+  average_accuracy   = 0.1206
+  average_forgetting = 0.7672
+  results -> results/i_replay_cal500
+
+real	20m58.552s
+user	34m40.983s
+sys	13m47.031s
+########## RUN i_replay_cal2000 ##########

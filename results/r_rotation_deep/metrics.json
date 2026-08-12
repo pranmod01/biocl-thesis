@@ -164,6 +164,13 @@
         0.0,
         0.877
       ]
-    ]
+    ],
+    "null_kind": "seen",
+    "null_average_accuracy": 0.009999999999999998,
+    "null_average_incremental_accuracy": 0.029289682539682543,
+    "null_retained_accuracy": 0.015713403880070538,
+    "average_accuracy_vs_null": 8.770000000000001,
+    "average_incremental_accuracy_vs_null": 8.059758840265543,
+    "retained_accuracy_vs_null": 0.0
   }
 }

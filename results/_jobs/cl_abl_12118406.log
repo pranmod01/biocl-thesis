@@ -1,0 +1,5 @@
+cuda: NVIDIA RTX A6000
+########## RUN i_replay_baseline ##########
+[i_replay_baseline] task 1/10 avg_seen_acc=0.6760  per_task=[0.676]
+[i_replay_baseline] task 2/10 avg_seen_acc=0.5530  per_task=[0.609, 0.497]
+[i_replay_baseline] task 3/10 avg_seen_acc=0.5543  per_task=[0.429, 0.461, 0.773]
