@@ -58,6 +58,9 @@ class ResNetBackbone(nn.Module):
             self.in_planes = planes * BasicBlock.expansion
         return nn.Sequential(*layers)
 
+    # channel count at each spatial tap, for sizing an auxiliary head
+    TAP_CHANNELS = {"layer1": 64, "layer2": 128, "layer3": 256, "layer4": 512}
+
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         out = F.relu(self.bn1(self.conv1(x)))
         out = self.layer1(out)
@@ -66,6 +69,24 @@ class ResNetBackbone(nn.Module):
         out = self.layer4(out)
         out = F.adaptive_avg_pool2d(out, 1).flatten(1)
         return out  # [B, 512]
+
+    def forward_tap(self, x: torch.Tensor, tap: str) -> torch.Tensor:
+        """Intermediate spatial feature map [B, C, H, W] at `tap`, for an auxiliary
+        head. Kept spatial (not pooled) so the head can be given a pre-pool map."""
+        out = F.relu(self.bn1(self.conv1(x)))
+        out = self.layer1(out)
+        if tap == "layer1":
+            return out
+        out = self.layer2(out)
+        if tap == "layer2":
+            return out
+        out = self.layer3(out)
+        if tap == "layer3":
+            return out
+        out = self.layer4(out)
+        if tap == "layer4":
+            return out  # deepest shared map [B, 512, 4, 4]; the features the fine head reads
+        raise ValueError(f"unknown tap {tap!r}")
 
 
 class FrozenCoarseBackbone(nn.Module):
@@ -99,11 +120,15 @@ class FrozenCoarseBackbone(nn.Module):
             return self.trunk(x).flatten(1)
 
 
+# frozen-coarse tap points: block N ends at the Nth maxpool in CoarseNet.features
+_FROZEN_TAPS = {"frozen_coarse_block1": 6, "frozen_coarse_block2": 13, "frozen_coarse_block3": 17}
+
+
 def build_backbone(name: str, feature_dim: int, coarse_ckpt: str = None):
     if name == "resnet18_small":
         return ResNetBackbone(feature_dim=feature_dim)
-    if name == "frozen_coarse_block2":
+    if name in _FROZEN_TAPS:
         if coarse_ckpt is None:
-            raise ValueError("frozen_coarse_block2 needs the coarse-net checkpoint path")
-        return FrozenCoarseBackbone(coarse_ckpt, tap_upto=13)  # block 2 (2nd maxpool)
+            raise ValueError(f"{name} needs the coarse-net checkpoint path")
+        return FrozenCoarseBackbone(coarse_ckpt, tap_upto=_FROZEN_TAPS[name])
     raise ValueError(f"unknown backbone {name!r}")

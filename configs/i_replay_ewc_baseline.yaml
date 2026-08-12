@@ -1,0 +1,5 @@
+# Both mechanisms, no coarse. Isolates whether EWC adds anything once replay has
+# lifted the substrate off the floor.
+run: {name: i_replay_ewc_baseline}
+coarse: {source: none}
+cl: {methods: [replay, ewc]}

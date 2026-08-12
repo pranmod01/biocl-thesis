@@ -1,0 +1,7 @@
+# Coarse as an INPUT on top of replay. Gave exactly 0 benefit on the bare floor;
+# with replay the "skill to use the hint" is itself rehearsed, so this is the
+# fairest test the concat mechanism has had.
+run: {name: i_replay_concat_oracle}
+coarse: {source: oracle}
+conditioning: {mechanism: concat}
+cl: {methods: [replay]}

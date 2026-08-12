@@ -1,0 +1,6 @@
+# Internalized coarse: teacher sees the oracle superclass, student (deployed) does
+# not; KL weans the student off the coarse input so it must be baked into weights.
+# NO coarse signal at inference -> honest comparison is vs a_baseline, not the gate.
+run: {name: g_decay_oracle}
+coarse: {source: oracle}
+conditioning: {mechanism: decay, decay_weight: 1.0}

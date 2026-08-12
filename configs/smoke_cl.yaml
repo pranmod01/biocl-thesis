@@ -1,0 +1,10 @@
+# smoke: exercises replay + ewc + gate together on a tiny 2x50 run
+run: {name: smoke_cl, output_dir: /tmp/coarsecl_smoke}
+data: {num_tasks: 2, classes_per_task: 50, num_workers: 2}
+coarse: {source: oracle}
+conditioning: {mechanism: gate}
+cl:
+  methods: [replay, ewc]
+  replay: {buffer_size: 500, batch_size: 32}
+  ewc: {fisher_batches: 3}
+train: {epochs_per_task: 1, batch_size: 128}

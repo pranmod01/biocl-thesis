@@ -58,10 +58,51 @@ class CoarseCfg:
 
 @dataclass
 class CondCfg:
-    mechanism: str = "concat"  # concat | aux_loss | gate  (ignored when source == none)
-    embed_dim: int = 32  # concat only
+    mechanism: str = "concat"  # concat | aux_loss | gate | decay  (ignored when source == none)
+    embed_dim: int = 32  # concat, decay
     aux_loss_weight: float = 0.5  # aux_loss only
+    decay_weight: float = 1.0  # decay only: weight on the KL(teacher||student) reliance term
     eval_withhold: bool = False  # concat ablation: feed uniform (no info) at eval time
+
+
+@dataclass
+class RotationCfg:
+    """Self-supervised rotation auxiliary task (approach B): a small head off an
+    intermediate trunk tap predicts which of 4 rotations was applied to the input.
+    The rotation label is generated at load time and is NOT a function of the fine
+    label, so there is genuinely new structure for the shared trunk to internalize.
+    Its loss weight anneals to 0, so at the end of training only the fine task
+    remains and (with source=none) the run reduces exactly to a_baseline."""
+
+    enabled: bool = False
+    lambda_max: float = 0.5
+    schedule: str = "per_task"  # per_task (anneal within each task) | curriculum (anneal across tasks)
+    tap: str = "layer2"  # ResNetBackbone spatial tap: layer1 | layer2 | layer3
+    hidden: int = 128  # keep shallow: force the pressure onto shared features, not the head
+
+
+@dataclass
+class ReplayCfg:
+    buffer_size: int = 2000  # total exemplars, split evenly over all seen classes
+    batch_size: int = 32  # replay samples drawn per training step
+    weight: float = 1.0  # weight on the replay CE term
+
+
+@dataclass
+class EWCCfg:
+    ewc_lambda: float = 5000.0
+    fisher_batches: int = 32  # batches used to estimate the diagonal Fisher per task
+
+
+@dataclass
+class CLCfg:
+    """Standard CL machinery, orthogonal to coarse.source and conditioning.mechanism.
+    A list, so `[replay, ewc]` composes; empty (the default) reproduces the original
+    no-machinery runs exactly."""
+
+    methods: list = field(default_factory=list)  # subset of {replay, ewc}
+    replay: ReplayCfg = field(default_factory=ReplayCfg)
+    ewc: EWCCfg = field(default_factory=EWCCfg)
 
 
 @dataclass
@@ -72,6 +113,9 @@ class TrainCfg:
     momentum: float = 0.9
     weight_decay: float = 5e-4
     optimizer: str = "sgd"  # sgd | adam
+    loss_scope: str = "seen"  # seen | current. 'current' masks CE to the current
+    # task's classes only, so old-class logits aren't suppressed as negatives
+    # (cheapest anti-forgetting head; eval still scores over the full seen set).
 
 
 @dataclass
@@ -92,6 +136,8 @@ class Config:
     model: ModelCfg = field(default_factory=ModelCfg)
     coarse: CoarseCfg = field(default_factory=CoarseCfg)
     conditioning: CondCfg = field(default_factory=CondCfg)
+    rotation: RotationCfg = field(default_factory=RotationCfg)
+    cl: CLCfg = field(default_factory=CLCfg)
     train: TrainCfg = field(default_factory=TrainCfg)
     coarse_train: CoarseTrainCfg = field(default_factory=CoarseTrainCfg)
 
@@ -106,6 +152,7 @@ class Config:
     def validate(self) -> "Config":
         from .coarse.sources import COARSE_SOURCES
         from .models.conditioning import CONDITIONING
+        from .train.cl_methods import CL_METHODS
 
         if self.data.num_tasks * self.data.classes_per_task != NUM_FINE:
             raise ValueError(
@@ -123,6 +170,26 @@ class Config:
             )
         if not 0.0 <= self.coarse.soft.smooth <= 1.0:
             raise ValueError("coarse.soft.smooth must be in [0, 1]")
+        if self.train.loss_scope not in ("seen", "current"):
+            raise ValueError("train.loss_scope must be 'seen' or 'current'")
+        if not isinstance(self.cl.methods, list):
+            raise ValueError("cl.methods must be a list, e.g. [] or [replay, ewc]")
+        for m in self.cl.methods:
+            if m not in CL_METHODS.keys():
+                raise ValueError(f"cl method {m!r} not in {CL_METHODS.keys()}")
+        if len(set(self.cl.methods)) != len(self.cl.methods):
+            raise ValueError(f"duplicate entries in cl.methods: {self.cl.methods}")
+        if "replay" in self.cl.methods and self.cl.replay.buffer_size < NUM_FINE:
+            raise ValueError(
+                f"cl.replay.buffer_size must be >= {NUM_FINE} (one exemplar per class)"
+            )
+        if self.rotation.enabled:
+            if self.rotation.schedule not in ("per_task", "curriculum", "constant"):
+                raise ValueError("rotation.schedule must be 'per_task', 'curriculum' or 'constant'")
+            if self.rotation.tap not in ("layer1", "layer2", "layer3", "layer4"):
+                raise ValueError("rotation.tap must be layer1|layer2|layer3|layer4")
+            if self.model.backbone != "resnet18_small":
+                raise ValueError("rotation aux requires the plastic resnet18_small backbone")
         if self.coarse.trained.continual:
             raise NotImplementedError(
                 "coarse.trained.continual is a dormant hook; only the upfront-"

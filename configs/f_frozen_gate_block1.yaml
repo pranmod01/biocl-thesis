@@ -1,0 +1,5 @@
+# Frozen block-1 (early, 8192-d) coarse features + gate oracle. §4.6(a) CL row.
+run: {name: f_frozen_gate_block1}
+model: {backbone: frozen_coarse_block1, feature_dim: 8192}
+coarse: {source: oracle}
+conditioning: {mechanism: gate}

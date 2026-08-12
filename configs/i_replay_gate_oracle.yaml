@@ -1,0 +1,6 @@
+# THE test: does the gate result (0.198 vs 0.088 on the degenerate floor) survive
+# on a non-degenerate substrate, or was it only compensating for total collapse?
+run: {name: i_replay_gate_oracle}
+coarse: {source: oracle}
+conditioning: {mechanism: gate}
+cl: {methods: [replay]}

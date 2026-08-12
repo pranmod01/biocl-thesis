@@ -1,0 +1,4 @@
+# decay_weight sweep point (w=5.0) — is the null result robust to the KL weight?
+run: {name: g_decay_oracle_w50}
+coarse: {source: oracle}
+conditioning: {mechanism: decay, decay_weight: 5.0}

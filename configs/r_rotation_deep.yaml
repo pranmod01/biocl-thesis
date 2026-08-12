@@ -1,0 +1,12 @@
+# Rotation auxiliary task (approach B), variant 2: the DRIFT-ANCHOR version.
+# Two changes vs r_rotation: (1) tap=layer4 so the rotation pressure lands on the
+# deepest shared features -- the exact 512-d map the fine head reads; (2) a CONSTANT
+# lambda (no anneal), so the aux objective is a permanent, task-invariant anchor
+# rather than fading out. Hypothesis: a fixed objective on the fine-path features
+# every task limits how far they can drift between tasks (attacks forgetting force
+# (2), feature drift). Still source=none, so the fine path == a_baseline; the only
+# difference from baseline is the always-on deep rotation pressure. Question: does
+# any off-diagonal (retention) entry move off 0.000?
+run: {name: r_rotation_deep}
+coarse: {source: none}
+rotation: {enabled: true, lambda_max: 0.5, schedule: constant, tap: layer4, hidden: 128}

@@ -1,0 +1,5 @@
+# Frozen block-3 (penultimate, 2048-d) coarse features + gate oracle. §4.6(a) CL row.
+run: {name: f_frozen_gate_block3}
+model: {backbone: frozen_coarse_block3, feature_dim: 2048}
+coarse: {source: oracle}
+conditioning: {mechanism: gate}

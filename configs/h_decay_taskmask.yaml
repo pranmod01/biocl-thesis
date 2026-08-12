@@ -1,0 +1,8 @@
+# THE combination: two-pressure decay objective (task error + KL reliance decay)
+# ON TOP of a current-task-masked (non-forgetting) head, so the internalized
+# coarse structure can actually persist across tasks. Compare vs h_taskmask_baseline
+# (does the coarse signal add anything?) and g_decay_oracle (does the head matter?).
+run: {name: h_decay_taskmask}
+coarse: {source: oracle}
+conditioning: {mechanism: decay, decay_weight: 1.0}
+train: {loss_scope: current}

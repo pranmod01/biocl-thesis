@@ -1,0 +1,6 @@
+# New floor: standard experience replay, no coarse signal. This is the reference
+# every coarse condition is now measured against (the old a_baseline sat at the
+# degenerate floor -- old-task accuracy exactly 0.000 -- where nothing is measurable).
+run: {name: i_replay_baseline}
+coarse: {source: none}
+cl: {methods: [replay]}

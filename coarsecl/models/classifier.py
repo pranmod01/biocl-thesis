@@ -19,10 +19,14 @@ from .conditioning import (ConditioningStrategy, build_conditioning,
 
 
 class ConditionedClassifier(nn.Module):
-    def __init__(self, backbone: nn.Module, strategy: ConditioningStrategy) -> None:
+    def __init__(self, backbone: nn.Module, strategy: ConditioningStrategy,
+                 rotation_head: Optional[nn.Module] = None,
+                 rotation_tap: str = "layer2") -> None:
         super().__init__()
         self.backbone = backbone
         self.strategy = strategy
+        self.rotation_head = rotation_head  # None unless the rotation aux is enabled
+        self.rotation_tap = rotation_tap
 
     def forward(self, images: torch.Tensor,
                 coarse_dist: Optional[torch.Tensor]) -> Dict[str, torch.Tensor]:
@@ -32,6 +36,11 @@ class ConditionedClassifier(nn.Module):
     def compute_loss(self, images, fine_targets, coarse_dist, seen_mask) -> torch.Tensor:
         outputs = self.forward(images, coarse_dist)
         return self.strategy.compute_loss(outputs, fine_targets, coarse_dist, seen_mask)
+
+    def rotation_logits(self, rot_images: torch.Tensor) -> torch.Tensor:
+        """4-way rotation logits from the intermediate trunk tap (aux task only)."""
+        feat_map = self.backbone.forward_tap(rot_images, self.rotation_tap)
+        return self.rotation_head(feat_map)
 
     @torch.no_grad()
     def predict(self, images, coarse_dist, seen_mask) -> torch.Tensor:
@@ -52,4 +61,10 @@ def build_classifier(cfg: Config) -> ConditionedClassifier:
     strategy = build_conditioning(
         conditioning_for(cfg), backbone.feature_dim, cfg.conditioning
     )
-    return ConditionedClassifier(backbone, strategy)
+    rotation_head = None
+    if cfg.rotation.enabled:
+        from .rotation import RotationHead
+        rotation_head = RotationHead(
+            backbone.TAP_CHANNELS[cfg.rotation.tap], hidden=cfg.rotation.hidden
+        )
+    return ConditionedClassifier(backbone, strategy, rotation_head, cfg.rotation.tap)

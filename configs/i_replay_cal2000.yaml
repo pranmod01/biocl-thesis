@@ -1,0 +1,8 @@
+# Calibration: replay baseline (no coarse) at buffer_size=2000. Pick the operating
+# point that is clearly off the 0.088 floor but still well below the 0.77 joint
+# ceiling -- i.e. where forgetting remains for the coarse signal to act on.
+run: {name: i_replay_cal2000}
+coarse: {source: none}
+cl:
+  methods: [replay]
+  replay: {buffer_size: 2000}

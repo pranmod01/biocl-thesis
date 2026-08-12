@@ -1,0 +1,6 @@
+# EWC alone, no coarse. Expected to be ~null: EWC constrains weight drift, and the
+# frozen-feature result showed the forgetting here is head-level inter-task
+# discrimination, not drift. Run as a documented control on that story.
+run: {name: i_ewc_baseline}
+coarse: {source: none}
+cl: {methods: [ewc]}

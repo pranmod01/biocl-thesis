@@ -1,0 +1,5 @@
+# Control: current-task loss masking alone, NO coarse. Isolates whether not
+# suppressing old-class logits helps retention, independent of the decay signal.
+run: {name: h_taskmask_baseline}
+coarse: {source: none}
+train: {loss_scope: current}

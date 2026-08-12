@@ -1,0 +1,7 @@
+# Rotation auxiliary task (approach B), variant 1: lambda annealed to 0 WITHIN each
+# task. No coarse hierarchy used (source=none), so the fine path is exactly a_baseline
+# and the only difference is the fading rotation-prediction pressure on the shared
+# trunk. Question: does any off-diagonal (retention) entry move off 0.000?
+run: {name: r_rotation}
+coarse: {source: none}
+rotation: {enabled: true, lambda_max: 0.5, schedule: per_task, tap: layer2, hidden: 128}

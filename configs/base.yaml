@@ -30,6 +30,16 @@ conditioning:
   embed_dim: 32
   aux_loss_weight: 0.5
 
+cl:                       # standard CL machinery; empty = the original no-machinery runs
+  methods: []             # subset of [replay, ewc]
+  replay:
+    buffer_size: 2000     # total exemplars, split evenly over all seen classes
+    batch_size: 32        # replay samples per training step
+    weight: 1.0
+  ewc:
+    ewc_lambda: 5000.0
+    fisher_batches: 32
+
 train:
   epochs_per_task: 60     # 20 was undertrained (task-0 train acc ~0.56); 60 fits (~0.83)
   batch_size: 128

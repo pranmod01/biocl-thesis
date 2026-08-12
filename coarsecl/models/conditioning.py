@@ -157,6 +157,57 @@ class GateConditioning(ConditioningStrategy):
         return logits + log_prior
 
 
+@CONDITIONING.register("decay")
+class DecayConditioning(ConditioningStrategy):
+    """Internalize the coarse signal into the fine weights so it is NOT needed at
+    inference. Two forward passes share the backbone features and the fine head,
+    differing only by whether the coarse input is present:
+
+        y_with    = fine_head(features ++ embed(coarse))   # informed teacher
+        y_without = fine_head(features ++ 0)               # deployed student
+
+    Loss = CE(y_with) + decay_weight * KL(y_with.detach || y_without). The CE trains
+    the teacher to solve the task using the hint; the KL forces the student to
+    reproduce the teacher's answer WITHOUT the hint, so the coarse structure must
+    migrate into the shared features/head. 'Reliance' on the coarse input is exactly
+    the KL gap, and minimizing it is the decay.
+
+    Unlike `gate`/`concat`, inference needs no coarse signal: the canonical
+    `fine_logits` is the student (no-coarse) path, so eval ignores `coarse_dist`.
+    The student's ceiling is how well coarse is predictable from the image; the
+    honest comparison is student-at-test vs the `none` baseline, not the oracle."""
+
+    def __init__(self, feature_dim, num_fine=NUM_FINE, num_coarse=NUM_COARSE,
+                 embed_dim: int = 32, decay_weight: float = 1.0, **kwargs):
+        super().__init__(feature_dim, num_fine, num_coarse)
+        self.embed_dim = embed_dim
+        self.decay_weight = decay_weight
+        self.coarse_embed = nn.Linear(num_coarse, embed_dim, bias=False)
+        self.fine_head = nn.Linear(feature_dim + embed_dim, num_fine)
+
+    def _heads(self, features, coarse_dist):
+        zeros = features.new_zeros(features.size(0), self.embed_dim)
+        emb = zeros if coarse_dist is None else self.coarse_embed(coarse_dist)
+        y_with = self.fine_head(torch.cat([features, emb], dim=1))
+        y_without = self.fine_head(torch.cat([features, zeros], dim=1))
+        return y_with, y_without
+
+    def forward(self, features, coarse_dist=None):
+        y_with, y_without = self._heads(features, coarse_dist)
+        # canonical `fine_logits` is the deployed no-coarse student
+        return {"fine_logits": y_without, "fine_logits_with": y_with}
+
+    def compute_loss(self, outputs, fine_targets, coarse_dist, seen_mask):
+        y_with = masked_fine_logits(outputs["fine_logits_with"], seen_mask)
+        ce = F.cross_entropy(y_with, fine_targets)
+        # KL over the seen-class columns only (avoids -inf from the mask)
+        cols = seen_mask.to(outputs["fine_logits"].device)
+        p = F.softmax(outputs["fine_logits_with"][:, cols], dim=1).detach()
+        log_q = F.log_softmax(outputs["fine_logits"][:, cols], dim=1)
+        kl = F.kl_div(log_q, p, reduction="batchmean")
+        return ce + self.decay_weight * kl
+
+
 def build_conditioning(mechanism: str, feature_dim: int, cond_cfg) -> ConditioningStrategy:
     """Instantiate a strategy from config. `cond_cfg` is the CondCfg dataclass."""
     return CONDITIONING.create(
@@ -164,4 +215,5 @@ def build_conditioning(mechanism: str, feature_dim: int, cond_cfg) -> Conditioni
         feature_dim=feature_dim,
         embed_dim=cond_cfg.embed_dim,
         aux_loss_weight=cond_cfg.aux_loss_weight,
+        decay_weight=cond_cfg.decay_weight,
     )
