@@ -1,0 +1,22 @@
+cuda: NVIDIA L40
+########## RUN r_rotation ##########
+[r_rotation] task 1/10 avg_seen_acc=0.6810  per_task=[0.681]  rot_acc=0.249
+[r_rotation] task 2/10 avg_seen_acc=0.4175  per_task=[0.0, 0.835]  rot_acc=0.257
+[r_rotation] task 3/10 avg_seen_acc=0.2923  per_task=[0.0, 0.0, 0.877]  rot_acc=0.258
+[r_rotation] task 4/10 avg_seen_acc=0.2030  per_task=[0.0, 0.0, 0.0, 0.812]  rot_acc=0.464
+[r_rotation] task 5/10 avg_seen_acc=0.1732  per_task=[0.0, 0.0, 0.0, 0.0, 0.866]  rot_acc=0.504
+[r_rotation] task 6/10 avg_seen_acc=0.1407  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.844]  rot_acc=0.527
+[r_rotation] task 7/10 avg_seen_acc=0.1241  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.869]  rot_acc=0.534
+[r_rotation] task 8/10 avg_seen_acc=0.1113  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.89]  rot_acc=0.608
+[r_rotation] task 9/10 avg_seen_acc=0.1000  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.9]  rot_acc=0.614
+[r_rotation] task 10/10 avg_seen_acc=0.0864  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.864]  rot_acc=0.558
+
+[r_rotation] done.
+  average_accuracy   = 0.0864
+  average_forgetting = 0.8416
+  results -> results/r_rotation
+
+real	11m12.586s
+user	20m18.190s
+sys	2m56.566s
+=== DONE ===

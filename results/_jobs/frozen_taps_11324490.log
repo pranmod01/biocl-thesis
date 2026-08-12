@@ -1,0 +1,42 @@
+cuda: NVIDIA RTX A6000
+########## RUN f_frozen_gate_block1 ##########
+[f_frozen_gate_block1] task 1/10 avg_seen_acc=0.9650  per_task=[0.965]
+[f_frozen_gate_block1] task 2/10 avg_seen_acc=0.4695  per_task=[0.0, 0.939]
+[f_frozen_gate_block1] task 3/10 avg_seen_acc=0.3070  per_task=[0.0, 0.0, 0.921]
+[f_frozen_gate_block1] task 4/10 avg_seen_acc=0.2372  per_task=[0.0, 0.0, 0.0, 0.949]
+[f_frozen_gate_block1] task 5/10 avg_seen_acc=0.1934  per_task=[0.0, 0.0, 0.0, 0.0, 0.967]
+[f_frozen_gate_block1] task 6/10 avg_seen_acc=0.1460  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.876]
+[f_frozen_gate_block1] task 7/10 avg_seen_acc=0.1369  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.958]
+[f_frozen_gate_block1] task 8/10 avg_seen_acc=0.1217  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.974]
+[f_frozen_gate_block1] task 9/10 avg_seen_acc=0.1068  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.961]
+[f_frozen_gate_block1] task 10/10 avg_seen_acc=0.0946  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.946]
+
+[f_frozen_gate_block1] done.
+  average_accuracy   = 0.0946
+  average_forgetting = 0.9456
+  results -> results/f_frozen_gate_block1
+
+real	6m59.987s
+user	19m24.035s
+sys	3m52.280s
+########## RUN f_frozen_gate_block3 ##########
+[f_frozen_gate_block3] task 1/10 avg_seen_acc=0.9760  per_task=[0.976]
+[f_frozen_gate_block3] task 2/10 avg_seen_acc=0.5090  per_task=[0.071, 0.947]
+[f_frozen_gate_block3] task 3/10 avg_seen_acc=0.3093  per_task=[0.005, 0.0, 0.923]
+[f_frozen_gate_block3] task 4/10 avg_seen_acc=0.2362  per_task=[0.001, 0.0, 0.0, 0.944]
+[f_frozen_gate_block3] task 5/10 avg_seen_acc=0.1922  per_task=[0.0, 0.0, 0.0, 0.001, 0.96]
+[f_frozen_gate_block3] task 6/10 avg_seen_acc=0.1472  per_task=[0.001, 0.0, 0.0, 0.0, 0.0, 0.882]
+[f_frozen_gate_block3] task 7/10 avg_seen_acc=0.1394  per_task=[0.0, 0.0, 0.0, 0.001, 0.0, 0.0, 0.975]
+[f_frozen_gate_block3] task 8/10 avg_seen_acc=0.1241  per_task=[0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.992]
+[f_frozen_gate_block3] task 9/10 avg_seen_acc=0.1077  per_task=[0.001, 0.0, 0.0, 0.001, 0.0, 0.0, 0.0, 0.0, 0.967]
+[f_frozen_gate_block3] task 10/10 avg_seen_acc=0.0948  per_task=[0.0, 0.0, 0.0, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.947]
+
+[f_frozen_gate_block3] done.
+  average_accuracy   = 0.0948
+  average_forgetting = 0.9517
+  results -> results/f_frozen_gate_block3
+
+real	6m39.428s
+user	18m46.387s
+sys	3m58.473s
+=== DONE ===

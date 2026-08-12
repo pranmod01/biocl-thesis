@@ -1,0 +1,42 @@
+run:
+  name: h_decay_taskmask
+  seed: 0
+  output_dir: results
+  device: auto
+data:
+  dataset: cifar100
+  num_tasks: 10
+  classes_per_task: 10
+  order_seed: 0
+  data_root: data
+  num_workers: 4
+model:
+  backbone: resnet18_small
+  feature_dim: 512
+coarse:
+  source: oracle
+  soft:
+    smooth: 0.3
+  trained:
+    ckpt: checkpoints/coarse_net.pt
+    continual: false
+conditioning:
+  mechanism: decay
+  embed_dim: 32
+  aux_loss_weight: 0.5
+  decay_weight: 1.0
+  eval_withhold: false
+train:
+  epochs_per_task: 60
+  batch_size: 128
+  lr: 0.1
+  momentum: 0.9
+  weight_decay: 0.0005
+  optimizer: sgd
+  loss_scope: current
+coarse_train:
+  epochs: 60
+  batch_size: 128
+  lr: 0.1
+  momentum: 0.9
+  weight_decay: 0.0005

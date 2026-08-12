@@ -1,0 +1,10 @@
+=== node: ins082 ===
+/insomnia001/home/pm3361/biocl-thesis/.venv/lib64/python3.9/site-packages/torch/cuda/__init__.py:182: UserWarning: CUDA initialization: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero. (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:109.)
+  return torch._C._cuda_getDeviceCount() > 0
+cuda: False cpu
+########## PRETRAIN coarse net (condition d prerequisite) ##########
+/insomnia001/home/pm3361/biocl-thesis/.venv/lib64/python3.9/site-packages/torch/cuda/__init__.py:182: UserWarning: CUDA initialization: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero. (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:109.)
+  return torch._C._cuda_getDeviceCount() > 0
+[coarse] epoch 1/30  test_acc=0.1141
+[coarse] epoch 2/30  test_acc=0.1662
+[2026-07-05T16:26:55.022] error: *** JOB 11114849 ON ins082 CANCELLED AT 2026-07-05T16:26:55 DUE to SIGNAL Terminated ***

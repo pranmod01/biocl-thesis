@@ -10,10 +10,13 @@ venv/
 
 # Data and run artifacts
 data/
-results/
 checkpoints/
 *.pt
 *.pth
+
+# results/ IS tracked: each run dir is a resolved config + metrics.json +
+# acc_matrix.csv, a few KB of text, and the accuracy matrices are the record of
+# what every condition actually did. Keep binaries and checkpoints out of it.
 
 # Local-only docs (not published)
 CLAUDE.md

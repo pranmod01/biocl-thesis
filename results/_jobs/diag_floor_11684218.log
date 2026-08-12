@@ -1,0 +1,10 @@
+cuda: NVIDIA RTX A6000
+Traceback (most recent call last):
+  File "/insomnia001/home/pm3361/biocl-thesis/results/_jobs/diag_floor.py", line 16, in <module>
+    from coarsecl.config import load_config
+ModuleNotFoundError: No module named 'coarsecl'
+
+real	0m1.428s
+user	0m1.632s
+sys	0m0.363s
+=== DONE ===

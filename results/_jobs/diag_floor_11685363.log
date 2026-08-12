@@ -1,0 +1,30 @@
+cuda: NVIDIA RTX A6000
+
+########## f_frozen_baseline ##########
+[f_frozen_baseline] task 1/10 avg_seen_acc=0.7920  per_task=[0.792]
+[f_frozen_baseline] task 2/10 avg_seen_acc=0.4385  per_task=[0.0, 0.877]
+[f_frozen_baseline] task 3/10 avg_seen_acc=0.2970  per_task=[0.0, 0.0, 0.891]
+[f_frozen_baseline] task 4/10 avg_seen_acc=0.1990  per_task=[0.0, 0.0, 0.0, 0.796]
+[f_frozen_baseline] task 5/10 avg_seen_acc=0.1692  per_task=[0.0, 0.0, 0.0, 0.0, 0.846]
+[f_frozen_baseline] task 6/10 avg_seen_acc=0.1363  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.818]
+[f_frozen_baseline] task 7/10 avg_seen_acc=0.1184  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.829]
+[f_frozen_baseline] task 8/10 avg_seen_acc=0.1059  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.847]
+[f_frozen_baseline] task 9/10 avg_seen_acc=0.0946  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.851]
+[f_frozen_baseline] task 10/10 avg_seen_acc=0.0832  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.832]
+task  ClassIL@1  ClassIL@5  TaskIL@1  mean_rank
+   0      0.000      0.000     0.393       12.2
+   1      0.000      0.000     0.617       18.5
+   2      0.000      0.000     0.605       25.6
+   3      0.000      0.000     0.280       35.1
+   4      0.000      0.000     0.531       46.4
+   5      0.000      0.000     0.487       55.1
+   6      0.000      0.000     0.512       67.7
+   7      0.000      0.000     0.604       76.6
+   8      0.000      0.000     0.607       85.8
+   9      0.832      0.994     0.832        0.3
+OLD-TASK MEAN  ClassIL@1=0.000  ClassIL@5=0.000  TaskIL@1=0.515  mean_rank=47.0  (chance: @1=0.01 @5=0.05 TaskIL=0.10 rank=49.5)
+
+real	5m36.484s
+user	16m57.997s
+sys	2m39.957s
+=== DONE ===

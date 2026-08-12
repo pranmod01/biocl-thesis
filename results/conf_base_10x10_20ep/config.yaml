@@ -1,0 +1,39 @@
+run:
+  name: conf_base_10x10_20ep
+  seed: 0
+  output_dir: results
+  device: auto
+data:
+  dataset: cifar100
+  num_tasks: 10
+  classes_per_task: 10
+  order_seed: 0
+  data_root: data
+  num_workers: 4
+model:
+  backbone: resnet18_small
+  feature_dim: 512
+coarse:
+  source: none
+  soft:
+    smooth: 0.3
+  trained:
+    ckpt: checkpoints/coarse_net.pt
+    continual: false
+conditioning:
+  mechanism: concat
+  embed_dim: 32
+  aux_loss_weight: 0.5
+train:
+  epochs_per_task: 20
+  batch_size: 128
+  lr: 0.1
+  momentum: 0.9
+  weight_decay: 0.0005
+  optimizer: sgd
+coarse_train:
+  epochs: 30
+  batch_size: 128
+  lr: 0.1
+  momentum: 0.9
+  weight_decay: 0.0005

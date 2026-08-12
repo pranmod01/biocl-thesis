@@ -1,0 +1,160 @@
+{
+  "config": {
+    "run": {
+      "name": "e_gate_oracle",
+      "seed": 0,
+      "output_dir": "results",
+      "device": "auto"
+    },
+    "data": {
+      "dataset": "cifar100",
+      "num_tasks": 10,
+      "classes_per_task": 10,
+      "order_seed": 0,
+      "data_root": "data",
+      "num_workers": 4
+    },
+    "model": {
+      "backbone": "resnet18_small",
+      "feature_dim": 512
+    },
+    "coarse": {
+      "source": "oracle",
+      "soft": {
+        "smooth": 0.3
+      },
+      "trained": {
+        "ckpt": "checkpoints/coarse_net.pt",
+        "continual": false
+      }
+    },
+    "conditioning": {
+      "mechanism": "gate",
+      "embed_dim": 32,
+      "aux_loss_weight": 0.5,
+      "eval_withhold": false
+    },
+    "train": {
+      "epochs_per_task": 60,
+      "batch_size": 128,
+      "lr": 0.1,
+      "momentum": 0.9,
+      "weight_decay": 0.0005,
+      "optimizer": "sgd"
+    },
+    "coarse_train": {
+      "epochs": 60,
+      "batch_size": 128,
+      "lr": 0.1,
+      "momentum": 0.9,
+      "weight_decay": 0.0005
+    }
+  },
+  "metrics": {
+    "average_accuracy": 0.1975,
+    "average_forgetting": 0.8604444444444445,
+    "average_incremental_accuracy": 0.44151341269841266,
+    "retained_accuracy": 0.18004444444444442,
+    "final_per_task": [
+      0.095,
+      0.027,
+      0.143,
+      0.254,
+      0.281,
+      0.036,
+      0.021,
+      0.081,
+      0.071,
+      0.966
+    ],
+    "avg_acc_curve": [
+      0.976,
+      0.7244999999999999,
+      0.5826666666666667,
+      0.45,
+      0.4194,
+      0.33983333333333327,
+      0.2774285714285714,
+      0.23525000000000001,
+      0.21255555555555553,
+      0.1975
+    ],
+    "acc_matrix": [
+      [
+        0.976
+      ],
+      [
+        0.485,
+        0.964
+      ],
+      [
+        0.607,
+        0.185,
+        0.956
+      ],
+      [
+        0.665,
+        0.011,
+        0.144,
+        0.98
+      ],
+      [
+        0.364,
+        0.364,
+        0.127,
+        0.26,
+        0.982
+      ],
+      [
+        0.264,
+        0.282,
+        0.196,
+        0.024,
+        0.36,
+        0.913
+      ],
+      [
+        0.252,
+        0.135,
+        0.214,
+        0.251,
+        0.078,
+        0.019,
+        0.993
+      ],
+      [
+        0.065,
+        0.109,
+        0.122,
+        0.335,
+        0.099,
+        0.124,
+        0.033,
+        0.995
+      ],
+      [
+        0.1,
+        0.081,
+        0.09,
+        0.246,
+        0.132,
+        0.118,
+        0.074,
+        0.078,
+        0.994
+      ],
+      [
+        0.095,
+        0.027,
+        0.143,
+        0.254,
+        0.281,
+        0.036,
+        0.021,
+        0.081,
+        0.071,
+        0.966
+      ]
+    ]
+  }
+}

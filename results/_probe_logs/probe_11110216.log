@@ -1,0 +1,83 @@
+=== node: ins080 ===
+cuda: True NVIDIA RTX A6000
+=== probe_base_lr01 ===
+[probe_base_lr01] task 1/10 avg_seen_acc=0.5900  per_task=[0.59]
+[probe_base_lr01] task 2/10 avg_seen_acc=0.3460  per_task=[0.0, 0.692]
+[probe_base_lr01] task 3/10 avg_seen_acc=0.2427  per_task=[0.0, 0.0, 0.728]
+[probe_base_lr01] task 4/10 avg_seen_acc=0.1070  per_task=[0.0, 0.0, 0.0, 0.428]
+[probe_base_lr01] task 5/10 avg_seen_acc=0.0794  per_task=[0.0, 0.0, 0.0, 0.0, 0.397]
+[probe_base_lr01] task 6/10 avg_seen_acc=0.0718  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.431]
+[probe_base_lr01] task 7/10 avg_seen_acc=0.0364  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.255]
+[probe_base_lr01] task 8/10 avg_seen_acc=0.0454  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.363]
+[probe_base_lr01] task 9/10 avg_seen_acc=0.0339  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.305]
+[probe_base_lr01] task 10/10 avg_seen_acc=0.0350  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.35]
+
+[probe_base_lr01] done.
+  average_accuracy   = 0.0350
+  average_forgetting = 0.4654
+  results -> results/probe_base_lr01
+
+real	1m12.269s
+user	2m22.356s
+sys	0m28.663s
+=== probe_oracle_concat_lr01 ===
+[probe_oracle_concat_lr01] task 1/10 avg_seen_acc=0.7120  per_task=[0.712]
+[probe_oracle_concat_lr01] task 2/10 avg_seen_acc=0.4020  per_task=[0.0, 0.804]
+[probe_oracle_concat_lr01] task 3/10 avg_seen_acc=0.2700  per_task=[0.0, 0.0, 0.81]
+[probe_oracle_concat_lr01] task 4/10 avg_seen_acc=0.2142  per_task=[0.0, 0.0, 0.0, 0.857]
+[probe_oracle_concat_lr01] task 5/10 avg_seen_acc=0.1630  per_task=[0.0, 0.0, 0.0, 0.0, 0.815]
+[probe_oracle_concat_lr01] task 6/10 avg_seen_acc=0.1320  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.792]
+[probe_oracle_concat_lr01] task 7/10 avg_seen_acc=0.1313  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.919]
+[probe_oracle_concat_lr01] task 8/10 avg_seen_acc=0.1204  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.963]
+[probe_oracle_concat_lr01] task 9/10 avg_seen_acc=0.1019  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.917]
+[probe_oracle_concat_lr01] task 10/10 avg_seen_acc=0.0932  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.001, 0.931]
+
+[probe_oracle_concat_lr01] done.
+  average_accuracy   = 0.0932
+  average_forgetting = 0.8431
+  results -> results/probe_oracle_concat_lr01
+
+real	1m12.408s
+user	2m22.111s
+sys	0m28.482s
+=== probe_oracle_aux_lr1 ===
+[probe_oracle_aux_lr1] task 1/10 avg_seen_acc=0.4200  per_task=[0.42]
+[probe_oracle_aux_lr1] task 2/10 avg_seen_acc=0.2450  per_task=[0.0, 0.49]
+[probe_oracle_aux_lr1] task 3/10 avg_seen_acc=0.1493  per_task=[0.0, 0.0, 0.448]
+[probe_oracle_aux_lr1] task 4/10 avg_seen_acc=0.0693  per_task=[0.0, 0.0, 0.0, 0.277]
+[probe_oracle_aux_lr1] task 5/10 avg_seen_acc=0.0726  per_task=[0.0, 0.0, 0.0, 0.0, 0.363]
+[probe_oracle_aux_lr1] task 6/10 avg_seen_acc=0.0812  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.487]
+[probe_oracle_aux_lr1] task 7/10 avg_seen_acc=0.0471  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.33]
+[probe_oracle_aux_lr1] task 8/10 avg_seen_acc=0.0568  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.454]
+[probe_oracle_aux_lr1] task 9/10 avg_seen_acc=0.0454  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.409]
+[probe_oracle_aux_lr1] task 10/10 avg_seen_acc=0.0501  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.501]
+
+[probe_oracle_aux_lr1] done.
+  average_accuracy   = 0.0501
+  average_forgetting = 0.4087
+  results -> results/probe_oracle_aux_lr1
+
+real	1m13.631s
+user	2m22.826s
+sys	0m30.258s
+=== probe_oracle_aux_lr01 ===
+[probe_oracle_aux_lr01] task 1/10 avg_seen_acc=0.5870  per_task=[0.587]
+[probe_oracle_aux_lr01] task 2/10 avg_seen_acc=0.3370  per_task=[0.0, 0.674]
+[probe_oracle_aux_lr01] task 3/10 avg_seen_acc=0.2353  per_task=[0.0, 0.0, 0.706]
+[probe_oracle_aux_lr01] task 4/10 avg_seen_acc=0.1185  per_task=[0.0, 0.0, 0.0, 0.474]
+[probe_oracle_aux_lr01] task 5/10 avg_seen_acc=0.0744  per_task=[0.0, 0.0, 0.0, 0.0, 0.372]
+[probe_oracle_aux_lr01] task 6/10 avg_seen_acc=0.0772  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.463]
+[probe_oracle_aux_lr01] task 7/10 avg_seen_acc=0.0314  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.22]
+[probe_oracle_aux_lr01] task 8/10 avg_seen_acc=0.0439  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.351]
+[probe_oracle_aux_lr01] task 9/10 avg_seen_acc=0.0294  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.265]
+[probe_oracle_aux_lr01] task 10/10 avg_seen_acc=0.0319  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.319]
+
+[probe_oracle_aux_lr01] done.
+  average_accuracy   = 0.0319
+  average_forgetting = 0.4569
+  results -> results/probe_oracle_aux_lr01
+
+real	1m13.499s
+user	2m23.082s
+sys	0m29.189s
+=== DONE ===

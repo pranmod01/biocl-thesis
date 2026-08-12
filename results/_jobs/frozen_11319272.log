@@ -1,0 +1,42 @@
+cuda: NVIDIA RTX A6000
+########## RUN f_frozen_baseline ##########
+[f_frozen_baseline] task 1/10 avg_seen_acc=0.7920  per_task=[0.792]
+[f_frozen_baseline] task 2/10 avg_seen_acc=0.4385  per_task=[0.0, 0.877]
+[f_frozen_baseline] task 3/10 avg_seen_acc=0.2970  per_task=[0.0, 0.0, 0.891]
+[f_frozen_baseline] task 4/10 avg_seen_acc=0.1990  per_task=[0.0, 0.0, 0.0, 0.796]
+[f_frozen_baseline] task 5/10 avg_seen_acc=0.1692  per_task=[0.0, 0.0, 0.0, 0.0, 0.846]
+[f_frozen_baseline] task 6/10 avg_seen_acc=0.1363  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.818]
+[f_frozen_baseline] task 7/10 avg_seen_acc=0.1184  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.829]
+[f_frozen_baseline] task 8/10 avg_seen_acc=0.1059  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.847]
+[f_frozen_baseline] task 9/10 avg_seen_acc=0.0946  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.851]
+[f_frozen_baseline] task 10/10 avg_seen_acc=0.0832  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.832]
+
+[f_frozen_baseline] done.
+  average_accuracy   = 0.0832
+  average_forgetting = 0.8386
+  results -> results/f_frozen_baseline
+
+real	8m12.247s
+user	22m8.622s
+sys	4m36.603s
+########## RUN f_frozen_gate_oracle ##########
+[f_frozen_gate_oracle] task 1/10 avg_seen_acc=0.9880  per_task=[0.988]
+[f_frozen_gate_oracle] task 2/10 avg_seen_acc=0.6340  per_task=[0.306, 0.962]
+[f_frozen_gate_oracle] task 3/10 avg_seen_acc=0.3717  per_task=[0.159, 0.003, 0.953]
+[f_frozen_gate_oracle] task 4/10 avg_seen_acc=0.2587  per_task=[0.066, 0.0, 0.005, 0.964]
+[f_frozen_gate_oracle] task 5/10 avg_seen_acc=0.2080  per_task=[0.007, 0.012, 0.002, 0.049, 0.97]
+[f_frozen_gate_oracle] task 6/10 avg_seen_acc=0.1540  per_task=[0.01, 0.005, 0.005, 0.005, 0.0, 0.899]
+[f_frozen_gate_oracle] task 7/10 avg_seen_acc=0.1496  per_task=[0.009, 0.007, 0.007, 0.038, 0.0, 0.0, 0.986]
+[f_frozen_gate_oracle] task 8/10 avg_seen_acc=0.1263  per_task=[0.012, 0.002, 0.003, 0.001, 0.0, 0.0, 0.0, 0.992]
+[f_frozen_gate_oracle] task 9/10 avg_seen_acc=0.1141  per_task=[0.026, 0.005, 0.001, 0.015, 0.0, 0.0, 0.0, 0.0, 0.98]
+[f_frozen_gate_oracle] task 10/10 avg_seen_acc=0.0989  per_task=[0.002, 0.003, 0.005, 0.016, 0.001, 0.0, 0.0, 0.0, 0.0, 0.962]
+
+[f_frozen_gate_oracle] done.
+  average_accuracy   = 0.0989
+  average_forgetting = 0.9630
+  results -> results/f_frozen_gate_oracle
+
+real	8m10.989s
+user	22m4.858s
+sys	4m38.441s
+=== DONE ===

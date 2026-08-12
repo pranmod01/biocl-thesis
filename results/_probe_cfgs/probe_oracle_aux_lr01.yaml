@@ -1,0 +1,9 @@
+run:
+  name: probe_oracle_aux_lr01
+coarse:
+  source: oracle
+conditioning:
+  mechanism: aux_loss
+train:
+  epochs_per_task: 5
+  lr: 0.01

@@ -1,0 +1,22 @@
+cuda: NVIDIA RTX A6000
+########## RUN g_decay_oracle ##########
+[g_decay_oracle] task 1/10 avg_seen_acc=0.6710  per_task=[0.671]
+[g_decay_oracle] task 2/10 avg_seen_acc=0.4190  per_task=[0.0, 0.838]
+[g_decay_oracle] task 3/10 avg_seen_acc=0.2947  per_task=[0.0, 0.0, 0.884]
+[g_decay_oracle] task 4/10 avg_seen_acc=0.2092  per_task=[0.0, 0.0, 0.0, 0.837]
+[g_decay_oracle] task 5/10 avg_seen_acc=0.1786  per_task=[0.0, 0.0, 0.0, 0.0, 0.893]
+[g_decay_oracle] task 6/10 avg_seen_acc=0.1422  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.853]
+[g_decay_oracle] task 7/10 avg_seen_acc=0.1271  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.89]
+[g_decay_oracle] task 8/10 avg_seen_acc=0.1108  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.886]
+[g_decay_oracle] task 9/10 avg_seen_acc=0.1009  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.908]
+[g_decay_oracle] task 10/10 avg_seen_acc=0.0873  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.873]
+
+[g_decay_oracle] done.
+  average_accuracy   = 0.0873
+  average_forgetting = 0.8511
+  results -> results/g_decay_oracle
+
+real	12m18.663s
+user	25m23.790s
+sys	3m8.727s
+=== DONE ===

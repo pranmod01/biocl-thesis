@@ -1,0 +1,229 @@
+=== node: ins080 ===
+cuda: NVIDIA RTX A6000
+########## PRETRAIN coarse net (60ep) ##########
+[coarse] epoch 1/60  test_acc=0.1356
+[coarse] epoch 2/60  test_acc=0.1850
+[coarse] epoch 3/60  test_acc=0.2280
+[coarse] epoch 4/60  test_acc=0.2653
+[coarse] epoch 5/60  test_acc=0.2750
+[coarse] epoch 6/60  test_acc=0.3358
+[coarse] epoch 7/60  test_acc=0.3482
+[coarse] epoch 8/60  test_acc=0.3720
+[coarse] epoch 9/60  test_acc=0.4184
+[coarse] epoch 10/60  test_acc=0.4098
+[coarse] epoch 11/60  test_acc=0.4423
+[coarse] epoch 12/60  test_acc=0.4248
+[coarse] epoch 13/60  test_acc=0.4586
+[coarse] epoch 14/60  test_acc=0.4178
+[coarse] epoch 15/60  test_acc=0.4562
+[coarse] epoch 16/60  test_acc=0.4760
+[coarse] epoch 17/60  test_acc=0.4940
+[coarse] epoch 18/60  test_acc=0.5063
+[coarse] epoch 19/60  test_acc=0.4681
+[coarse] epoch 20/60  test_acc=0.4995
+[coarse] epoch 21/60  test_acc=0.3518
+[coarse] epoch 22/60  test_acc=0.4870
+[coarse] epoch 23/60  test_acc=0.5057
+[coarse] epoch 24/60  test_acc=0.5313
+[coarse] epoch 25/60  test_acc=0.4884
+[coarse] epoch 26/60  test_acc=0.5177
+[coarse] epoch 27/60  test_acc=0.5031
+[coarse] epoch 28/60  test_acc=0.5257
+[coarse] epoch 29/60  test_acc=0.5317
+[coarse] epoch 30/60  test_acc=0.5412
+[coarse] epoch 31/60  test_acc=0.5250
+[coarse] epoch 32/60  test_acc=0.5138
+[coarse] epoch 33/60  test_acc=0.4954
+[coarse] epoch 34/60  test_acc=0.5408
+[coarse] epoch 35/60  test_acc=0.5083
+[coarse] epoch 36/60  test_acc=0.5496
+[coarse] epoch 37/60  test_acc=0.5450
+[coarse] epoch 38/60  test_acc=0.5727
+[coarse] epoch 39/60  test_acc=0.5489
+[coarse] epoch 40/60  test_acc=0.5790
+[coarse] epoch 41/60  test_acc=0.5769
+[coarse] epoch 42/60  test_acc=0.5831
+[coarse] epoch 43/60  test_acc=0.5936
+[coarse] epoch 44/60  test_acc=0.5956
+[coarse] epoch 45/60  test_acc=0.5928
+[coarse] epoch 46/60  test_acc=0.6084
+[coarse] epoch 47/60  test_acc=0.6140
+[coarse] epoch 48/60  test_acc=0.6196
+[coarse] epoch 49/60  test_acc=0.6196
+[coarse] epoch 50/60  test_acc=0.6399
+[coarse] epoch 51/60  test_acc=0.6230
+[coarse] epoch 52/60  test_acc=0.6458
+[coarse] epoch 53/60  test_acc=0.6408
+[coarse] epoch 54/60  test_acc=0.6486
+[coarse] epoch 55/60  test_acc=0.6484
+[coarse] epoch 56/60  test_acc=0.6564
+[coarse] epoch 57/60  test_acc=0.6531
+[coarse] epoch 58/60  test_acc=0.6585
+[coarse] epoch 59/60  test_acc=0.6582
+[coarse] epoch 60/60  test_acc=0.6593
+[coarse] saved checkpoint -> checkpoints/coarse_net.pt  (final test_acc=0.6593)
+
+real	5m38.523s
+user	21m3.887s
+sys	1m53.763s
+########## RUN a_baseline ##########
+[a_baseline] task 1/10 avg_seen_acc=0.6580  per_task=[0.658]
+[a_baseline] task 2/10 avg_seen_acc=0.4095  per_task=[0.0, 0.819]
+[a_baseline] task 3/10 avg_seen_acc=0.2890  per_task=[0.0, 0.0, 0.867]
+[a_baseline] task 4/10 avg_seen_acc=0.2035  per_task=[0.0, 0.0, 0.0, 0.814]
+[a_baseline] task 5/10 avg_seen_acc=0.1738  per_task=[0.0, 0.0, 0.0, 0.0, 0.869]
+[a_baseline] task 6/10 avg_seen_acc=0.1417  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.85]
+[a_baseline] task 7/10 avg_seen_acc=0.1237  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.866]
+[a_baseline] task 8/10 avg_seen_acc=0.1103  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.882]
+[a_baseline] task 9/10 avg_seen_acc=0.1014  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.913]
+[a_baseline] task 10/10 avg_seen_acc=0.0877  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.877]
+
+[a_baseline] done.
+  average_accuracy   = 0.0877
+  average_forgetting = 0.8376
+  results -> results/a_baseline
+
+real	11m54.942s
+user	24m55.936s
+sys	4m6.943s
+########## RUN b_oracle ##########
+[b_oracle] task 1/10 avg_seen_acc=0.9790  per_task=[0.979]
+[b_oracle] task 2/10 avg_seen_acc=0.4740  per_task=[0.0, 0.948]
+[b_oracle] task 3/10 avg_seen_acc=0.3147  per_task=[0.0, 0.0, 0.944]
+[b_oracle] task 4/10 avg_seen_acc=0.2412  per_task=[0.0, 0.0, 0.0, 0.965]
+[b_oracle] task 5/10 avg_seen_acc=0.1934  per_task=[0.0, 0.0, 0.0, 0.0, 0.967]
+[b_oracle] task 6/10 avg_seen_acc=0.1478  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.887]
+[b_oracle] task 7/10 avg_seen_acc=0.1404  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.983]
+[b_oracle] task 8/10 avg_seen_acc=0.1244  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.995]
+[b_oracle] task 9/10 avg_seen_acc=0.1084  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.976]
+[b_oracle] task 10/10 avg_seen_acc=0.0955  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.955]
+
+[b_oracle] done.
+  average_accuracy   = 0.0955
+  average_forgetting = 0.9604
+  results -> results/b_oracle
+
+real	11m55.078s
+user	25m35.552s
+sys	3m49.000s
+########## RUN c_soft ##########
+[c_soft] task 1/10 avg_seen_acc=0.9730  per_task=[0.973]
+[c_soft] task 2/10 avg_seen_acc=0.4750  per_task=[0.0, 0.95]
+[c_soft] task 3/10 avg_seen_acc=0.3127  per_task=[0.0, 0.0, 0.938]
+[c_soft] task 4/10 avg_seen_acc=0.2400  per_task=[0.0, 0.0, 0.0, 0.96]
+[c_soft] task 5/10 avg_seen_acc=0.1926  per_task=[0.0, 0.0, 0.0, 0.0, 0.963]
+[c_soft] task 6/10 avg_seen_acc=0.1500  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.9]
+[c_soft] task 7/10 avg_seen_acc=0.1401  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.981]
+[c_soft] task 8/10 avg_seen_acc=0.1241  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.993]
+[c_soft] task 9/10 avg_seen_acc=0.1082  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.974]
+[c_soft] task 10/10 avg_seen_acc=0.0956  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.956]
+
+[c_soft] done.
+  average_accuracy   = 0.0956
+  average_forgetting = 0.9591
+  results -> results/c_soft
+
+real	12m4.508s
+user	25m6.514s
+sys	4m12.527s
+########## RUN d_trained ##########
+[d_trained] task 1/10 avg_seen_acc=0.7120  per_task=[0.712]
+[d_trained] task 2/10 avg_seen_acc=0.4145  per_task=[0.0, 0.829]
+[d_trained] task 3/10 avg_seen_acc=0.2860  per_task=[0.0, 0.0, 0.858]
+[d_trained] task 4/10 avg_seen_acc=0.1935  per_task=[0.0, 0.0, 0.0, 0.774]
+[d_trained] task 5/10 avg_seen_acc=0.1640  per_task=[0.0, 0.0, 0.0, 0.0, 0.82]
+[d_trained] task 6/10 avg_seen_acc=0.1393  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.836]
+[d_trained] task 7/10 avg_seen_acc=0.1124  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.787]
+[d_trained] task 8/10 avg_seen_acc=0.1051  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.841]
+[d_trained] task 9/10 avg_seen_acc=0.0933  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.84]
+[d_trained] task 10/10 avg_seen_acc=0.0858  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.858]
+
+[d_trained] done.
+  average_accuracy   = 0.0858
+  average_forgetting = 0.8108
+  results -> results/d_trained
+
+real	12m30.439s
+user	25m44.906s
+sys	4m29.798s
+########## RUN b_oracle_withhold ##########
+[b_oracle_withhold] task 1/10 avg_seen_acc=0.1870  per_task=[0.187]
+[b_oracle_withhold] task 2/10 avg_seen_acc=0.1715  per_task=[0.0, 0.343]
+[b_oracle_withhold] task 3/10 avg_seen_acc=0.1223  per_task=[0.0, 0.0, 0.367]
+[b_oracle_withhold] task 4/10 avg_seen_acc=0.0628  per_task=[0.0, 0.0, 0.0, 0.251]
+[b_oracle_withhold] task 5/10 avg_seen_acc=0.0420  per_task=[0.0, 0.0, 0.0, 0.0, 0.21]
+[b_oracle_withhold] task 6/10 avg_seen_acc=0.0348  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.209]
+[b_oracle_withhold] task 7/10 avg_seen_acc=0.0287  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.201]
+[b_oracle_withhold] task 8/10 avg_seen_acc=0.0311  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.249]
+[b_oracle_withhold] task 9/10 avg_seen_acc=0.0224  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.202]
+[b_oracle_withhold] task 10/10 avg_seen_acc=0.0165  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.165]
+
+[b_oracle_withhold] done.
+  average_accuracy   = 0.0165
+  average_forgetting = 0.2466
+  results -> results/b_oracle_withhold
+
+real	12m10.608s
+user	25m1.066s
+sys	4m28.954s
+########## RUN e_gate_oracle ##########
+[e_gate_oracle] task 1/10 avg_seen_acc=0.9760  per_task=[0.976]
+[e_gate_oracle] task 2/10 avg_seen_acc=0.7245  per_task=[0.485, 0.964]
+[e_gate_oracle] task 3/10 avg_seen_acc=0.5827  per_task=[0.607, 0.185, 0.956]
+[e_gate_oracle] task 4/10 avg_seen_acc=0.4500  per_task=[0.665, 0.011, 0.144, 0.98]
+[e_gate_oracle] task 5/10 avg_seen_acc=0.4194  per_task=[0.364, 0.364, 0.127, 0.26, 0.982]
+[e_gate_oracle] task 6/10 avg_seen_acc=0.3398  per_task=[0.264, 0.282, 0.196, 0.024, 0.36, 0.913]
+[e_gate_oracle] task 7/10 avg_seen_acc=0.2774  per_task=[0.252, 0.135, 0.214, 0.251, 0.078, 0.019, 0.993]
+[e_gate_oracle] task 8/10 avg_seen_acc=0.2353  per_task=[0.065, 0.109, 0.122, 0.335, 0.099, 0.124, 0.033, 0.995]
+[e_gate_oracle] task 9/10 avg_seen_acc=0.2126  per_task=[0.1, 0.081, 0.09, 0.246, 0.132, 0.118, 0.074, 0.078, 0.994]
+[e_gate_oracle] task 10/10 avg_seen_acc=0.1975  per_task=[0.095, 0.027, 0.143, 0.254, 0.281, 0.036, 0.021, 0.081, 0.071, 0.966]
+
+[e_gate_oracle] done.
+  average_accuracy   = 0.1975
+  average_forgetting = 0.8604
+  results -> results/e_gate_oracle
+
+real	12m10.501s
+user	25m2.562s
+sys	4m33.088s
+########## RUN e_gate_soft ##########
+[e_gate_soft] task 1/10 avg_seen_acc=0.9220  per_task=[0.922]
+[e_gate_soft] task 2/10 avg_seen_acc=0.4665  per_task=[0.0, 0.933]
+[e_gate_soft] task 3/10 avg_seen_acc=0.3093  per_task=[0.0, 0.0, 0.928]
+[e_gate_soft] task 4/10 avg_seen_acc=0.2283  per_task=[0.0, 0.0, 0.0, 0.913]
+[e_gate_soft] task 5/10 avg_seen_acc=0.1876  per_task=[0.0, 0.0, 0.0, 0.0, 0.938]
+[e_gate_soft] task 6/10 avg_seen_acc=0.1493  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.896]
+[e_gate_soft] task 7/10 avg_seen_acc=0.1360  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.952]
+[e_gate_soft] task 8/10 avg_seen_acc=0.1209  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.967]
+[e_gate_soft] task 9/10 avg_seen_acc=0.1074  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.967]
+[e_gate_soft] task 10/10 avg_seen_acc=0.0940  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.94]
+
+[e_gate_soft] done.
+  average_accuracy   = 0.0940
+  average_forgetting = 0.9351
+  results -> results/e_gate_soft
+
+real	12m15.386s
+user	24m41.469s
+sys	4m42.801s
+########## RUN e_gate_trained ##########
+[e_gate_trained] task 1/10 avg_seen_acc=0.7530  per_task=[0.753]
+[e_gate_trained] task 2/10 avg_seen_acc=0.4485  per_task=[0.014, 0.883]
+[e_gate_trained] task 3/10 avg_seen_acc=0.3177  per_task=[0.027, 0.025, 0.901]
+[e_gate_trained] task 4/10 avg_seen_acc=0.2160  per_task=[0.012, 0.009, 0.002, 0.841]
+[e_gate_trained] task 5/10 avg_seen_acc=0.1892  per_task=[0.008, 0.012, 0.006, 0.029, 0.891]
+[e_gate_trained] task 6/10 avg_seen_acc=0.1495  per_task=[0.001, 0.002, 0.025, 0.001, 0.008, 0.86]
+[e_gate_trained] task 7/10 avg_seen_acc=0.1334  per_task=[0.002, 0.0, 0.004, 0.018, 0.001, 0.015, 0.894]
+[e_gate_trained] task 8/10 avg_seen_acc=0.1200  per_task=[0.001, 0.006, 0.031, 0.001, 0.004, 0.022, 0.0, 0.895]
+[e_gate_trained] task 9/10 avg_seen_acc=0.1023  per_task=[0.0, 0.002, 0.0, 0.009, 0.0, 0.003, 0.0, 0.0, 0.907]
+[e_gate_trained] task 10/10 avg_seen_acc=0.0896  per_task=[0.0, 0.001, 0.001, 0.004, 0.003, 0.002, 0.0, 0.0, 0.001, 0.884]
+
+[e_gate_trained] done.
+  average_accuracy   = 0.0896
+  average_forgetting = 0.8681
+  results -> results/e_gate_trained
+
+real	12m37.523s
+user	25m44.471s
+sys	4m44.378s
+=== DONE ===

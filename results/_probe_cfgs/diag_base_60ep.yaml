@@ -1,0 +1,3 @@
+run: {name: diag_base_60ep}
+coarse: {source: none}
+train: {epochs_per_task: 60, lr: 0.1}

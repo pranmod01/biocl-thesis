@@ -1,0 +1,97 @@
+{
+  "config": {
+    "run": {
+      "name": "conf_base_5x20",
+      "seed": 0,
+      "output_dir": "results",
+      "device": "auto"
+    },
+    "data": {
+      "dataset": "cifar100",
+      "num_tasks": 5,
+      "classes_per_task": 20,
+      "order_seed": 0,
+      "data_root": "data",
+      "num_workers": 4
+    },
+    "model": {
+      "backbone": "resnet18_small",
+      "feature_dim": 512
+    },
+    "coarse": {
+      "source": "none",
+      "soft": {
+        "smooth": 0.3
+      },
+      "trained": {
+        "ckpt": "checkpoints/coarse_net.pt",
+        "continual": false
+      }
+    },
+    "conditioning": {
+      "mechanism": "concat",
+      "embed_dim": 32,
+      "aux_loss_weight": 0.5
+    },
+    "train": {
+      "epochs_per_task": 5,
+      "batch_size": 128,
+      "lr": 0.1,
+      "momentum": 0.9,
+      "weight_decay": 0.0005,
+      "optimizer": "sgd"
+    },
+    "coarse_train": {
+      "epochs": 30,
+      "batch_size": 128,
+      "lr": 0.1,
+      "momentum": 0.9,
+      "weight_decay": 0.0005
+    }
+  },
+  "metrics": {
+    "average_accuracy": 0.07289999999999999,
+    "average_forgetting": 0.4445,
+    "final_per_task": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.3645
+    ],
+    "avg_acc_curve": [
+      0.42,
+      0.2765,
+      0.15,
+      0.08875,
+      0.07289999999999999
+    ],
+    "acc_matrix": [
+      [
+        0.42
+      ],
+      [
+        0.0,
+        0.553
+      ],
+      [
+        0.0,
+        0.0,
+        0.45
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.355
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.3645
+      ]
+    ]
+  }
+}

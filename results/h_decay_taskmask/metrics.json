@@ -1,0 +1,162 @@
+{
+  "config": {
+    "run": {
+      "name": "h_decay_taskmask",
+      "seed": 0,
+      "output_dir": "results",
+      "device": "auto"
+    },
+    "data": {
+      "dataset": "cifar100",
+      "num_tasks": 10,
+      "classes_per_task": 10,
+      "order_seed": 0,
+      "data_root": "data",
+      "num_workers": 4
+    },
+    "model": {
+      "backbone": "resnet18_small",
+      "feature_dim": 512
+    },
+    "coarse": {
+      "source": "oracle",
+      "soft": {
+        "smooth": 0.3
+      },
+      "trained": {
+        "ckpt": "checkpoints/coarse_net.pt",
+        "continual": false
+      }
+    },
+    "conditioning": {
+      "mechanism": "decay",
+      "embed_dim": 32,
+      "aux_loss_weight": 0.5,
+      "decay_weight": 1.0,
+      "eval_withhold": false
+    },
+    "train": {
+      "epochs_per_task": 60,
+      "batch_size": 128,
+      "lr": 0.1,
+      "momentum": 0.9,
+      "weight_decay": 0.0005,
+      "optimizer": "sgd",
+      "loss_scope": "current"
+    },
+    "coarse_train": {
+      "epochs": 60,
+      "batch_size": 128,
+      "lr": 0.1,
+      "momentum": 0.9,
+      "weight_decay": 0.0005
+    }
+  },
+  "metrics": {
+    "average_accuracy": 0.0879,
+    "average_forgetting": 0.8505555555555555,
+    "average_incremental_accuracy": 0.2350459523809524,
+    "retained_accuracy": 0.00020000000000000004,
+    "final_per_task": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.879
+    ],
+    "avg_acc_curve": [
+      0.675,
+      0.4285,
+      0.2946666666666667,
+      0.20575,
+      0.179,
+      0.14049999999999999,
+      0.12614285714285714,
+      0.113,
+      0.1,
+      0.0879
+    ],
+    "acc_matrix": [
+      [
+        0.675
+      ],
+      [
+        0.0,
+        0.857
+      ],
+      [
+        0.0,
+        0.001,
+        0.883
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.823
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.001,
+        0.894
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.843
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.003,
+        0.88
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.003,
+        0.901
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.001,
+        0.899
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.879
+      ]
+    ]
+  }
+}

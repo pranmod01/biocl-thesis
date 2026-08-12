@@ -1,0 +1,6 @@
+cuda: NVIDIA RTX A6000
+########## RUN i_replay_cal500 ##########
+[i_replay_cal500] task 1/10 avg_seen_acc=0.6790  per_task=[0.679]
+[i_replay_cal500] task 2/10 avg_seen_acc=0.4940  per_task=[0.217, 0.771]
+[i_replay_cal500] task 3/10 avg_seen_acc=0.4323  per_task=[0.237, 0.229, 0.831]
+[i_replay_cal500] task 4/10 avg_seen_acc=0.3088  per_task=[0.128, 0.142, 0.191, 0.774]

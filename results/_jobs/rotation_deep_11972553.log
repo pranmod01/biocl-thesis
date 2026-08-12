@@ -1,0 +1,22 @@
+cuda: NVIDIA RTX A6000
+########## RUN r_rotation_deep ##########
+[r_rotation_deep] task 1/10 avg_seen_acc=0.6800  per_task=[0.68]  rot_acc=0.325
+[r_rotation_deep] task 2/10 avg_seen_acc=0.4170  per_task=[0.0, 0.834]  rot_acc=0.488
+[r_rotation_deep] task 3/10 avg_seen_acc=0.3017  per_task=[0.0, 0.0, 0.905]  rot_acc=0.600
+[r_rotation_deep] task 4/10 avg_seen_acc=0.2067  per_task=[0.0, 0.0, 0.0, 0.827]  rot_acc=0.705
+[r_rotation_deep] task 5/10 avg_seen_acc=0.1782  per_task=[0.0, 0.0, 0.0, 0.0, 0.891]  rot_acc=0.695
+[r_rotation_deep] task 6/10 avg_seen_acc=0.1450  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.87]  rot_acc=0.724
+[r_rotation_deep] task 7/10 avg_seen_acc=0.1300  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.91]  rot_acc=0.669
+[r_rotation_deep] task 8/10 avg_seen_acc=0.1133  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.906]  rot_acc=0.763
+[r_rotation_deep] task 9/10 avg_seen_acc=0.1011  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.91]  rot_acc=0.736
+[r_rotation_deep] task 10/10 avg_seen_acc=0.0877  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.877]  rot_acc=0.666
+
+[r_rotation_deep] done.
+  average_accuracy   = 0.0877
+  average_forgetting = 0.8592
+  results -> results/r_rotation_deep
+
+real	21m29.840s
+user	34m37.457s
+sys	2m49.960s
+=== DONE ===

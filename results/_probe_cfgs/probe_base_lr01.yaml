@@ -1,0 +1,7 @@
+run:
+  name: probe_base_lr01
+coarse:
+  source: none
+train:
+  epochs_per_task: 5
+  lr: 0.01

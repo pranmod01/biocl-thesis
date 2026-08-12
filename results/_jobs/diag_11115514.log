@@ -1,0 +1,21 @@
+cuda: True
+[diag_base_60ep] task 1/10 avg_seen_acc=0.6480  per_task=[0.648]
+[diag_base_60ep] task 2/10 avg_seen_acc=0.4065  per_task=[0.0, 0.813]
+[diag_base_60ep] task 3/10 avg_seen_acc=0.2903  per_task=[0.0, 0.0, 0.871]
+[diag_base_60ep] task 4/10 avg_seen_acc=0.2070  per_task=[0.0, 0.0, 0.0, 0.828]
+[diag_base_60ep] task 5/10 avg_seen_acc=0.1740  per_task=[0.0, 0.0, 0.0, 0.0, 0.87]
+[diag_base_60ep] task 6/10 avg_seen_acc=0.1410  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.846]
+[diag_base_60ep] task 7/10 avg_seen_acc=0.1239  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.867]
+[diag_base_60ep] task 8/10 avg_seen_acc=0.1111  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.889]
+[diag_base_60ep] task 9/10 avg_seen_acc=0.0990  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.891]
+[diag_base_60ep] task 10/10 avg_seen_acc=0.0875  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.875]
+
+[diag_base_60ep] done.
+  average_accuracy   = 0.0875
+  average_forgetting = 0.8359
+  results -> results/diag_base_60ep
+
+real	11m20.458s
+user	24m36.062s
+sys	3m4.898s
+DONE

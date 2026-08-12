@@ -1,0 +1,30 @@
+cuda: NVIDIA RTX A6000
+
+########## r_rotation ##########
+[r_rotation] task 1/10 avg_seen_acc=0.6700  per_task=[0.67]  rot_acc=0.252
+[r_rotation] task 2/10 avg_seen_acc=0.4170  per_task=[0.0, 0.834]  rot_acc=0.270
+[r_rotation] task 3/10 avg_seen_acc=0.2933  per_task=[0.0, 0.0, 0.88]  rot_acc=0.284
+[r_rotation] task 4/10 avg_seen_acc=0.2067  per_task=[0.0, 0.0, 0.0, 0.827]  rot_acc=0.477
+[r_rotation] task 5/10 avg_seen_acc=0.1778  per_task=[0.0, 0.0, 0.0, 0.0, 0.889]  rot_acc=0.545
+[r_rotation] task 6/10 avg_seen_acc=0.1440  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.864]  rot_acc=0.556
+[r_rotation] task 7/10 avg_seen_acc=0.1244  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.871]  rot_acc=0.555
+[r_rotation] task 8/10 avg_seen_acc=0.1121  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.897]  rot_acc=0.640
+[r_rotation] task 9/10 avg_seen_acc=0.1009  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.908]  rot_acc=0.640
+[r_rotation] task 10/10 avg_seen_acc=0.0863  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.863]  rot_acc=0.586
+task  ClassIL@1  ClassIL@5  TaskIL@1  mean_rank
+   0      0.000      0.000     0.080       47.9
+   1      0.000      0.000     0.077       48.6
+   2      0.000      0.000     0.066       42.7
+   3      0.000      0.000     0.148       27.8
+   4      0.000      0.000     0.100       40.2
+   5      0.000      0.000     0.038       49.7
+   6      0.000      0.000     0.139       65.6
+   7      0.000      0.000     0.195       66.9
+   8      0.000      0.000     0.195       84.2
+   9      0.863      0.996     0.863        0.2
+OLD-TASK MEAN  ClassIL@1=0.000  ClassIL@5=0.000  TaskIL@1=0.115  mean_rank=52.6  (chance: @1=0.01 @5=0.05 TaskIL=0.10 rank=49.5)
+
+real	17m26.442s
+user	29m41.125s
+sys	2m23.904s
+=== DONE ===

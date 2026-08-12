@@ -1,0 +1,14 @@
+task-0 classes: [2, 16, 26, 54, 55, 73, 75, 86, 93, 95]
+train imgs=5000  test imgs=1000
+epoch   1  train_acc=0.236  test_acc=0.224
+epoch  10  train_acc=0.449  test_acc=0.453
+epoch  20  train_acc=0.556  test_acc=0.540
+epoch  30  train_acc=0.618  test_acc=0.595
+epoch  40  train_acc=0.717  test_acc=0.634
+epoch  50  train_acc=0.796  test_acc=0.661
+epoch  60  train_acc=0.825  test_acc=0.668
+
+real	1m24.415s
+user	2m38.912s
+sys	0m19.907s
+DONE

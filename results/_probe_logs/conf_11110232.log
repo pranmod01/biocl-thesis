@@ -1,0 +1,73 @@
+=== node: ins080 ===
+cuda: True
+=== conf_base_5x20 ===
+[conf_base_5x20] task 1/5 avg_seen_acc=0.4200  per_task=[0.42]
+[conf_base_5x20] task 2/5 avg_seen_acc=0.2765  per_task=[0.0, 0.553]
+[conf_base_5x20] task 3/5 avg_seen_acc=0.1500  per_task=[0.0, 0.0, 0.45]
+[conf_base_5x20] task 4/5 avg_seen_acc=0.0887  per_task=[0.0, 0.0, 0.0, 0.355]
+[conf_base_5x20] task 5/5 avg_seen_acc=0.0729  per_task=[0.0, 0.0, 0.0, 0.0, 0.364]
+
+[conf_base_5x20] done.
+  average_accuracy   = 0.0729
+  average_forgetting = 0.4445
+  results -> results/conf_base_5x20
+
+real	1m0.008s
+user	2m12.745s
+sys	0m12.638s
+=== conf_oracle_5x20 ===
+[conf_oracle_5x20] task 1/5 avg_seen_acc=0.8260  per_task=[0.826]
+[conf_oracle_5x20] task 2/5 avg_seen_acc=0.4395  per_task=[0.002, 0.877]
+[conf_oracle_5x20] task 3/5 avg_seen_acc=0.3077  per_task=[0.0, 0.123, 0.8]
+[conf_oracle_5x20] task 4/5 avg_seen_acc=0.2424  per_task=[0.0, 0.0, 0.14, 0.83]
+[conf_oracle_5x20] task 5/5 avg_seen_acc=0.1879  per_task=[0.0, 0.0, 0.0, 0.076, 0.863]
+
+[conf_oracle_5x20] done.
+  average_accuracy   = 0.1879
+  average_forgetting = 0.8141
+  results -> results/conf_oracle_5x20
+
+real	1m0.105s
+user	2m12.773s
+sys	0m12.957s
+=== conf_base_10x10_20ep ===
+[conf_base_10x10_20ep] task 1/10 avg_seen_acc=0.5490  per_task=[0.549]
+[conf_base_10x10_20ep] task 2/10 avg_seen_acc=0.3375  per_task=[0.0, 0.675]
+[conf_base_10x10_20ep] task 3/10 avg_seen_acc=0.2577  per_task=[0.0, 0.0, 0.773]
+[conf_base_10x10_20ep] task 4/10 avg_seen_acc=0.1698  per_task=[0.0, 0.0, 0.0, 0.679]
+[conf_base_10x10_20ep] task 5/10 avg_seen_acc=0.1514  per_task=[0.0, 0.0, 0.0, 0.0, 0.757]
+[conf_base_10x10_20ep] task 6/10 avg_seen_acc=0.1268  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.761]
+[conf_base_10x10_20ep] task 7/10 avg_seen_acc=0.1104  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.773]
+[conf_base_10x10_20ep] task 8/10 avg_seen_acc=0.1003  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.802]
+[conf_base_10x10_20ep] task 9/10 avg_seen_acc=0.0939  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.845]
+[conf_base_10x10_20ep] task 10/10 avg_seen_acc=0.0834  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.834]
+
+[conf_base_10x10_20ep] done.
+  average_accuracy   = 0.0834
+  average_forgetting = 0.7349
+  results -> results/conf_base_10x10_20ep
+
+real	3m57.538s
+user	8m35.999s
+sys	1m9.794s
+=== conf_oracle_10x10_20ep ===
+[conf_oracle_10x10_20ep] task 1/10 avg_seen_acc=0.9720  per_task=[0.972]
+[conf_oracle_10x10_20ep] task 2/10 avg_seen_acc=0.4675  per_task=[0.006, 0.929]
+[conf_oracle_10x10_20ep] task 3/10 avg_seen_acc=0.3337  per_task=[0.0, 0.095, 0.906]
+[conf_oracle_10x10_20ep] task 4/10 avg_seen_acc=0.2407  per_task=[0.0, 0.0, 0.011, 0.952]
+[conf_oracle_10x10_20ep] task 5/10 avg_seen_acc=0.1900  per_task=[0.0, 0.0, 0.0, 0.001, 0.949]
+[conf_oracle_10x10_20ep] task 6/10 avg_seen_acc=0.1763  per_task=[0.0, 0.0, 0.0, 0.0, 0.204, 0.854]
+[conf_oracle_10x10_20ep] task 7/10 avg_seen_acc=0.1460  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.053, 0.969]
+[conf_oracle_10x10_20ep] task 8/10 avg_seen_acc=0.1237  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.99]
+[conf_oracle_10x10_20ep] task 9/10 avg_seen_acc=0.1072  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.003, 0.962]
+[conf_oracle_10x10_20ep] task 10/10 avg_seen_acc=0.1199  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.254, 0.945]
+
+[conf_oracle_10x10_20ep] done.
+  average_accuracy   = 0.1199
+  average_forgetting = 0.9143
+  results -> results/conf_oracle_10x10_20ep
+
+real	3m58.473s
+user	8m32.993s
+sys	1m9.376s
+=== DONE ===

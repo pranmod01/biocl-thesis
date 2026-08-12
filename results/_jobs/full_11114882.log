@@ -1,0 +1,119 @@
+=== node: ins086 ===
+cuda: True NVIDIA RTX A6000
+########## PRETRAIN coarse net (condition d prerequisite) ##########
+[coarse] epoch 1/30  test_acc=0.1377
+[coarse] epoch 2/30  test_acc=0.2087
+[coarse] epoch 3/30  test_acc=0.2528
+[coarse] epoch 4/30  test_acc=0.2482
+[coarse] epoch 5/30  test_acc=0.3171
+[coarse] epoch 6/30  test_acc=0.3377
+[coarse] epoch 7/30  test_acc=0.3439
+[coarse] epoch 8/30  test_acc=0.3901
+[coarse] epoch 9/30  test_acc=0.3938
+[coarse] epoch 10/30  test_acc=0.4072
+[coarse] epoch 11/30  test_acc=0.4313
+[coarse] epoch 12/30  test_acc=0.4610
+[coarse] epoch 13/30  test_acc=0.4591
+[coarse] epoch 14/30  test_acc=0.4842
+[coarse] epoch 15/30  test_acc=0.4909
+[coarse] epoch 16/30  test_acc=0.5009
+[coarse] epoch 17/30  test_acc=0.4655
+[coarse] epoch 18/30  test_acc=0.5176
+[coarse] epoch 19/30  test_acc=0.5165
+[coarse] epoch 20/30  test_acc=0.5117
+[coarse] epoch 21/30  test_acc=0.5299
+[coarse] epoch 22/30  test_acc=0.5519
+[coarse] epoch 23/30  test_acc=0.5305
+[coarse] epoch 24/30  test_acc=0.5829
+[coarse] epoch 25/30  test_acc=0.5952
+[coarse] epoch 26/30  test_acc=0.5964
+[coarse] epoch 27/30  test_acc=0.6015
+[coarse] epoch 28/30  test_acc=0.6110
+[coarse] epoch 29/30  test_acc=0.6155
+[coarse] epoch 30/30  test_acc=0.6172
+[coarse] saved checkpoint -> checkpoints/coarse_net.pt  (final test_acc=0.6172)
+
+real	3m7.636s
+user	10m39.211s
+sys	0m36.127s
+########## RUN a_baseline ##########
+[a_baseline] task 1/10 avg_seen_acc=0.5300  per_task=[0.53]
+[a_baseline] task 2/10 avg_seen_acc=0.3395  per_task=[0.0, 0.679]
+[a_baseline] task 3/10 avg_seen_acc=0.2567  per_task=[0.0, 0.0, 0.77]
+[a_baseline] task 4/10 avg_seen_acc=0.1732  per_task=[0.0, 0.0, 0.0, 0.693]
+[a_baseline] task 5/10 avg_seen_acc=0.1506  per_task=[0.0, 0.0, 0.0, 0.0, 0.753]
+[a_baseline] task 6/10 avg_seen_acc=0.1340  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.804]
+[a_baseline] task 7/10 avg_seen_acc=0.1107  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.775]
+[a_baseline] task 8/10 avg_seen_acc=0.1034  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.827]
+[a_baseline] task 9/10 avg_seen_acc=0.0949  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.854]
+[a_baseline] task 10/10 avg_seen_acc=0.0842  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.842]
+
+[a_baseline] done.
+  average_accuracy   = 0.0842
+  average_forgetting = 0.7428
+  results -> results/a_baseline
+
+real	3m56.274s
+user	8m46.552s
+sys	1m2.841s
+########## RUN b_oracle ##########
+[b_oracle] task 1/10 avg_seen_acc=0.9740  per_task=[0.974]
+[b_oracle] task 2/10 avg_seen_acc=0.4755  per_task=[0.02, 0.931]
+[b_oracle] task 3/10 avg_seen_acc=0.3220  per_task=[0.0, 0.069, 0.897]
+[b_oracle] task 4/10 avg_seen_acc=0.2387  per_task=[0.0, 0.0, 0.008, 0.947]
+[b_oracle] task 5/10 avg_seen_acc=0.1936  per_task=[0.0, 0.0, 0.0, 0.022, 0.946]
+[b_oracle] task 6/10 avg_seen_acc=0.1837  per_task=[0.0, 0.0, 0.0, 0.0, 0.3, 0.802]
+[b_oracle] task 7/10 avg_seen_acc=0.2467  per_task=[0.0, 0.0, 0.0, 0.0, 0.373, 0.383, 0.971]
+[b_oracle] task 8/10 avg_seen_acc=0.1234  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.987]
+[b_oracle] task 9/10 avg_seen_acc=0.1229  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.152, 0.954]
+[b_oracle] task 10/10 avg_seen_acc=0.0951  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.016, 0.935]
+
+[b_oracle] done.
+  average_accuracy   = 0.0951
+  average_forgetting = 0.9326
+  results -> results/b_oracle
+
+real	3m59.551s
+user	8m44.125s
+sys	1m11.194s
+########## RUN c_soft ##########
+[c_soft] task 1/10 avg_seen_acc=0.9700  per_task=[0.97]
+[c_soft] task 2/10 avg_seen_acc=0.4675  per_task=[0.009, 0.926]
+[c_soft] task 3/10 avg_seen_acc=0.3217  per_task=[0.0, 0.064, 0.901]
+[c_soft] task 4/10 avg_seen_acc=0.2387  per_task=[0.0, 0.0, 0.007, 0.948]
+[c_soft] task 5/10 avg_seen_acc=0.1914  per_task=[0.0, 0.0, 0.0, 0.0, 0.957]
+[c_soft] task 6/10 avg_seen_acc=0.1535  per_task=[0.0, 0.0, 0.0, 0.0, 0.055, 0.866]
+[c_soft] task 7/10 avg_seen_acc=0.1476  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.08, 0.953]
+[c_soft] task 8/10 avg_seen_acc=0.1232  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.986]
+[c_soft] task 9/10 avg_seen_acc=0.1052  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.947]
+[c_soft] task 10/10 avg_seen_acc=0.0947  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.947]
+
+[c_soft] done.
+  average_accuracy   = 0.0947
+  average_forgetting = 0.9393
+  results -> results/c_soft
+
+real	4m1.985s
+user	8m52.614s
+sys	1m15.507s
+########## RUN d_trained ##########
+[d_trained] task 1/10 avg_seen_acc=0.6890  per_task=[0.689]
+[d_trained] task 2/10 avg_seen_acc=0.3920  per_task=[0.0, 0.784]
+[d_trained] task 3/10 avg_seen_acc=0.2640  per_task=[0.0, 0.0, 0.792]
+[d_trained] task 4/10 avg_seen_acc=0.1648  per_task=[0.0, 0.0, 0.0, 0.659]
+[d_trained] task 5/10 avg_seen_acc=0.1470  per_task=[0.0, 0.0, 0.0, 0.0, 0.735]
+[d_trained] task 6/10 avg_seen_acc=0.1225  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.735]
+[d_trained] task 7/10 avg_seen_acc=0.1017  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.712]
+[d_trained] task 8/10 avg_seen_acc=0.0941  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.753]
+[d_trained] task 9/10 avg_seen_acc=0.0789  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.71]
+[d_trained] task 10/10 avg_seen_acc=0.0745  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.745]
+
+[d_trained] done.
+  average_accuracy   = 0.0745
+  average_forgetting = 0.7299
+  results -> results/d_trained
+
+real	4m18.276s
+user	9m9.064s
+sys	1m17.458s
+=== DONE ===

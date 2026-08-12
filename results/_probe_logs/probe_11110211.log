@@ -1,0 +1,19 @@
+=== node: ins080 ===
+cuda: True NVIDIA RTX A6000
+=== probe_base_lr01 ===
+Traceback (most recent call last):
+  File "/usr/lib64/python3.9/runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib64/python3.9/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/insomnia001/home/pm3361/biocl-thesis/coarsecl/run.py", line 37, in <module>
+    main()
+  File "/insomnia001/home/pm3361/biocl-thesis/coarsecl/run.py", line 25, in main
+    cfg = load_config(args.config, args.base)
+  File "/insomnia001/home/pm3361/biocl-thesis/coarsecl/config.py", line 170, in load_config
+    with open(path) as fh:
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/claude-562108/-insomnia001-home-pm3361-biocl-thesis/39bbbc32-311e-479e-ac38-201ef3c93402/scratchpad/probe_base_lr01.yaml'
+
+real	0m2.707s
+user	0m2.408s
+sys	0m0.425s

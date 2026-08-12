@@ -1,0 +1,3 @@
+run: {name: conf_base_10x10_20ep}
+coarse: {source: none}
+train: {epochs_per_task: 20, lr: 0.1}

@@ -1,0 +1,40 @@
+run:
+  name: e_gate_oracle
+  seed: 0
+  output_dir: results
+  device: auto
+data:
+  dataset: cifar100
+  num_tasks: 10
+  classes_per_task: 10
+  order_seed: 0
+  data_root: data
+  num_workers: 4
+model:
+  backbone: resnet18_small
+  feature_dim: 512
+coarse:
+  source: oracle
+  soft:
+    smooth: 0.3
+  trained:
+    ckpt: checkpoints/coarse_net.pt
+    continual: false
+conditioning:
+  mechanism: gate
+  embed_dim: 32
+  aux_loss_weight: 0.5
+  eval_withhold: false
+train:
+  epochs_per_task: 60
+  batch_size: 128
+  lr: 0.1
+  momentum: 0.9
+  weight_decay: 0.0005
+  optimizer: sgd
+coarse_train:
+  epochs: 60
+  batch_size: 128
+  lr: 0.1
+  momentum: 0.9
+  weight_decay: 0.0005

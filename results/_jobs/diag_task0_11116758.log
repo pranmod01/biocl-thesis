@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/insomnia001/home/pm3361/biocl-thesis/results/_jobs/diag_task0.py", line 8, in <module>
+    from coarsecl.config import load_config, NUM_FINE
+ModuleNotFoundError: No module named 'coarsecl'
+
+real	0m8.687s
+user	0m1.619s
+sys	0m0.441s
+DONE

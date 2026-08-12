@@ -1,0 +1,4 @@
+run: {name: conf_base_5x20}
+data: {num_tasks: 5, classes_per_task: 20}
+coarse: {source: none}
+train: {epochs_per_task: 5, lr: 0.1}

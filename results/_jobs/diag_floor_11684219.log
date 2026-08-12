@@ -1,0 +1,42 @@
+cuda: NVIDIA RTX A6000
+
+########## a_baseline ##########
+[a_baseline] task 1/10 avg_seen_acc=0.6790  per_task=[0.679]
+[a_baseline] task 2/10 avg_seen_acc=0.4175  per_task=[0.0, 0.835]
+[a_baseline] task 3/10 avg_seen_acc=0.2870  per_task=[0.0, 0.0, 0.861]
+[a_baseline] task 4/10 avg_seen_acc=0.2057  per_task=[0.0, 0.0, 0.0, 0.823]
+[a_baseline] task 5/10 avg_seen_acc=0.1752  per_task=[0.0, 0.0, 0.0, 0.0, 0.876]
+[a_baseline] task 6/10 avg_seen_acc=0.1422  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.853]
+[a_baseline] task 7/10 avg_seen_acc=0.1241  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.869]
+[a_baseline] task 8/10 avg_seen_acc=0.1087  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.87]
+[a_baseline] task 9/10 avg_seen_acc=0.0996  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.896]
+[a_baseline] task 10/10 avg_seen_acc=0.0876  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.876]
+task  ClassIL@1  ClassIL@5  TaskIL@1  mean_rank
+   0      0.000      0.000     0.029       55.3
+   1      0.000      0.000     0.038       51.3
+   2      0.000      0.000     0.051       42.7
+   3      0.000      0.000     0.057       29.0
+   4      0.000      0.000     0.125       34.7
+   5      0.000      0.000     0.075       62.1
+   6      0.000      0.000     0.083       57.8
+   7      0.000      0.000     0.117       73.1
+   8      0.000      0.000     0.175       83.5
+   9      0.876      0.994     0.876        0.2
+OLD-TASK MEAN  ClassIL@1=0.000  ClassIL@5=0.000  TaskIL@1=0.083  mean_rank=54.4  (chance: @1=0.01 @5=0.05 TaskIL=0.10 rank=49.5)
+Traceback (most recent call last):
+  File "/insomnia001/home/pm3361/biocl-thesis/results/_jobs/diag_floor.py", line 70, in <module>
+    main()
+  File "/insomnia001/home/pm3361/biocl-thesis/results/_jobs/diag_floor.py", line 56, in main
+    cfg = load_config(f"configs/{name}.yaml")
+  File "/insomnia001/home/pm3361/biocl-thesis/coarsecl/config.py", line 204, in load_config
+    return Config.from_dict(merged).validate()
+  File "/insomnia001/home/pm3361/biocl-thesis/coarsecl/config.py", line 122, in from_dict
+    return _build(Config, d or {})
+  File "/insomnia001/home/pm3361/biocl-thesis/coarsecl/config.py", line 173, in _build
+    raise ValueError(f"unknown config key {key!r} for {cls.__name__}")
+ValueError: unknown config key '¨¨¨# Rotation auxiliary task (approach B), variant 1' for Config
+
+real	11m48.832s
+user	24m36.475s
+sys	4m9.067s
+=== DONE ===

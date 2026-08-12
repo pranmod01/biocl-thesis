@@ -1,0 +1,24 @@
+cuda: NVIDIA RTX A6000
+########## RUN i_replay_cal500 ##########
+[i_replay_cal500] task 1/10 avg_seen_acc=0.6580  per_task=[0.658]
+[i_replay_cal500] task 2/10 avg_seen_acc=0.3955  per_task=[0.004, 0.787]
+[i_replay_cal500] task 3/10 avg_seen_acc=0.2903  per_task=[0.007, 0.002, 0.862]
+[i_replay_cal500] task 4/10 avg_seen_acc=0.1943  per_task=[0.005, 0.004, 0.007, 0.761]
+[i_replay_cal500] task 5/10 avg_seen_acc=0.1682  per_task=[0.0, 0.004, 0.01, 0.001, 0.826]
+[i_replay_cal500] task 6/10 avg_seen_acc=0.1403  per_task=[0.0, 0.004, 0.005, 0.0, 0.011, 0.822]
+[i_replay_cal500] task 7/10 avg_seen_acc=0.1214  per_task=[0.0, 0.0, 0.002, 0.004, 0.0, 0.0, 0.844]
+[i_replay_cal500] task 8/10 avg_seen_acc=0.1069  per_task=[0.0, 0.0, 0.001, 0.0, 0.0, 0.0, 0.0, 0.854]
+[i_replay_cal500] task 9/10 avg_seen_acc=0.0956  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.86]
+[i_replay_cal500] task 10/10 avg_seen_acc=0.0844  per_task=[0.0, 0.0, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.843]
+
+[i_replay_cal500] done.
+  average_accuracy   = 0.0844
+  average_forgetting = 0.8081
+  results -> results/i_replay_cal500
+
+real	18m2.214s
+user	33m47.354s
+sys	9m23.206s
+########## RUN i_replay_cal2000 ##########
+[i_replay_cal2000] task 1/10 avg_seen_acc=0.6690  per_task=[0.669]
+[2026-08-11T22:09:32.328] error: *** JOB 12117615 ON ins083 CANCELLED AT 2026-08-11T22:09:32 DUE to SIGNAL Terminated ***

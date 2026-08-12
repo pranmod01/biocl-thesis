@@ -1,0 +1,11 @@
+cuda: NVIDIA RTX A6000
+[CEILING] from_scratch_backbone        joint fine test_acc=0.7699  (feat_dim=512, epochs=80)
+loaded coarse net (superclass test_acc=0.6593)
+[CEILING] block1_frozen                joint fine test_acc=0.4605  (feat_dim=8192, epochs=50)
+[CEILING] block2_frozen                joint fine test_acc=0.5734  (feat_dim=4096, epochs=50)
+[CEILING] block3_frozen_penult         joint fine test_acc=0.4760  (feat_dim=2048, epochs=50)
+
+real	24m14.343s
+user	70m23.343s
+sys	2m44.266s
+DONE

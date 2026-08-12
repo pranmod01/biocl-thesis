@@ -1,0 +1,102 @@
+cuda: NVIDIA RTX A6000
+########## RUN g_decay_oracle_w05 ##########
+[g_decay_oracle_w05] task 1/10 avg_seen_acc=0.6340  per_task=[0.634]
+[g_decay_oracle_w05] task 2/10 avg_seen_acc=0.4155  per_task=[0.0, 0.831]
+[g_decay_oracle_w05] task 3/10 avg_seen_acc=0.2957  per_task=[0.0, 0.0, 0.887]
+[g_decay_oracle_w05] task 4/10 avg_seen_acc=0.2067  per_task=[0.0, 0.0, 0.0, 0.827]
+[g_decay_oracle_w05] task 5/10 avg_seen_acc=0.1754  per_task=[0.0, 0.0, 0.0, 0.0, 0.877]
+[g_decay_oracle_w05] task 6/10 avg_seen_acc=0.1402  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.841]
+[g_decay_oracle_w05] task 7/10 avg_seen_acc=0.1266  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.886]
+[g_decay_oracle_w05] task 8/10 avg_seen_acc=0.1099  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.879]
+[g_decay_oracle_w05] task 9/10 avg_seen_acc=0.0998  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.898]
+[g_decay_oracle_w05] task 10/10 avg_seen_acc=0.0872  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.872]
+
+[g_decay_oracle_w05] done.
+  average_accuracy   = 0.0872
+  average_forgetting = 0.8400
+  results -> results/g_decay_oracle_w05
+
+real	12m24.263s
+user	25m33.517s
+sys	4m19.385s
+########## RUN g_decay_oracle_w20 ##########
+[g_decay_oracle_w20] task 1/10 avg_seen_acc=0.6810  per_task=[0.681]
+[g_decay_oracle_w20] task 2/10 avg_seen_acc=0.4335  per_task=[0.0, 0.867]
+[g_decay_oracle_w20] task 3/10 avg_seen_acc=0.2987  per_task=[0.0, 0.0, 0.896]
+[g_decay_oracle_w20] task 4/10 avg_seen_acc=0.2067  per_task=[0.0, 0.0, 0.0, 0.827]
+[g_decay_oracle_w20] task 5/10 avg_seen_acc=0.1788  per_task=[0.0, 0.0, 0.0, 0.0, 0.894]
+[g_decay_oracle_w20] task 6/10 avg_seen_acc=0.1423  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.854]
+[g_decay_oracle_w20] task 7/10 avg_seen_acc=0.1269  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.888]
+[g_decay_oracle_w20] task 8/10 avg_seen_acc=0.1119  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.895]
+[g_decay_oracle_w20] task 9/10 avg_seen_acc=0.1019  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.917]
+[g_decay_oracle_w20] task 10/10 avg_seen_acc=0.0884  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.884]
+
+[g_decay_oracle_w20] done.
+  average_accuracy   = 0.0884
+  average_forgetting = 0.8577
+  results -> results/g_decay_oracle_w20
+
+real	12m20.027s
+user	25m17.858s
+sys	4m27.353s
+########## RUN g_decay_oracle_w50 ##########
+[g_decay_oracle_w50] task 1/10 avg_seen_acc=0.7070  per_task=[0.707]
+[g_decay_oracle_w50] task 2/10 avg_seen_acc=0.4335  per_task=[0.0, 0.867]
+[g_decay_oracle_w50] task 3/10 avg_seen_acc=0.3003  per_task=[0.0, 0.0, 0.901]
+[g_decay_oracle_w50] task 4/10 avg_seen_acc=0.2112  per_task=[0.0, 0.0, 0.0, 0.845]
+[g_decay_oracle_w50] task 5/10 avg_seen_acc=0.1780  per_task=[0.0, 0.0, 0.0, 0.0, 0.89]
+[g_decay_oracle_w50] task 6/10 avg_seen_acc=0.1400  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.84]
+[g_decay_oracle_w50] task 7/10 avg_seen_acc=0.1281  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.897]
+[g_decay_oracle_w50] task 8/10 avg_seen_acc=0.1128  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.902]
+[g_decay_oracle_w50] task 9/10 avg_seen_acc=0.1004  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.904]
+[g_decay_oracle_w50] task 10/10 avg_seen_acc=0.0875  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.875]
+
+[g_decay_oracle_w50] done.
+  average_accuracy   = 0.0875
+  average_forgetting = 0.8614
+  results -> results/g_decay_oracle_w50
+
+real	12m22.111s
+user	25m18.292s
+sys	4m33.828s
+########## RUN h_taskmask_baseline ##########
+[h_taskmask_baseline] task 1/10 avg_seen_acc=0.6570  per_task=[0.657]
+[h_taskmask_baseline] task 2/10 avg_seen_acc=0.4150  per_task=[0.0, 0.83]
+[h_taskmask_baseline] task 3/10 avg_seen_acc=0.2897  per_task=[0.0, 0.0, 0.869]
+[h_taskmask_baseline] task 4/10 avg_seen_acc=0.2020  per_task=[0.0, 0.0, 0.0, 0.808]
+[h_taskmask_baseline] task 5/10 avg_seen_acc=0.1744  per_task=[0.0, 0.0, 0.0, 0.002, 0.87]
+[h_taskmask_baseline] task 6/10 avg_seen_acc=0.1410  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.846]
+[h_taskmask_baseline] task 7/10 avg_seen_acc=0.1250  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.001, 0.874]
+[h_taskmask_baseline] task 8/10 avg_seen_acc=0.1106  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.885]
+[h_taskmask_baseline] task 9/10 avg_seen_acc=0.1000  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.001, 0.899]
+[h_taskmask_baseline] task 10/10 avg_seen_acc=0.0879  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.879]
+
+[h_taskmask_baseline] done.
+  average_accuracy   = 0.0879
+  average_forgetting = 0.8376
+  results -> results/h_taskmask_baseline
+
+real	11m40.217s
+user	24m43.316s
+sys	4m8.755s
+########## RUN h_decay_taskmask ##########
+[h_decay_taskmask] task 1/10 avg_seen_acc=0.6750  per_task=[0.675]
+[h_decay_taskmask] task 2/10 avg_seen_acc=0.4285  per_task=[0.0, 0.857]
+[h_decay_taskmask] task 3/10 avg_seen_acc=0.2947  per_task=[0.0, 0.001, 0.883]
+[h_decay_taskmask] task 4/10 avg_seen_acc=0.2057  per_task=[0.0, 0.0, 0.0, 0.823]
+[h_decay_taskmask] task 5/10 avg_seen_acc=0.1790  per_task=[0.0, 0.0, 0.0, 0.001, 0.894]
+[h_decay_taskmask] task 6/10 avg_seen_acc=0.1405  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.843]
+[h_decay_taskmask] task 7/10 avg_seen_acc=0.1261  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.003, 0.88]
+[h_decay_taskmask] task 8/10 avg_seen_acc=0.1130  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.003, 0.901]
+[h_decay_taskmask] task 9/10 avg_seen_acc=0.1000  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.001, 0.899]
+[h_decay_taskmask] task 10/10 avg_seen_acc=0.0879  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.879]
+
+[h_decay_taskmask] done.
+  average_accuracy   = 0.0879
+  average_forgetting = 0.8506
+  results -> results/h_decay_taskmask
+
+real	12m13.842s
+user	25m10.935s
+sys	4m20.468s
+=== DONE ===

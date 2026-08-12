@@ -1,0 +1,4 @@
+run: {name: conf_oracle_10x10_20ep}
+coarse: {source: oracle}
+conditioning: {mechanism: concat}
+train: {epochs_per_task: 20, lr: 0.1}
