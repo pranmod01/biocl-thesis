@@ -20,3 +20,47 @@ real	20m58.552s
 user	34m40.983s
 sys	13m47.031s
 ########## RUN i_replay_cal2000 ##########
+[i_replay_cal2000] task 1/10 avg_seen_acc=0.6810  per_task=[0.681]
+[i_replay_cal2000] task 2/10 avg_seen_acc=0.4590  per_task=[0.677, 0.241]
+[i_replay_cal2000] task 3/10 avg_seen_acc=0.5363  per_task=[0.413, 0.399, 0.797]
+[i_replay_cal2000] task 4/10 avg_seen_acc=0.5375  per_task=[0.423, 0.492, 0.565, 0.67]
+[i_replay_cal2000] task 5/10 avg_seen_acc=0.4670  per_task=[0.349, 0.37, 0.447, 0.391, 0.778]
+[i_replay_cal2000] task 6/10 avg_seen_acc=0.4700  per_task=[0.354, 0.428, 0.451, 0.397, 0.42, 0.77]
+[i_replay_cal2000] task 7/10 avg_seen_acc=0.4776  per_task=[0.379, 0.434, 0.522, 0.413, 0.387, 0.438, 0.77]
+[i_replay_cal2000] task 8/10 avg_seen_acc=0.4372  per_task=[0.317, 0.417, 0.446, 0.42, 0.371, 0.407, 0.32, 0.8]
+[i_replay_cal2000] task 9/10 avg_seen_acc=0.2992  per_task=[0.228, 0.281, 0.282, 0.213, 0.188, 0.245, 0.193, 0.19, 0.873]
+[i_replay_cal2000] task 10/10 avg_seen_acc=0.3105  per_task=[0.211, 0.246, 0.343, 0.287, 0.26, 0.192, 0.199, 0.247, 0.288, 0.832]
+
+[i_replay_cal2000] done.
+  average_accuracy   = 0.3105
+  average_forgetting = 0.4842
+  retained_accuracy  = 0.3542
+  vs null model (seen): avg 0.0100 (ratio 31.05), retained 0.0157 (ratio 22.54)
+  results -> results/i_replay_cal2000
+
+real	18m2.411s
+user	35m21.036s
+sys	7m44.320s
+########## RUN i_replay_cal5000 ##########
+[i_replay_cal5000] task 1/10 avg_seen_acc=0.6730  per_task=[0.673]
+[i_replay_cal5000] task 2/10 avg_seen_acc=0.5660  per_task=[0.629, 0.503]
+[i_replay_cal5000] task 3/10 avg_seen_acc=0.5690  per_task=[0.427, 0.47, 0.81]
+[i_replay_cal5000] task 4/10 avg_seen_acc=0.4460  per_task=[0.312, 0.349, 0.366, 0.757]
+[i_replay_cal5000] task 5/10 avg_seen_acc=0.5418  per_task=[0.43, 0.487, 0.528, 0.483, 0.781]
+[i_replay_cal5000] task 6/10 avg_seen_acc=0.5382  per_task=[0.409, 0.515, 0.567, 0.483, 0.482, 0.773]
+[i_replay_cal5000] task 7/10 avg_seen_acc=0.5881  per_task=[0.52, 0.607, 0.65, 0.602, 0.572, 0.577, 0.589]
+[i_replay_cal5000] task 8/10 avg_seen_acc=0.4235  per_task=[0.268, 0.418, 0.413, 0.423, 0.353, 0.357, 0.298, 0.858]
+[i_replay_cal5000] task 9/10 avg_seen_acc=0.5191  per_task=[0.442, 0.516, 0.583, 0.506, 0.466, 0.478, 0.456, 0.485, 0.74]
+[i_replay_cal5000] task 10/10 avg_seen_acc=0.4779  per_task=[0.399, 0.45, 0.534, 0.446, 0.457, 0.393, 0.429, 0.491, 0.483, 0.697]
+
+[i_replay_cal5000] done.
+  average_accuracy   = 0.4779
+  average_forgetting = 0.2784
+  retained_accuracy  = 0.4669
+  vs null model (seen): avg 0.0100 (ratio 47.79), retained 0.0157 (ratio 29.71)
+  results -> results/i_replay_cal5000
+
+real	17m41.029s
+user	35m21.876s
+sys	6m40.585s
+=== DONE ===

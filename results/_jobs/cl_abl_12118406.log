@@ -3,3 +3,130 @@ cuda: NVIDIA RTX A6000
 [i_replay_baseline] task 1/10 avg_seen_acc=0.6760  per_task=[0.676]
 [i_replay_baseline] task 2/10 avg_seen_acc=0.5530  per_task=[0.609, 0.497]
 [i_replay_baseline] task 3/10 avg_seen_acc=0.5543  per_task=[0.429, 0.461, 0.773]
+[i_replay_baseline] task 4/10 avg_seen_acc=0.5262  per_task=[0.37, 0.453, 0.537, 0.745]
+[i_replay_baseline] task 5/10 avg_seen_acc=0.5122  per_task=[0.407, 0.467, 0.499, 0.42, 0.768]
+[i_replay_baseline] task 6/10 avg_seen_acc=0.4807  per_task=[0.362, 0.425, 0.495, 0.428, 0.399, 0.775]
+[i_replay_baseline] task 7/10 avg_seen_acc=0.5267  per_task=[0.43, 0.515, 0.576, 0.462, 0.505, 0.509, 0.69]
+[i_replay_baseline] task 8/10 avg_seen_acc=0.3827  per_task=[0.289, 0.315, 0.374, 0.341, 0.313, 0.326, 0.253, 0.851]
+[i_replay_baseline] task 9/10 avg_seen_acc=0.4267  per_task=[0.343, 0.416, 0.469, 0.393, 0.343, 0.398, 0.347, 0.386, 0.745]
+[i_replay_baseline] task 10/10 avg_seen_acc=0.3790  per_task=[0.295, 0.311, 0.438, 0.358, 0.336, 0.328, 0.272, 0.349, 0.355, 0.748]
+
+[i_replay_baseline] done.
+  average_accuracy   = 0.3790
+  average_forgetting = 0.3884
+  results -> results/i_replay_baseline
+
+real	17m53.447s
+user	33m42.345s
+sys	8m12.485s
+########## RUN i_ewc_baseline ##########
+[i_ewc_baseline] task 1/10 avg_seen_acc=0.6790  per_task=[0.679]
+[i_ewc_baseline] task 2/10 avg_seen_acc=0.3990  per_task=[0.0, 0.798]
+[i_ewc_baseline] task 3/10 avg_seen_acc=0.2827  per_task=[0.0, 0.0, 0.848]
+[i_ewc_baseline] task 4/10 avg_seen_acc=0.1963  per_task=[0.0, 0.0, 0.0, 0.785]
+[i_ewc_baseline] task 5/10 avg_seen_acc=0.1658  per_task=[0.0, 0.0, 0.0, 0.0, 0.829]
+[i_ewc_baseline] task 6/10 avg_seen_acc=0.1383  per_task=[0.0, 0.0, 0.0, 0.0, 0.006, 0.824]
+[i_ewc_baseline] task 7/10 avg_seen_acc=0.1201  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.002, 0.839]
+[i_ewc_baseline] task 8/10 avg_seen_acc=0.1059  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.003, 0.844]
+[i_ewc_baseline] task 9/10 avg_seen_acc=0.0959  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.002, 0.861]
+[i_ewc_baseline] task 10/10 avg_seen_acc=0.0858  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.006, 0.852]
+
+[i_ewc_baseline] done.
+  average_accuracy   = 0.0858
+  average_forgetting = 0.8112
+  retained_accuracy  = 0.0004
+  vs null model (seen): avg 0.0100 (ratio 8.58), retained 0.0157 (ratio 0.03)
+  results -> results/i_ewc_baseline
+
+real	16m40.585s
+user	29m10.124s
+sys	5m45.446s
+########## RUN i_replay_ewc_baseline ##########
+[i_replay_ewc_baseline] task 1/10 avg_seen_acc=0.6690  per_task=[0.669]
+[i_replay_ewc_baseline] task 2/10 avg_seen_acc=0.4040  per_task=[0.002, 0.806]
+[i_replay_ewc_baseline] task 3/10 avg_seen_acc=0.3027  per_task=[0.043, 0.016, 0.849]
+[i_replay_ewc_baseline] task 4/10 avg_seen_acc=0.2395  per_task=[0.041, 0.05, 0.085, 0.782]
+[i_replay_ewc_baseline] task 5/10 avg_seen_acc=0.2422  per_task=[0.094, 0.088, 0.107, 0.101, 0.821]
+[i_replay_ewc_baseline] task 6/10 avg_seen_acc=0.2153  per_task=[0.07, 0.106, 0.128, 0.101, 0.083, 0.804]
+[i_replay_ewc_baseline] task 7/10 avg_seen_acc=0.2577  per_task=[0.136, 0.107, 0.222, 0.173, 0.147, 0.208, 0.811]
+[i_replay_ewc_baseline] task 8/10 avg_seen_acc=0.2034  per_task=[0.06, 0.108, 0.138, 0.121, 0.105, 0.144, 0.102, 0.849]
+[i_replay_ewc_baseline] task 9/10 avg_seen_acc=0.1663  per_task=[0.079, 0.108, 0.084, 0.088, 0.092, 0.135, 0.036, 0.031, 0.844]
+[i_replay_ewc_baseline] task 10/10 avg_seen_acc=0.1776  per_task=[0.073, 0.076, 0.185, 0.134, 0.13, 0.067, 0.054, 0.098, 0.128, 0.831]
+
+[i_replay_ewc_baseline] done.
+  average_accuracy   = 0.1776
+  average_forgetting = 0.6989
+  retained_accuracy  = 0.0996
+  vs null model (seen): avg 0.0100 (ratio 17.76), retained 0.0157 (ratio 6.34)
+  results -> results/i_replay_ewc_baseline
+
+real	21m40.155s
+user	36m22.153s
+sys	8m21.005s
+########## RUN i_replay_gate_oracle ##########
+[i_replay_gate_oracle] task 1/10 avg_seen_acc=0.9760  per_task=[0.976]
+[i_replay_gate_oracle] task 2/10 avg_seen_acc=0.8290  per_task=[0.929, 0.729]
+[i_replay_gate_oracle] task 3/10 avg_seen_acc=0.7983  per_task=[0.807, 0.671, 0.917]
+[i_replay_gate_oracle] task 4/10 avg_seen_acc=0.7895  per_task=[0.812, 0.66, 0.776, 0.91]
+[i_replay_gate_oracle] task 5/10 avg_seen_acc=0.7958  per_task=[0.709, 0.721, 0.771, 0.824, 0.954]
+[i_replay_gate_oracle] task 6/10 avg_seen_acc=0.7212  per_task=[0.588, 0.689, 0.763, 0.619, 0.801, 0.867]
+[i_replay_gate_oracle] task 7/10 avg_seen_acc=0.7331  per_task=[0.66, 0.733, 0.764, 0.776, 0.662, 0.65, 0.887]
+[i_replay_gate_oracle] task 8/10 avg_seen_acc=0.6154  per_task=[0.507, 0.573, 0.608, 0.711, 0.49, 0.552, 0.5, 0.982]
+[i_replay_gate_oracle] task 9/10 avg_seen_acc=0.6287  per_task=[0.612, 0.626, 0.558, 0.645, 0.569, 0.531, 0.602, 0.578, 0.937]
+[i_replay_gate_oracle] task 10/10 avg_seen_acc=0.6024  per_task=[0.442, 0.558, 0.745, 0.589, 0.651, 0.363, 0.538, 0.642, 0.586, 0.91]
+
+[i_replay_gate_oracle] done.
+  average_accuracy   = 0.6024
+  average_forgetting = 0.3388
+  retained_accuracy  = 0.6480
+  vs null model (superclass): avg 0.2000 (ratio 3.01), retained 0.2939 (ratio 2.20)
+  results -> results/i_replay_gate_oracle
+
+real	17m53.798s
+user	32m19.417s
+sys	8m9.278s
+########## RUN i_replay_concat_oracle ##########
+[i_replay_concat_oracle] task 1/10 avg_seen_acc=0.9730  per_task=[0.973]
+[i_replay_concat_oracle] task 2/10 avg_seen_acc=0.8120  per_task=[0.841, 0.783]
+[i_replay_concat_oracle] task 3/10 avg_seen_acc=0.7393  per_task=[0.745, 0.578, 0.895]
+[i_replay_concat_oracle] task 4/10 avg_seen_acc=0.6960  per_task=[0.821, 0.681, 0.771, 0.511]
+[i_replay_concat_oracle] task 5/10 avg_seen_acc=0.7006  per_task=[0.762, 0.624, 0.766, 0.798, 0.553]
+[i_replay_concat_oracle] task 6/10 avg_seen_acc=0.6612  per_task=[0.659, 0.629, 0.707, 0.699, 0.757, 0.516]
+[i_replay_concat_oracle] task 7/10 avg_seen_acc=0.6361  per_task=[0.617, 0.636, 0.699, 0.692, 0.665, 0.604, 0.54]
+[i_replay_concat_oracle] task 8/10 avg_seen_acc=0.5847  per_task=[0.481, 0.514, 0.58, 0.711, 0.535, 0.536, 0.435, 0.886]
+[i_replay_concat_oracle] task 9/10 avg_seen_acc=0.5659  per_task=[0.517, 0.565, 0.616, 0.616, 0.542, 0.545, 0.478, 0.549, 0.665]
+[i_replay_concat_oracle] task 10/10 avg_seen_acc=0.5241  per_task=[0.441, 0.538, 0.647, 0.493, 0.526, 0.388, 0.391, 0.547, 0.464, 0.806]
+
+[i_replay_concat_oracle] done.
+  average_accuracy   = 0.5241
+  average_forgetting = 0.2740
+  retained_accuracy  = 0.6090
+  vs null model (seen): avg 0.0100 (ratio 52.41), retained 0.0157 (ratio 38.76)
+  results -> results/i_replay_concat_oracle
+
+real	18m2.826s
+user	33m19.010s
+sys	8m14.436s
+########## RUN i_replay_gate_trained ##########
+[i_replay_gate_trained] task 1/10 avg_seen_acc=0.7490  per_task=[0.749]
+[i_replay_gate_trained] task 2/10 avg_seen_acc=0.6845  per_task=[0.59, 0.779]
+[i_replay_gate_trained] task 3/10 avg_seen_acc=0.6153  per_task=[0.498, 0.496, 0.852]
+[i_replay_gate_trained] task 4/10 avg_seen_acc=0.4915  per_task=[0.388, 0.352, 0.423, 0.803]
+[i_replay_gate_trained] task 5/10 avg_seen_acc=0.5264  per_task=[0.4, 0.485, 0.466, 0.426, 0.855]
+[i_replay_gate_trained] task 6/10 avg_seen_acc=0.5003  per_task=[0.381, 0.429, 0.513, 0.414, 0.432, 0.833]
+[i_replay_gate_trained] task 7/10 avg_seen_acc=0.5463  per_task=[0.463, 0.52, 0.577, 0.515, 0.451, 0.522, 0.776]
+[i_replay_gate_trained] task 8/10 avg_seen_acc=0.4923  per_task=[0.4, 0.477, 0.521, 0.478, 0.425, 0.442, 0.366, 0.829]
+[i_replay_gate_trained] task 9/10 avg_seen_acc=0.4144  per_task=[0.324, 0.417, 0.393, 0.367, 0.278, 0.393, 0.354, 0.326, 0.878]
+[i_replay_gate_trained] task 10/10 avg_seen_acc=0.3929  per_task=[0.24, 0.339, 0.472, 0.368, 0.401, 0.253, 0.276, 0.344, 0.396, 0.84]
+
+[i_replay_gate_trained] done.
+  average_accuracy   = 0.3929
+  average_forgetting = 0.4739
+  retained_accuracy  = 0.4176
+  vs null model: no closed form for this condition
+  results -> results/i_replay_gate_trained
+
+real	17m59.947s
+user	33m23.427s
+sys	8m13.537s
+=== DONE ===

@@ -1,0 +1,58 @@
+run:
+  name: i_replay_cal5000
+  seed: 0
+  output_dir: results
+  device: auto
+data:
+  dataset: cifar100
+  num_tasks: 10
+  classes_per_task: 10
+  order_seed: 0
+  data_root: data
+  num_workers: 4
+model:
+  backbone: resnet18_small
+  feature_dim: 512
+coarse:
+  source: none
+  soft:
+    smooth: 0.3
+  trained:
+    ckpt: checkpoints/coarse_net.pt
+    continual: false
+conditioning:
+  mechanism: concat
+  embed_dim: 32
+  aux_loss_weight: 0.5
+  decay_weight: 1.0
+  eval_withhold: false
+rotation:
+  enabled: false
+  lambda_max: 0.5
+  schedule: per_task
+  tap: layer2
+  hidden: 128
+cl:
+  methods:
+  - replay
+  replay:
+    buffer_size: 5000
+    batch_size: 32
+    weight: 1.0
+  ewc:
+    ewc_lambda: 5000.0
+    fisher_batches: 32
+train:
+  epochs_per_task: 60
+  batch_size: 128
+  lr: 0.1
+  momentum: 0.9
+  weight_decay: 0.0005
+  optimizer: sgd
+  loss_scope: seen
+coarse_train:
+  epochs: 60
+  batch_size: 128
+  lr: 0.1
+  momentum: 0.9
+  weight_decay: 0.0005
