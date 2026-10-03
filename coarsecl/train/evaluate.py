@@ -22,14 +22,14 @@ def evaluate_task(model, dataset, coarse_source, seen_mask, device,
     loader = DataLoader(dataset, batch_size=batch_size, shuffle=False,
                         num_workers=num_workers)
     correct = total = 0
-    for images, fine in loader:
+    for images, fine, uid in loader:
         images = images.to(device)
         fine = fine.to(device)
         if withhold:
             # ablation: hide the real signal, feed a no-information uniform dist
             coarse_dist = images.new_full((images.size(0), NUM_COARSE), 1.0 / NUM_COARSE)
         else:
-            coarse_dist = coarse_source.get_coarse_dist(images, fine)
+            coarse_dist = coarse_source.get_coarse_dist(images, fine, uid)
         pred = model.predict(images, coarse_dist, seen_mask)
         correct += (pred == fine).sum().item()
         total += fine.numel()

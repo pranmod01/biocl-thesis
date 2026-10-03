@@ -1,0 +1,17 @@
+# Cross-fitted ResNet-18 coarse nets (Item 11). The single coarse_r18 net memorizes its
+# train set (99.99% train vs 85.2% test), so as a `trained` source it hands the fine
+# net a near-oracle signal in training and a 15%-error one at eval. Here net k trains
+# on the train images with uid % 4 != k and labels fold k (and test uids % 4 == k), so
+# every image's signal is held-out quality. One run per fold:
+#   python -m coarsecl.coarse.train_coarse --config configs/coarse_r18_cf4.yaml --fold k
+run:
+  name: coarse_r18_cf4
+data:
+  num_workers: 8
+coarse:
+  trained:
+    ckpt: checkpoints/coarse_net_r18_cf4_f{fold}.pt
+    crossfit: 4
+coarse_train:
+  arch: resnet18
+  epochs: 150

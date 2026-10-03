@@ -47,7 +47,7 @@ def run_continual(cfg: Config, return_model: bool = False):
                         cfg.data.classes_per_task, cfg.data.order_seed)
     coarse_source = build_coarse_source(cfg, device)
     model = build_classifier(cfg).to(device)
-    cl_methods = build_cl_methods(cfg)
+    cl_methods = build_cl_methods(cfg, device)
 
     acc_matrix: List[List[float]] = []
 
@@ -73,10 +73,10 @@ def run_continual(cfg: Config, return_model: bool = False):
 
         model.train()
         for epoch in range(cfg.train.epochs_per_task):
-            for images, fine in loader:
+            for images, fine, uid in loader:
                 images = images.to(device)
                 fine = fine.to(device)
-                coarse_dist = coarse_source.get_coarse_dist(images, fine)
+                coarse_dist = coarse_source.get_coarse_dist(images, fine, uid)
                 optimizer.zero_grad()
                 loss = model.compute_loss(images, fine, coarse_dist, loss_mask)
                 for method in cl_methods:

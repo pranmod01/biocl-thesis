@@ -18,9 +18,12 @@ model:
   feature_dim: 512
 
 coarse:
-  source: none            # none | oracle | soft | trained
+  source: none            # none | oracle | soft | noisy | trained
   soft:
     smooth: 0.3           # 0 -> one-hot (oracle), 1 -> uniform (no info)
+  noisy:
+    rate: 0.0             # fixed per-image wrong-superclass rate; 0 -> oracle, 0.95 -> no info
+    seed: 0
   trained:
     ckpt: checkpoints/coarse_net.pt
     continual: false      # dormant hook; only the upfront-trained branch exists
@@ -36,6 +39,12 @@ cl:                       # standard CL machinery; empty = the original no-machi
     buffer_size: 2000     # total exemplars, split evenly over all seen classes
     batch_size: 32        # replay samples per training step
     weight: 1.0
+    priority: none        # none | hardness | schema (which exemplars get replayed)
+    priority_schema: oracle  # schema only: oracle | soft | trained
+    priority_mix: 0.5     # share of replay draws taken by priority (rest uniform)
+    priority_refresh: 50  # steps between re-scoring the buffer
+    priority_level: exemplar      # exemplar | superclass (schema only)
+    priority_probe_per_class: 0   # superclass only: held-out, never-replayed probes per class
   ewc:
     ewc_lambda: 5000.0
     fisher_batches: 32
@@ -49,6 +58,7 @@ train:
   optimizer: sgd
 
 coarse_train:             # only used by coarsecl.coarse.train_coarse (condition d)
+  arch: small             # small | resnet18 (stored in the ckpt; the trained source reads it)
   epochs: 60              # 30 gave only ~62% superclass acc; more epochs = stronger trained signal
   batch_size: 128
   lr: 0.1

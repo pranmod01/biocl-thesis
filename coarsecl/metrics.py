@@ -38,7 +38,7 @@ from typing import Dict, List, Optional
 
 
 def null_kind(mechanism: str, source: str, eval_withhold: bool = False,
-              smooth: float = 0.0) -> Optional[str]:
+              smooth: float = 0.0, noisy_rate: float = 0.0) -> Optional[str]:
     """Which candidate set a zero-knowledge model would be left choosing from.
 
     'seen'       -> all classes seen so far (no output-space restriction)
@@ -60,6 +60,9 @@ def null_kind(mechanism: str, source: str, eval_withhold: bool = False,
         return "seen"
     if source == "trained":
         return None
+    if source == "noisy" and noisy_rate > 0.0:
+        return None  # a corrupted image is masked to the wrong superclass; like trained,
+        # the null depends on which images are corrupted and on seen-class coverage
     if source == "soft" and smooth >= 1.0:
         return "seen"  # uniform prior, no restriction
     return "superclass"

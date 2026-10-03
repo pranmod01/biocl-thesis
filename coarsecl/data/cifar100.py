@@ -54,12 +54,27 @@ def _transforms(train: bool):
     return T.Compose([T.ToTensor(), norm])
 
 
+NUM_TRAIN = 50000  # test-set uids start here, so train and test uids never collide
+NUM_IMAGES = 60000
+
+
+class CIFAR100WithUid(torchvision.datasets.CIFAR100):
+    """CIFAR-100 whose items are (image, fine_label, uid). The uid is a stable
+    per-image id (train index, or NUM_TRAIN + test index) that survives Subset and
+    augmentation, so a source can attach a FIXED per-image property (the noisy
+    source's corruption) the same way a coarse net's errors stick to an image."""
+
+    def __getitem__(self, index: int):
+        image, target = super().__getitem__(index)
+        return image, target, index + (0 if self.train else NUM_TRAIN)
+
+
 def get_datasets(data_root: str = "data") -> Tuple[Dataset, Dataset]:
-    """Return (train, test) CIFAR-100 datasets; each item is (image, fine_label)."""
-    train = torchvision.datasets.CIFAR100(
+    """Return (train, test) CIFAR-100 datasets; each item is (image, fine_label, uid)."""
+    train = CIFAR100WithUid(
         root=data_root, train=True, download=True, transform=_transforms(True)
     )
-    test = torchvision.datasets.CIFAR100(
+    test = CIFAR100WithUid(
         root=data_root, train=False, download=True, transform=_transforms(False)
     )
     return train, test

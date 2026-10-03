@@ -1,0 +1,7 @@
+# Item #4, learned schema: as i_replay_prio_schema_oracle, but the coarse net's
+# softmax says which superclass each exemplar belongs to (66% accurate), i.e. the
+# coarse system decides what the episodic store replays.
+run: {name: i_replay_prio_schema_trained}
+cl:
+  methods: [replay]
+  replay: {priority: schema, priority_schema: trained}

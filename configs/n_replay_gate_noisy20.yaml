@@ -1,0 +1,9 @@
+# Item 22, controlled-noise sweep: oracle one-hot with a FIXED wrong superclass on a
+# fraction 0.2 of images (signal accuracy 0.8). Nested across rates
+# (coarse.noisy.seed 0), so the sweep is one coupled dose-response curve from
+# i_replay_gate_oracle (rate 0) down to rate 0.95 (no information).
+# 0.34 matches the small coarse net's error rate (~66% acc): compare with i_replay_gate_trained.
+run: {name: n_replay_gate_noisy20}
+coarse: {source: noisy, noisy: {rate: 0.2}}
+conditioning: {mechanism: gate}
+cl: {methods: [replay]}

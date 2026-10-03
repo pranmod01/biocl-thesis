@@ -1,0 +1,15 @@
+# Stronger coarse net (Item 11): the fine backbone's architecture (CIFAR ResNet-18)
+# trained on superclass labels, vs the original small CNN (~66%). Separate ckpt, so
+# coarse_net.pt (and the frozen_coarse_block* backbones built on it) is untouched.
+#   python -m coarsecl.coarse.train_coarse --config configs/coarse_r18.yaml
+# Same caveat as the small net: trained upfront on all 100 classes' images.
+run:
+  name: coarse_r18
+data:
+  num_workers: 8
+coarse:
+  trained:
+    ckpt: checkpoints/coarse_net_r18.pt
+coarse_train:
+  arch: resnet18
+  epochs: 150

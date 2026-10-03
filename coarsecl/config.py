@@ -47,12 +47,21 @@ class SoftCfg:
 class TrainedCfg:
     ckpt: str = "checkpoints/coarse_net.pt"
     continual: bool = False  # dormant hook for the continually-trained variant
+    crossfit: int = 0  # K > 0: K nets, net k never saw train images with uid % K == k;
+    # every image (train or test) is labelled by its fold's net. ckpt holds "{fold}".
+
+
+@dataclass
+class NoisyCfg:
+    rate: float = 0.0  # fraction of images given a fixed wrong superclass; 0 -> oracle
+    seed: int = 0      # corruption draw, independent of run.seed (like a fixed coarse net)
 
 
 @dataclass
 class CoarseCfg:
-    source: str = "none"  # none | oracle | soft | trained
+    source: str = "none"  # none | oracle | soft | noisy | trained
     soft: SoftCfg = field(default_factory=SoftCfg)
+    noisy: NoisyCfg = field(default_factory=NoisyCfg)
     trained: TrainedCfg = field(default_factory=TrainedCfg)
 
 
@@ -86,6 +95,22 @@ class ReplayCfg:
     buffer_size: int = 2000  # total exemplars, split evenly over all seen classes
     batch_size: int = 32  # replay samples drawn per training step
     weight: float = 1.0  # weight on the replay CE term
+    # Which exemplars get replayed. none = uniform shuffle (the original runs, bit-
+    # for-bit). schema = weight by ROUTING error, 1 - <schema(x), P_fine(superclass|x)>:
+    # the fine model's probability mass outside the superclass the schema assigns.
+    # hardness = weight by 1 - P_fine(true class): the schema-free control.
+    priority: str = "none"  # none | hardness | schema
+    priority_schema: str = "oracle"  # schema only: oracle | soft | trained. Independent
+    # of coarse.source, so a plain baseline can have schema-guided replay. oracle reads
+    # the superclass off the STORED label, so it uses no test-time information.
+    priority_mix: float = 0.5  # share of replay draws taken by priority; the rest are
+    # uniform, so every exemplar keeps a floor of (1 - mix) / buffer_size.
+    priority_refresh: int = 50  # training steps between re-scoring the whole buffer
+    priority_level: str = "exemplar"  # exemplar | superclass (schema only): average the
+    # scores per superclass and weight every exemplar by its superclass's mean.
+    priority_probe_per_class: int = 0  # superclass only: hold out k stored exemplars per
+    # class, never replayed, scored instead of the (memorized) replay buffer. Counts
+    # against buffer_size.
 
 
 @dataclass
@@ -122,6 +147,7 @@ class TrainCfg:
 class CoarseTrainCfg:
     """Standalone training of the condition-(d) coarse net (train_coarse.py)."""
 
+    arch: str = "small"  # small (the original CNN) | resnet18 (the fine backbone's arch)
     epochs: int = 30
     batch_size: int = 128
     lr: float = 0.1
@@ -170,6 +196,8 @@ class Config:
             )
         if not 0.0 <= self.coarse.soft.smooth <= 1.0:
             raise ValueError("coarse.soft.smooth must be in [0, 1]")
+        if not 0.0 <= self.coarse.noisy.rate <= 1.0:
+            raise ValueError("coarse.noisy.rate must be in [0, 1]")
         if self.train.loss_scope not in ("seen", "current"):
             raise ValueError("train.loss_scope must be 'seen' or 'current'")
         if not isinstance(self.cl.methods, list):
@@ -183,6 +211,29 @@ class Config:
             raise ValueError(
                 f"cl.replay.buffer_size must be >= {NUM_FINE} (one exemplar per class)"
             )
+        rp = self.cl.replay
+        if rp.priority not in ("none", "hardness", "schema"):
+            raise ValueError("cl.replay.priority must be 'none', 'hardness' or 'schema'")
+        if rp.priority_schema not in ("oracle", "soft", "trained"):
+            raise ValueError("cl.replay.priority_schema must be 'oracle', 'soft' or 'trained'")
+        if not 0.0 <= rp.priority_mix <= 1.0:
+            raise ValueError("cl.replay.priority_mix must be in [0, 1]")
+        if rp.priority_refresh < 1:
+            raise ValueError("cl.replay.priority_refresh must be >= 1")
+        if rp.priority_level not in ("exemplar", "superclass"):
+            raise ValueError("cl.replay.priority_level must be 'exemplar' or 'superclass'")
+        if rp.priority_level == "superclass" and rp.priority != "schema":
+            raise ValueError("cl.replay.priority_level: superclass needs priority: schema")
+        if rp.priority_probe_per_class < 0:
+            raise ValueError("cl.replay.priority_probe_per_class must be >= 0")
+        if rp.priority_probe_per_class > 0:
+            if rp.priority_level != "superclass":
+                raise ValueError("cl.replay.priority_probe_per_class needs priority_level: "
+                                 "superclass (probe scores can't map onto other exemplars)")
+            if rp.buffer_size // NUM_FINE <= rp.priority_probe_per_class:
+                raise ValueError(
+                    f"cl.replay.buffer_size // {NUM_FINE} must exceed priority_probe_per_class, "
+                    "or no replay exemplars are left once all classes are seen")
         if self.rotation.enabled:
             if self.rotation.schedule not in ("per_task", "curriculum", "constant"):
                 raise ValueError("rotation.schedule must be 'per_task', 'curriculum' or 'constant'")
@@ -190,6 +241,10 @@ class Config:
                 raise ValueError("rotation.tap must be layer1|layer2|layer3|layer4")
             if self.model.backbone != "resnet18_small":
                 raise ValueError("rotation aux requires the plastic resnet18_small backbone")
+        if self.coarse.trained.crossfit < 0:
+            raise ValueError("coarse.trained.crossfit must be >= 0")
+        if self.coarse.trained.crossfit and "{fold}" not in self.coarse.trained.ckpt:
+            raise ValueError("coarse.trained.crossfit needs a '{fold}' placeholder in ckpt")
         if self.coarse.trained.continual:
             raise NotImplementedError(
                 "coarse.trained.continual is a dormant hook; only the upfront-"
@@ -226,8 +281,13 @@ def _deep_merge(base: Dict[str, Any], over: Dict[str, Any]) -> Dict[str, Any]:
     return out
 
 
-def load_config(path: str, base_path: Optional[str] = "configs/base.yaml") -> Config:
-    """Load a run YAML, deep-merged onto base.yaml, into a validated Config."""
+def load_config(path: str, base_path: Optional[str] = "configs/base.yaml",
+                overrides: Optional[Dict[str, Any]] = None) -> Config:
+    """Load a run YAML, deep-merged onto base.yaml, into a validated Config.
+
+    `overrides` is merged last, after the run YAML, so CLI flags win. It goes
+    through the same validation, so an unknown key still raises.
+    """
     merged: Dict[str, Any] = {}
     if base_path:
         try:
@@ -238,6 +298,8 @@ def load_config(path: str, base_path: Optional[str] = "configs/base.yaml") -> Co
     with open(path) as fh:
         run_cfg = yaml.safe_load(fh) or {}
     merged = _deep_merge(merged, run_cfg)
+    if overrides:
+        merged = _deep_merge(merged, overrides)
     return Config.from_dict(merged).validate()
 
 

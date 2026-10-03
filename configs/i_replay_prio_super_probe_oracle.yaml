@@ -1,0 +1,9 @@
+# Per-superclass schema priority, scored on HELD-OUT probes (2 per class, never
+# replayed, counted in the 2000 budget: the replay pool ends at 1800). Probe routing
+# error tracks forgetting, not buffer memorization. vs i_replay_prio_super_buffer
+# isolates the SIGNAL fix.
+run: {name: i_replay_prio_super_probe_oracle}
+cl:
+  methods: [replay]
+  replay: {priority: schema, priority_schema: oracle, priority_level: superclass,
+           priority_probe_per_class: 2}

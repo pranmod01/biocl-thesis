@@ -1,0 +1,8 @@
+# Coarse as a TRAINING TARGET on top of replay: auxiliary superclass head off the
+# penultimate features. The fine prediction ignores the coarse signal at inference, so
+# this is deployable. Last run only as a 5-epoch probe on the floor (probe_oracle_aux_*).
+# Compare vs i_replay_baseline.
+run: {name: i_replay_aux_oracle}
+coarse: {source: oracle}
+conditioning: {mechanism: aux_loss}
+cl: {methods: [replay]}

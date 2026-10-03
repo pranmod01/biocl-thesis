@@ -1,0 +1,8 @@
+# Item 11/22: i_replay_gate_trained with cross-fitted ResNet-18 coarse nets
+# (configs/coarse_r18_cf4.yaml): every image, train or test, is labelled by a net that
+# never trained on it, so the signal the fine net learns to trust is the signal it
+# gets at eval. Compare n_replay_gate_trained_r18 (single net, memorized train set).
+run: {name: n_replay_gate_trained_r18cf}
+coarse: {source: trained, trained: {ckpt: "checkpoints/coarse_net_r18_cf4_f{fold}.pt", crossfit: 4}}
+conditioning: {mechanism: gate}
+cl: {methods: [replay]}

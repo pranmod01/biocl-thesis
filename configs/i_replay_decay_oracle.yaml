@@ -1,0 +1,8 @@
+# Internalized coarse on top of replay. On the bare floor decay was null at every KL
+# weight (g_decay_oracle*), but there was nothing to retain. The oracle superclass is
+# seen by the teacher during TRAINING only; the deployed student gets no coarse signal
+# at test time, so this is a deployable condition. Compare vs i_replay_baseline.
+run: {name: i_replay_decay_oracle}
+coarse: {source: oracle}
+conditioning: {mechanism: decay}
+cl: {methods: [replay]}

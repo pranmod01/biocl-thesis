@@ -1,0 +1,8 @@
+# Condition (d) on top of replay: frozen coarse-net softmax as a concat INPUT, computed
+# from the test image at eval (no label leak), so this is deployable. The input-side
+# counterpart of i_replay_gate_trained; oracle concat + replay reached 0.524.
+# Needs checkpoints/coarse_net.pt (python -m coarsecl.coarse.train_coarse ...).
+run: {name: i_replay_concat_trained}
+coarse: {source: trained}
+conditioning: {mechanism: concat}
+cl: {methods: [replay]}

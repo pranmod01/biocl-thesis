@@ -1,0 +1,7 @@
+# Same-machine reference: i_replay_baseline re-run on hippo (A100, torch 2.8.0+cu126),
+# alongside the Item 15 runs there. The existing replay twins ran on Insomnia A6000s,
+# so this separates a hardware/build shift from a mechanism effect, and adds a third
+# sample of replay-2000 run-to-run noise. Config is otherwise identical.
+run: {name: i_replay_baseline_hippo}
+coarse: {source: none}
+cl: {methods: [replay]}

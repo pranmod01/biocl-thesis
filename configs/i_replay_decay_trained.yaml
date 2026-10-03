@@ -1,0 +1,9 @@
+# Item #2: the fully learned-schema version of i_replay_decay_oracle. The teacher's
+# coarse input is the coarse net's softmax, so NO ground-truth superclass is used
+# anywhere, in training or at test (the student is deployed without coarse input).
+# The claim it tests: "a learned schema improves consolidation". Compare vs
+# i_replay_decay_oracle (0.426) and the replay-2000 band (0.307-0.379).
+run: {name: i_replay_decay_trained}
+coarse: {source: trained}
+conditioning: {mechanism: decay}
+cl: {methods: [replay]}

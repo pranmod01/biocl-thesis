@@ -1,0 +1,7 @@
+# As i_replay_prio_super_probe_oracle, but superclass membership and routing come
+# from the coarse net's softmax: the learned schema steers what gets replayed.
+run: {name: i_replay_prio_super_probe_trained}
+cl:
+  methods: [replay]
+  replay: {priority: schema, priority_schema: trained, priority_level: superclass,
+           priority_probe_per_class: 2}

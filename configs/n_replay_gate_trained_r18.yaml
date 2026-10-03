@@ -1,0 +1,8 @@
+# Item 11/22: i_replay_gate_trained with the stronger ResNet-18 coarse net
+# (configs/coarse_r18.yaml) in place of the ~66% small CNN. Placed on the
+# n_replay_gate_noisy* curve at its measured error rate, this tests whether a better
+# coarse net buys what the controlled-noise curve predicts it should.
+run: {name: n_replay_gate_trained_r18}
+coarse: {source: trained, trained: {ckpt: checkpoints/coarse_net_r18.pt}}
+conditioning: {mechanism: gate}
+cl: {methods: [replay]}

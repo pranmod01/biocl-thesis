@@ -1,0 +1,9 @@
+# Item #4: schema-guided replay on a plain baseline (no coarse conditioning). Replay
+# is weighted by routing error, the fine model's mass outside the true superclass
+# of each STORED exemplar. The superclass comes from the stored label, so nothing is
+# used at test time. ~22-29% of replay-baseline test errors are cross-superclass;
+# this aims replay at exactly those. Control: i_replay_prio_hardness.
+run: {name: i_replay_prio_schema_oracle}
+cl:
+  methods: [replay]
+  replay: {priority: schema, priority_schema: oracle}

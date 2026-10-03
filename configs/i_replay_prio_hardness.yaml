@@ -1,0 +1,7 @@
+# Item #4 control: prioritized replay with NO schema. Weight = 1 - P_fine(true class).
+# Same mix/refresh as the schema runs, so schema-vs-hardness isolates whether the
+# superclass structure matters or any error-driven prioritization would do.
+run: {name: i_replay_prio_hardness}
+cl:
+  methods: [replay]
+  replay: {priority: hardness}

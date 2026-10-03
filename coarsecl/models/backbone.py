@@ -102,6 +102,9 @@ class FrozenCoarseBackbone(nn.Module):
         from .coarse_net import build_coarse_net  # local import avoids a cycle
         cnet = build_coarse_net()
         state = torch.load(ckpt_path, map_location="cpu")
+        if state.get("arch", "small") != "small":
+            raise ValueError(f"{ckpt_path} is a {state['arch']!r} coarse net; frozen taps "
+                             "index into the small CNN's layers")
         cnet.load_state_dict(state["model"])
         # keep only the conv trunk up to (and including) the tap layer
         self.trunk = nn.Sequential(*list(cnet.features)[: tap_upto + 1])
