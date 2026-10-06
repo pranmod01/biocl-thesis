@@ -1,0 +1,32 @@
+start 2026-09-15T15:07:30-04:00 gpu=2 host=hippo
+[i_replay_prio_schema_trained] task 1/10 avg_seen_acc=0.6890  per_task=[0.689]
+[replay:schema] task 2: buffer score 0.472 -> 0.600, ESS 0.94 of buffer
+[i_replay_prio_schema_trained] task 2/10 avg_seen_acc=0.5215  per_task=[0.275, 0.768]
+[replay:schema] task 3: buffer score 0.516 -> 0.487, ESS 0.90 of buffer
+[i_replay_prio_schema_trained] task 3/10 avg_seen_acc=0.5373  per_task=[0.374, 0.43, 0.808]
+[replay:schema] task 4: buffer score 0.485 -> 0.416, ESS 0.86 of buffer
+[i_replay_prio_schema_trained] task 4/10 avg_seen_acc=0.5610  per_task=[0.467, 0.5, 0.606, 0.671]
+[replay:schema] task 5: buffer score 0.490 -> 0.411, ESS 0.86 of buffer
+[i_replay_prio_schema_trained] task 5/10 avg_seen_acc=0.5436  per_task=[0.464, 0.509, 0.576, 0.468, 0.701]
+[replay:schema] task 6: buffer score 0.511 -> 0.425, ESS 0.86 of buffer
+[i_replay_prio_schema_trained] task 6/10 avg_seen_acc=0.5218  per_task=[0.429, 0.494, 0.514, 0.453, 0.495, 0.746]
+[replay:schema] task 7: buffer score 0.475 -> 0.382, ESS 0.83 of buffer
+[i_replay_prio_schema_trained] task 7/10 avg_seen_acc=0.5277  per_task=[0.443, 0.514, 0.567, 0.516, 0.445, 0.482, 0.727]
+[replay:schema] task 8: buffer score 0.487 -> 0.401, ESS 0.84 of buffer
+[i_replay_prio_schema_trained] task 8/10 avg_seen_acc=0.4849  per_task=[0.396, 0.457, 0.504, 0.469, 0.444, 0.451, 0.429, 0.729]
+[replay:schema] task 9: buffer score 0.497 -> 0.449, ESS 0.88 of buffer
+[i_replay_prio_schema_trained] task 9/10 avg_seen_acc=0.3208  per_task=[0.212, 0.289, 0.298, 0.277, 0.186, 0.291, 0.22, 0.253, 0.861]
+[replay:schema] task 10: buffer score 0.561 -> 0.451, ESS 0.88 of buffer
+[i_replay_prio_schema_trained] task 10/10 avg_seen_acc=0.3437  per_task=[0.224, 0.291, 0.363, 0.34, 0.3, 0.256, 0.226, 0.322, 0.33, 0.785]
+
+[i_replay_prio_schema_trained] done.
+  average_accuracy   = 0.3437
+  average_forgetting = 0.4498
+  retained_accuracy  = 0.3966
+  vs null model (seen): avg 0.0100 (ratio 34.37), retained 0.0157 (ratio 25.24)
+  results -> results/i_replay_prio_schema_trained
+
+real	12m23.041s
+user	28m28.743s
+sys	6m39.914s
+end 2026-09-15T15:19:53-04:00

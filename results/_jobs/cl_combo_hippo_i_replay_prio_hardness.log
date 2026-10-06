@@ -1,0 +1,32 @@
+start 2026-09-15T15:07:30-04:00 gpu=3 host=hippo
+[i_replay_prio_hardness] task 1/10 avg_seen_acc=0.6720  per_task=[0.672]
+[replay:hardness] task 2: buffer score 0.266 -> 0.456, ESS 0.91 of buffer
+[i_replay_prio_hardness] task 2/10 avg_seen_acc=0.5645  per_task=[0.457, 0.672]
+[replay:hardness] task 3: buffer score 0.392 -> 0.199, ESS 0.75 of buffer
+[i_replay_prio_hardness] task 3/10 avg_seen_acc=0.5723  per_task=[0.453, 0.538, 0.726]
+[replay:hardness] task 4: buffer score 0.393 -> 0.120, ESS 0.65 of buffer
+[i_replay_prio_hardness] task 4/10 avg_seen_acc=0.4892  per_task=[0.348, 0.425, 0.482, 0.702]
+[replay:hardness] task 5: buffer score 0.456 -> 0.197, ESS 0.73 of buffer
+[i_replay_prio_hardness] task 5/10 avg_seen_acc=0.4096  per_task=[0.296, 0.289, 0.362, 0.298, 0.803]
+[replay:hardness] task 6: buffer score 0.530 -> 0.224, ESS 0.73 of buffer
+[i_replay_prio_hardness] task 6/10 avg_seen_acc=0.3807  per_task=[0.25, 0.289, 0.343, 0.302, 0.285, 0.815]
+[replay:hardness] task 7: buffer score 0.558 -> 0.022, ESS 0.51 of buffer
+[i_replay_prio_hardness] task 7/10 avg_seen_acc=0.4376  per_task=[0.337, 0.386, 0.46, 0.385, 0.325, 0.404, 0.766]
+[replay:hardness] task 8: buffer score 0.516 -> 0.113, ESS 0.63 of buffer
+[i_replay_prio_hardness] task 8/10 avg_seen_acc=0.3748  per_task=[0.282, 0.322, 0.352, 0.34, 0.296, 0.338, 0.225, 0.843]
+[replay:hardness] task 9: buffer score 0.572 -> 0.066, ESS 0.51 of buffer
+[i_replay_prio_hardness] task 9/10 avg_seen_acc=0.4039  per_task=[0.329, 0.37, 0.418, 0.377, 0.306, 0.391, 0.286, 0.364, 0.794]
+[replay:hardness] task 10: buffer score 0.572 -> 0.221, ESS 0.73 of buffer
+[i_replay_prio_hardness] task 10/10 avg_seen_acc=0.2754  per_task=[0.156, 0.188, 0.281, 0.283, 0.23, 0.172, 0.163, 0.217, 0.236, 0.828]
+
+[i_replay_prio_hardness] done.
+  average_accuracy   = 0.2754
+  average_forgetting = 0.5408
+  retained_accuracy  = 0.3252
+  vs null model (seen): avg 0.0100 (ratio 27.54), retained 0.0157 (ratio 20.70)
+  results -> results/i_replay_prio_hardness
+
+real	12m45.374s
+user	28m43.797s
+sys	6m48.423s
+end 2026-09-15T15:20:15-04:00

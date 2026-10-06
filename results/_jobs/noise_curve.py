@@ -39,6 +39,7 @@ TRAINED = {  # run suffix -> (label, checkpoint(s); "{fold}" = cross-fitted, ave
     "trained_r18": ("ResNet-18, memorized train", "checkpoints/coarse_net_r18.pt"),
     "trained_r18cf": ("ResNet-18, cross-fit", "checkpoints/coarse_net_r18_cf4_f{fold}.pt"),
 }
+MARKER = {"small CNN": "D", "ResNet-18, memorized train": "s", "ResNet-18, cross-fit": "^"}
 CONTROL_GLOB = ["results/i_replay_baseline_hippo*", "results/i_replay_baseline",
                 "results/i_replay_cal2000", "results/i_replay_prio_mix0"]
 
@@ -107,14 +108,14 @@ def main() -> None:
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
 
-    fig, axes = plt.subplots(1, 2, figsize=(10, 4.2), facecolor=SURFACE)
+    fig, axes = plt.subplots(1, 2, figsize=(11, 4.6), facecolor=SURFACE)
     for ax, (k, short) in zip(axes, METRICS[:2]):
         ax.set_facecolor(SURFACE)
         mu, sd = statistics.mean(ctrl[k]), statistics.stdev(ctrl[k])
         ax.axhspan(mu - sd, mu + sd, color="#d9d8d3", alpha=0.6, lw=0)
         ax.axhline(mu, color=INK2, lw=1, ls="--")
-        ax.text(0.97, mu, "no coarse signal (mean ± sd)", color=INK2, fontsize=8,
-                ha="right", va="bottom", transform=ax.get_yaxis_transform())
+        ax.text(0.02, mu - sd, "no coarse signal (mean ± sd)", color=INK2, fontsize=8,
+                ha="left", va="bottom", transform=ax.get_yaxis_transform())
         for m in MECHS:
             xs = [r for r, _ in curves[m]]
             ys = [mm[k] for _, mm in curves[m]]
@@ -124,10 +125,8 @@ def main() -> None:
                 ax.annotate(m, (xs[0], ys[0]), xytext=(6, 4), textcoords="offset points",
                             color=INK, fontsize=9)
             for label, err, mm in trained[m]:
-                ax.plot([err], [mm[k]], marker="D", ms=8, mfc=SURFACE, mec=COLOR[m], mew=2,
-                        ls="none")
-                ax.annotate(label, (err, mm[k]), xytext=(7, -10), textcoords="offset points",
-                            color=INK2, fontsize=8)
+                ax.plot([err], [mm[k]], marker=MARKER[label], ms=8, mfc=SURFACE,
+                        mec=COLOR[m], mew=2, ls="none")
         ax.axvline(0.95, color=GRID, lw=1)
         ax.set_xlabel("coarse-signal error rate (fraction of images, wrong superclass)",
                       color=INK2, fontsize=9)
@@ -140,11 +139,14 @@ def main() -> None:
         ax.tick_params(colors=INK2, labelsize=8)
     handles = [plt.Line2D([], [], color=COLOR[m], lw=2, marker="o", label=f"{m}, controlled noise")
                for m in MECHS]
-    handles.append(plt.Line2D([], [], color=INK2, marker="D", mfc=SURFACE, ls="none",
-                              label="trained coarse net (at its test error)"))
-    fig.legend(handles=handles, loc="upper center", ncol=3, frameon=False, fontsize=9,
+    handles += [plt.Line2D([], [], color=INK2, marker=mk, mfc=SURFACE, mew=1.5, ls="none",
+                           label=f"trained: {label}") for label, mk in MARKER.items()]
+    fig.legend(handles=handles, loc="upper center", ncol=5, frameon=False, fontsize=8.5,
                labelcolor=INK)
-    fig.tight_layout(rect=(0, 0, 1, 0.92))
+    fig.text(0.5, 0.005, "Hollow markers: trained coarse nets at their test error, "
+             "colored by mechanism. Replay 2000, seed 0.", ha="center", color=INK2,
+             fontsize=8)
+    fig.tight_layout(rect=(0, 0.03, 1, 0.92))
     out = "results/noise_curve.png"
     fig.savefig(out, dpi=150, facecolor=SURFACE)
     print(f"\nwrote {out}")

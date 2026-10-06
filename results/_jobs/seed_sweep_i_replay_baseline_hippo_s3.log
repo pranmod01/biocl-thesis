@@ -1,0 +1,23 @@
+start 2026-10-03T13:11:40-04:00 gpu=0 host=hippo cfg=i_replay_baseline_hippo seed=3
+[i_replay_baseline_hippo_s3] task 1/10 avg_seen_acc=0.6530  per_task=[0.653]
+[i_replay_baseline_hippo_s3] task 2/10 avg_seen_acc=0.5120  per_task=[0.595, 0.429]
+[i_replay_baseline_hippo_s3] task 3/10 avg_seen_acc=0.5420  per_task=[0.442, 0.454, 0.73]
+[i_replay_baseline_hippo_s3] task 4/10 avg_seen_acc=0.3443  per_task=[0.179, 0.181, 0.235, 0.782]
+[i_replay_baseline_hippo_s3] task 5/10 avg_seen_acc=0.3808  per_task=[0.231, 0.243, 0.321, 0.276, 0.833]
+[i_replay_baseline_hippo_s3] task 6/10 avg_seen_acc=0.4015  per_task=[0.293, 0.328, 0.371, 0.319, 0.288, 0.81]
+[i_replay_baseline_hippo_s3] task 7/10 avg_seen_acc=0.4927  per_task=[0.396, 0.47, 0.534, 0.471, 0.431, 0.478, 0.669]
+[i_replay_baseline_hippo_s3] task 8/10 avg_seen_acc=0.2919  per_task=[0.147, 0.228, 0.249, 0.232, 0.24, 0.242, 0.128, 0.869]
+[i_replay_baseline_hippo_s3] task 9/10 avg_seen_acc=0.4352  per_task=[0.365, 0.442, 0.464, 0.353, 0.361, 0.406, 0.361, 0.412, 0.753]
+[i_replay_baseline_hippo_s3] task 10/10 avg_seen_acc=0.3661  per_task=[0.29, 0.322, 0.417, 0.361, 0.319, 0.246, 0.257, 0.314, 0.323, 0.812]
+
+[i_replay_baseline_hippo_s3] done.
+  average_accuracy   = 0.3661
+  average_forgetting = 0.4133
+  retained_accuracy  = 0.3337
+  vs null model (seen): avg 0.0100 (ratio 36.61), retained 0.0157 (ratio 21.23)
+  results -> results/i_replay_baseline_hippo_s3
+
+real	13m4.112s
+user	28m21.849s
+sys	8m58.529s
+end 2026-10-03T13:24:44-04:00

@@ -1,0 +1,196 @@
+{
+  "config": {
+    "run": {
+      "name": "i_replay_prio_super_probe_oracle",
+      "seed": 0,
+      "output_dir": "results",
+      "device": "auto"
+    },
+    "data": {
+      "dataset": "cifar100",
+      "num_tasks": 10,
+      "classes_per_task": 10,
+      "order_seed": 0,
+      "data_root": "data",
+      "num_workers": 4
+    },
+    "model": {
+      "backbone": "resnet18_small",
+      "feature_dim": 512
+    },
+    "coarse": {
+      "source": "none",
+      "soft": {
+        "smooth": 0.3
+      },
+      "trained": {
+        "ckpt": "checkpoints/coarse_net.pt",
+        "continual": false
+      }
+    },
+    "conditioning": {
+      "mechanism": "concat",
+      "embed_dim": 32,
+      "aux_loss_weight": 0.5,
+      "decay_weight": 1.0,
+      "eval_withhold": false
+    },
+    "rotation": {
+      "enabled": false,
+      "lambda_max": 0.5,
+      "schedule": "per_task",
+      "tap": "layer2",
+      "hidden": 128
+    },
+    "cl": {
+      "methods": [
+        "replay"
+      ],
+      "replay": {
+        "buffer_size": 2000,
+        "batch_size": 32,
+        "weight": 1.0,
+        "priority": "schema",
+        "priority_schema": "oracle",
+        "priority_mix": 0.5,
+        "priority_refresh": 50,
+        "priority_level": "superclass",
+        "priority_probe_per_class": 2
+      },
+      "ewc": {
+        "ewc_lambda": 5000.0,
+        "fisher_batches": 32
+      }
+    },
+    "train": {
+      "epochs_per_task": 60,
+      "batch_size": 128,
+      "lr": 0.1,
+      "momentum": 0.9,
+      "weight_decay": 0.0005,
+      "optimizer": "sgd",
+      "loss_scope": "seen"
+    },
+    "coarse_train": {
+      "epochs": 60,
+      "batch_size": 128,
+      "lr": 0.1,
+      "momentum": 0.9,
+      "weight_decay": 0.0005
+    }
+  },
+  "metrics": {
+    "average_accuracy": 0.35309999999999997,
+    "average_forgetting": 0.43311111111111106,
+    "average_incremental_accuracy": 0.4482597222222221,
+    "retained_accuracy": 0.32502222222222227,
+    "final_per_task": [
+      0.246,
+      0.293,
+      0.38,
+      0.331,
+      0.335,
+      0.257,
+      0.248,
+      0.316,
+      0.365,
+      0.76
+    ],
+    "avg_acc_curve": [
+      0.66,
+      0.5255,
+      0.5516666666666666,
+      0.4305,
+      0.4584,
+      0.38433333333333336,
+      0.48199999999999993,
+      0.288875,
+      0.3482222222222222,
+      0.35309999999999997
+    ],
+    "acc_matrix": [
+      [
+        0.66
+      ],
+      [
+        0.596,
+        0.455
+      ],
+      [
+        0.434,
+        0.474,
+        0.747
+      ],
+      [
+        0.269,
+        0.342,
+        0.366,
+        0.745
+      ],
+      [
+        0.338,
+        0.381,
+        0.411,
+        0.378,
+        0.784
+      ],
+      [
+        0.273,
+        0.292,
+        0.349,
+        0.283,
+        0.309,
+        0.8
+      ],
+      [
+        0.372,
+        0.443,
+        0.505,
+        0.411,
+        0.421,
+        0.466,
+        0.756
+      ],
+      [
+        0.132,
+        0.233,
+        0.266,
+        0.241,
+        0.186,
+        0.242,
+        0.143,
+        0.868
+      ],
+      [
+        0.251,
+        0.326,
+        0.341,
+        0.297,
+        0.23,
+        0.292,
+        0.232,
+        0.33,
+        0.835
+      ],
+      [
+        0.246,
+        0.293,
+        0.38,
+        0.331,
+        0.335,
+        0.257,
+        0.248,
+        0.316,
+        0.365,
+        0.76
+      ]
+    ],
+    "null_kind": "seen",
+    "null_average_accuracy": 0.009999999999999998,
+    "null_average_incremental_accuracy": 0.029289682539682543,
+    "null_retained_accuracy": 0.015713403880070538,
+    "average_accuracy_vs_null": 35.31,
+    "average_incremental_accuracy_vs_null": 15.304355778349812,
+    "retained_accuracy_vs_null": 20.68439306358383
+  }
+}

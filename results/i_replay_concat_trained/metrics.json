@@ -1,0 +1,190 @@
+{
+  "config": {
+    "run": {
+      "name": "i_replay_concat_trained",
+      "seed": 0,
+      "output_dir": "results",
+      "device": "auto"
+    },
+    "data": {
+      "dataset": "cifar100",
+      "num_tasks": 10,
+      "classes_per_task": 10,
+      "order_seed": 0,
+      "data_root": "data",
+      "num_workers": 4
+    },
+    "model": {
+      "backbone": "resnet18_small",
+      "feature_dim": 512
+    },
+    "coarse": {
+      "source": "trained",
+      "soft": {
+        "smooth": 0.3
+      },
+      "trained": {
+        "ckpt": "checkpoints/coarse_net.pt",
+        "continual": false
+      }
+    },
+    "conditioning": {
+      "mechanism": "concat",
+      "embed_dim": 32,
+      "aux_loss_weight": 0.5,
+      "decay_weight": 1.0,
+      "eval_withhold": false
+    },
+    "rotation": {
+      "enabled": false,
+      "lambda_max": 0.5,
+      "schedule": "per_task",
+      "tap": "layer2",
+      "hidden": 128
+    },
+    "cl": {
+      "methods": [
+        "replay"
+      ],
+      "replay": {
+        "buffer_size": 2000,
+        "batch_size": 32,
+        "weight": 1.0
+      },
+      "ewc": {
+        "ewc_lambda": 5000.0,
+        "fisher_batches": 32
+      }
+    },
+    "train": {
+      "epochs_per_task": 60,
+      "batch_size": 128,
+      "lr": 0.1,
+      "momentum": 0.9,
+      "weight_decay": 0.0005,
+      "optimizer": "sgd",
+      "loss_scope": "seen"
+    },
+    "coarse_train": {
+      "epochs": 60,
+      "batch_size": 128,
+      "lr": 0.1,
+      "momentum": 0.9,
+      "weight_decay": 0.0005
+    }
+  },
+  "metrics": {
+    "average_accuracy": 0.3412,
+    "average_forgetting": 0.29288888888888887,
+    "average_incremental_accuracy": 0.49523464285714286,
+    "retained_accuracy": 0.406711111111111,
+    "final_per_task": [
+      0.236,
+      0.337,
+      0.4,
+      0.319,
+      0.315,
+      0.261,
+      0.227,
+      0.334,
+      0.29,
+      0.693
+    ],
+    "avg_acc_curve": [
+      0.719,
+      0.5955,
+      0.5716666666666667,
+      0.5327500000000001,
+      0.5042,
+      0.4676666666666667,
+      0.4415714285714286,
+      0.417125,
+      0.3616666666666667,
+      0.3412
+    ],
+    "acc_matrix": [
+      [
+        0.719
+      ],
+      [
+        0.638,
+        0.553
+      ],
+      [
+        0.594,
+        0.632,
+        0.489
+      ],
+      [
+        0.484,
+        0.558,
+        0.582,
+        0.507
+      ],
+      [
+        0.434,
+        0.502,
+        0.549,
+        0.467,
+        0.569
+      ],
+      [
+        0.393,
+        0.459,
+        0.507,
+        0.418,
+        0.433,
+        0.596
+      ],
+      [
+        0.401,
+        0.475,
+        0.501,
+        0.421,
+        0.406,
+        0.471,
+        0.416
+      ],
+      [
+        0.358,
+        0.41,
+        0.44,
+        0.416,
+        0.381,
+        0.419,
+        0.297,
+        0.616
+      ],
+      [
+        0.31,
+        0.345,
+        0.381,
+        0.324,
+        0.26,
+        0.351,
+        0.228,
+        0.338,
+        0.718
+      ],
+      [
+        0.236,
+        0.337,
+        0.4,
+        0.319,
+        0.315,
+        0.261,
+        0.227,
+        0.334,
+        0.29,
+        0.693
+      ]
+    ],
+    "null_kind": "seen",
+    "null_average_accuracy": 0.009999999999999998,
+    "null_average_incremental_accuracy": 0.029289682539682543,
+    "null_retained_accuracy": 0.015713403880070538,
+    "average_accuracy_vs_null": 34.120000000000005,
+    "average_incremental_accuracy_vs_null": 16.908160140902314,
+    "retained_accuracy_vs_null": 25.88306863460352
+  }
+}

@@ -1,0 +1,32 @@
+start 2026-09-15T15:48:55-04:00 gpu=0 host=hippo
+[i_replay_prio_mix0] task 1/10 avg_seen_acc=0.6740  per_task=[0.674]
+[replay:schema] task 2: buffer score 0.282 -> 0.278, ESS 1.00 of buffer
+[i_replay_prio_mix0] task 2/10 avg_seen_acc=0.5585  per_task=[0.6, 0.517]
+[replay:schema] task 3: buffer score 0.319 -> 0.308, ESS 1.00 of buffer
+[i_replay_prio_mix0] task 3/10 avg_seen_acc=0.5080  per_task=[0.364, 0.372, 0.788]
+[replay:schema] task 4: buffer score 0.332 -> 0.113, ESS 1.00 of buffer
+[i_replay_prio_mix0] task 4/10 avg_seen_acc=0.5437  per_task=[0.421, 0.489, 0.571, 0.694]
+[replay:schema] task 5: buffer score 0.331 -> 0.025, ESS 1.00 of buffer
+[i_replay_prio_mix0] task 5/10 avg_seen_acc=0.5546  per_task=[0.467, 0.531, 0.589, 0.503, 0.683]
+[replay:schema] task 6: buffer score 0.350 -> 0.050, ESS 1.00 of buffer
+[i_replay_prio_mix0] task 6/10 avg_seen_acc=0.4958  per_task=[0.376, 0.442, 0.501, 0.439, 0.436, 0.781]
+[replay:schema] task 7: buffer score 0.368 -> 0.009, ESS 1.00 of buffer
+[i_replay_prio_mix0] task 7/10 avg_seen_acc=0.5291  per_task=[0.457, 0.535, 0.584, 0.492, 0.443, 0.507, 0.686]
+[replay:schema] task 8: buffer score 0.352 -> 0.009, ESS 1.00 of buffer
+[i_replay_prio_mix0] task 8/10 avg_seen_acc=0.4979  per_task=[0.415, 0.476, 0.543, 0.489, 0.469, 0.465, 0.445, 0.681]
+[replay:schema] task 9: buffer score 0.358 -> 0.021, ESS 1.00 of buffer
+[i_replay_prio_mix0] task 9/10 avg_seen_acc=0.4683  per_task=[0.404, 0.496, 0.487, 0.43, 0.377, 0.459, 0.421, 0.459, 0.682]
+[replay:schema] task 10: buffer score 0.367 -> 0.255, ESS 1.00 of buffer
+[i_replay_prio_mix0] task 10/10 avg_seen_acc=0.2551  per_task=[0.139, 0.19, 0.257, 0.226, 0.208, 0.155, 0.131, 0.191, 0.201, 0.853]
+
+[i_replay_prio_mix0] done.
+  average_accuracy   = 0.2551
+  average_forgetting = 0.5007
+  retained_accuracy  = 0.4145
+  vs null model (seen): avg 0.0100 (ratio 25.51), retained 0.0157 (ratio 26.38)
+  results -> results/i_replay_prio_mix0
+
+real	12m24.793s
+user	28m29.873s
+sys	6m35.974s
+end 2026-09-15T16:01:20-04:00

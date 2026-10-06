@@ -1,0 +1,23 @@
+start 2026-10-03T13:13:02-04:00 gpu=1 host=hippo cfg=i_replay_decay_oracle seed=3
+[i_replay_decay_oracle_s3] task 1/10 avg_seen_acc=0.6820  per_task=[0.682]
+[i_replay_decay_oracle_s3] task 2/10 avg_seen_acc=0.5705  per_task=[0.451, 0.69]
+[i_replay_decay_oracle_s3] task 3/10 avg_seen_acc=0.4223  per_task=[0.218, 0.198, 0.851]
+[i_replay_decay_oracle_s3] task 4/10 avg_seen_acc=0.4353  per_task=[0.288, 0.329, 0.376, 0.748]
+[i_replay_decay_oracle_s3] task 5/10 avg_seen_acc=0.4528  per_task=[0.318, 0.366, 0.415, 0.336, 0.829]
+[i_replay_decay_oracle_s3] task 6/10 avg_seen_acc=0.4237  per_task=[0.32, 0.377, 0.394, 0.323, 0.318, 0.81]
+[i_replay_decay_oracle_s3] task 7/10 avg_seen_acc=0.4420  per_task=[0.334, 0.386, 0.466, 0.369, 0.313, 0.401, 0.825]
+[i_replay_decay_oracle_s3] task 8/10 avg_seen_acc=0.4458  per_task=[0.338, 0.446, 0.482, 0.409, 0.412, 0.386, 0.302, 0.791]
+[i_replay_decay_oracle_s3] task 9/10 avg_seen_acc=0.3256  per_task=[0.213, 0.316, 0.307, 0.249, 0.192, 0.32, 0.213, 0.248, 0.872]
+[i_replay_decay_oracle_s3] task 10/10 avg_seen_acc=0.2844  per_task=[0.193, 0.236, 0.313, 0.275, 0.228, 0.145, 0.157, 0.205, 0.24, 0.852]
+
+[i_replay_decay_oracle_s3] done.
+  average_accuracy   = 0.2844
+  average_forgetting = 0.5673
+  retained_accuracy  = 0.3138
+  vs null model (seen): avg 0.0100 (ratio 28.44), retained 0.0157 (ratio 19.97)
+  results -> results/i_replay_decay_oracle_s3
+
+real	13m40.966s
+user	29m17.451s
+sys	8m18.692s
+end 2026-10-03T13:26:43-04:00

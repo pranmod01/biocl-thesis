@@ -1,0 +1,6 @@
+checkpoints/coarse_net_r18_cf4_f0.pt
+checkpoints/coarse_net_r18_cf4_f1.pt
+checkpoints/coarse_net_r18_cf4_f2.pt
+checkpoints/coarse_net_r18_cf4_f3.pt
+GPU 0 <- n_replay_concat_trained_r18cf (pid 1104953)
+GPU 1 <- n_replay_gate_trained_r18cf (pid 1104954)

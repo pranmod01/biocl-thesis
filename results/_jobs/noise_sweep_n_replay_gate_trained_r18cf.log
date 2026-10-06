@@ -1,0 +1,23 @@
+start 2026-10-03T13:50:50-04:00 gpu=1 host=hippo
+[n_replay_gate_trained_r18cf] task 1/10 avg_seen_acc=0.8320  per_task=[0.832]
+[n_replay_gate_trained_r18cf] task 2/10 avg_seen_acc=0.7345  per_task=[0.692, 0.777]
+[n_replay_gate_trained_r18cf] task 3/10 avg_seen_acc=0.7170  per_task=[0.674, 0.696, 0.781]
+[n_replay_gate_trained_r18cf] task 4/10 avg_seen_acc=0.6847  per_task=[0.646, 0.656, 0.731, 0.706]
+[n_replay_gate_trained_r18cf] task 5/10 avg_seen_acc=0.6900  per_task=[0.598, 0.638, 0.697, 0.664, 0.853]
+[n_replay_gate_trained_r18cf] task 6/10 avg_seen_acc=0.6315  per_task=[0.528, 0.589, 0.633, 0.57, 0.662, 0.807]
+[n_replay_gate_trained_r18cf] task 7/10 avg_seen_acc=0.6470  per_task=[0.558, 0.647, 0.689, 0.649, 0.629, 0.604, 0.753]
+[n_replay_gate_trained_r18cf] task 8/10 avg_seen_acc=0.6250  per_task=[0.55, 0.606, 0.666, 0.65, 0.615, 0.587, 0.569, 0.757]
+[n_replay_gate_trained_r18cf] task 9/10 avg_seen_acc=0.5633  per_task=[0.501, 0.587, 0.567, 0.54, 0.48, 0.52, 0.526, 0.515, 0.834]
+[n_replay_gate_trained_r18cf] task 10/10 avg_seen_acc=0.5184  per_task=[0.406, 0.483, 0.626, 0.496, 0.528, 0.362, 0.444, 0.507, 0.524, 0.808]
+
+[n_replay_gate_trained_r18cf] done.
+  average_accuracy   = 0.5184
+  average_forgetting = 0.3027
+  retained_accuracy  = 0.5846
+  vs null model: no closed form for this condition
+  results -> results/n_replay_gate_trained_r18cf
+
+real	20m21.381s
+user	35m20.820s
+sys	8m50.985s
+end 2026-10-03T14:11:11-04:00

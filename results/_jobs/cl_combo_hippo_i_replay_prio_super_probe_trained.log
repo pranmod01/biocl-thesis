@@ -1,0 +1,32 @@
+start 2026-09-15T15:34:06-04:00 gpu=2 host=hippo
+[i_replay_prio_super_probe_trained] task 1/10 avg_seen_acc=0.6850  per_task=[0.685]
+[replay:schema/super+probe] task 2: probe score 0.526 -> 0.631, ESS 0.98 of buffer, R max/mean 1.36
+[i_replay_prio_super_probe_trained] task 2/10 avg_seen_acc=0.5500  per_task=[0.579, 0.521]
+[replay:schema/super+probe] task 3: probe score 0.496 -> 0.554, ESS 0.97 of buffer, R max/mean 1.57
+[i_replay_prio_super_probe_trained] task 3/10 avg_seen_acc=0.5640  per_task=[0.446, 0.478, 0.768]
+[replay:schema/super+probe] task 4: probe score 0.510 -> 0.711, ESS 0.99 of buffer, R max/mean 1.26
+[i_replay_prio_super_probe_trained] task 4/10 avg_seen_acc=0.4140  per_task=[0.231, 0.314, 0.349, 0.762]
+[replay:schema/super+probe] task 5: probe score 0.590 -> 0.640, ESS 0.99 of buffer, R max/mean 1.29
+[i_replay_prio_super_probe_trained] task 5/10 avg_seen_acc=0.4508  per_task=[0.321, 0.378, 0.38, 0.357, 0.818]
+[replay:schema/super+probe] task 6: probe score 0.585 -> 0.593, ESS 0.98 of buffer, R max/mean 1.49
+[i_replay_prio_super_probe_trained] task 6/10 avg_seen_acc=0.4435  per_task=[0.325, 0.402, 0.429, 0.375, 0.352, 0.778]
+[replay:schema/super+probe] task 7: probe score 0.534 -> 0.624, ESS 0.98 of buffer, R max/mean 1.41
+[i_replay_prio_super_probe_trained] task 7/10 avg_seen_acc=0.3374  per_task=[0.246, 0.222, 0.308, 0.273, 0.174, 0.286, 0.853]
+[replay:schema/super+probe] task 8: probe score 0.567 -> 0.631, ESS 0.98 of buffer, R max/mean 1.37
+[i_replay_prio_super_probe_trained] task 8/10 avg_seen_acc=0.3559  per_task=[0.226, 0.332, 0.351, 0.296, 0.28, 0.316, 0.207, 0.839]
+[replay:schema/super+probe] task 9: probe score 0.577 -> 0.567, ESS 0.99 of buffer, R max/mean 1.33
+[i_replay_prio_super_probe_trained] task 9/10 avg_seen_acc=0.4352  per_task=[0.343, 0.44, 0.477, 0.411, 0.331, 0.413, 0.363, 0.392, 0.747]
+[replay:schema/super+probe] task 10: probe score 0.527 -> 0.748, ESS 0.99 of buffer, R max/mean 1.28
+[i_replay_prio_super_probe_trained] task 10/10 avg_seen_acc=0.2456  per_task=[0.145, 0.157, 0.255, 0.258, 0.194, 0.136, 0.126, 0.18, 0.194, 0.811]
+
+[i_replay_prio_super_probe_trained] done.
+  average_accuracy   = 0.2456
+  average_forgetting = 0.5696
+  retained_accuracy  = 0.3122
+  vs null model (seen): avg 0.0100 (ratio 24.56), retained 0.0157 (ratio 19.87)
+  results -> results/i_replay_prio_super_probe_trained
+
+real	12m9.611s
+user	28m25.967s
+sys	7m1.157s
+end 2026-09-15T15:46:15-04:00

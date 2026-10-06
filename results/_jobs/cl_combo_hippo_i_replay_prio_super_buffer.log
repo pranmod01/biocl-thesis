@@ -1,0 +1,32 @@
+start 2026-09-15T15:34:06-04:00 gpu=0 host=hippo
+[i_replay_prio_super_buffer] task 1/10 avg_seen_acc=0.6800  per_task=[0.68]
+[replay:schema/super] task 2: buffer score 0.274 -> 0.431, ESS 0.97 of buffer, R max/mean 1.55
+[i_replay_prio_super_buffer] task 2/10 avg_seen_acc=0.5620  per_task=[0.479, 0.645]
+[replay:schema/super] task 3: buffer score 0.353 -> 0.403, ESS 0.96 of buffer, R max/mean 1.68
+[i_replay_prio_super_buffer] task 3/10 avg_seen_acc=0.4987  per_task=[0.313, 0.381, 0.802]
+[replay:schema/super] task 4: buffer score 0.344 -> 0.353, ESS 0.98 of buffer, R max/mean 1.48
+[i_replay_prio_super_buffer] task 4/10 avg_seen_acc=0.3660  per_task=[0.196, 0.229, 0.26, 0.779]
+[replay:schema/super] task 5: buffer score 0.482 -> 0.365, ESS 0.98 of buffer, R max/mean 1.61
+[i_replay_prio_super_buffer] task 5/10 avg_seen_acc=0.3536  per_task=[0.208, 0.235, 0.277, 0.246, 0.802]
+[replay:schema/super] task 6: buffer score 0.533 -> 0.208, ESS 0.97 of buffer, R max/mean 1.83
+[i_replay_prio_super_buffer] task 6/10 avg_seen_acc=0.3237  per_task=[0.192, 0.224, 0.269, 0.221, 0.222, 0.814]
+[replay:schema/super] task 7: buffer score 0.493 -> 0.263, ESS 0.95 of buffer, R max/mean 2.17
+[i_replay_prio_super_buffer] task 7/10 avg_seen_acc=0.2921  per_task=[0.181, 0.143, 0.268, 0.192, 0.143, 0.272, 0.846]
+[replay:schema/super] task 8: buffer score 0.529 -> 0.270, ESS 0.97 of buffer, R max/mean 1.65
+[i_replay_prio_super_buffer] task 8/10 avg_seen_acc=0.3130  per_task=[0.198, 0.243, 0.28, 0.242, 0.228, 0.271, 0.197, 0.845]
+[replay:schema/super] task 9: buffer score 0.518 -> 0.033, ESS 0.90 of buffer, R max/mean 3.57
+[i_replay_prio_super_buffer] task 9/10 avg_seen_acc=0.4211  per_task=[0.342, 0.404, 0.463, 0.394, 0.337, 0.393, 0.338, 0.378, 0.741]
+[replay:schema/super] task 10: buffer score 0.415 -> 0.193, ESS 0.96 of buffer, R max/mean 1.83
+[i_replay_prio_super_buffer] task 10/10 avg_seen_acc=0.2515  per_task=[0.13, 0.182, 0.269, 0.221, 0.181, 0.135, 0.163, 0.187, 0.218, 0.829]
+
+[i_replay_prio_super_buffer] done.
+  average_accuracy   = 0.2515
+  average_forgetting = 0.5853
+  retained_accuracy  = 0.2566
+  vs null model (seen): avg 0.0100 (ratio 25.15), retained 0.0157 (ratio 16.33)
+  results -> results/i_replay_prio_super_buffer
+
+real	13m28.894s
+user	29m23.564s
+sys	7m45.410s
+end 2026-09-15T15:47:34-04:00

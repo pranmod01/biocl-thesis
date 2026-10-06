@@ -1,0 +1,32 @@
+start 2026-09-15T15:34:06-04:00 gpu=1 host=hippo
+[i_replay_prio_super_probe_oracle] task 1/10 avg_seen_acc=0.6600  per_task=[0.66]
+[replay:schema/super+probe] task 2: probe score 0.308 -> 0.491, ESS 0.95 of buffer, R max/mean 1.56
+[i_replay_prio_super_probe_oracle] task 2/10 avg_seen_acc=0.5255  per_task=[0.596, 0.455]
+[replay:schema/super+probe] task 3: probe score 0.268 -> 0.640, ESS 0.96 of buffer, R max/mean 1.43
+[i_replay_prio_super_probe_oracle] task 3/10 avg_seen_acc=0.5517  per_task=[0.434, 0.474, 0.747]
+[replay:schema/super+probe] task 4: probe score 0.374 -> 0.606, ESS 0.96 of buffer, R max/mean 1.59
+[i_replay_prio_super_probe_oracle] task 4/10 avg_seen_acc=0.4305  per_task=[0.269, 0.342, 0.366, 0.745]
+[replay:schema/super+probe] task 5: probe score 0.413 -> 0.642, ESS 0.97 of buffer, R max/mean 1.54
+[i_replay_prio_super_probe_oracle] task 5/10 avg_seen_acc=0.4584  per_task=[0.338, 0.381, 0.411, 0.378, 0.784]
+[replay:schema/super+probe] task 6: probe score 0.421 -> 0.612, ESS 0.97 of buffer, R max/mean 1.66
+[i_replay_prio_super_probe_oracle] task 6/10 avg_seen_acc=0.3843  per_task=[0.273, 0.292, 0.349, 0.283, 0.309, 0.8]
+[replay:schema/super+probe] task 7: probe score 0.496 -> 0.523, ESS 0.96 of buffer, R max/mean 1.55
+[i_replay_prio_super_probe_oracle] task 7/10 avg_seen_acc=0.4820  per_task=[0.372, 0.443, 0.505, 0.411, 0.421, 0.466, 0.756]
+[replay:schema/super+probe] task 8: probe score 0.381 -> 0.666, ESS 0.96 of buffer, R max/mean 1.54
+[i_replay_prio_super_probe_oracle] task 8/10 avg_seen_acc=0.2889  per_task=[0.132, 0.233, 0.266, 0.241, 0.186, 0.242, 0.143, 0.868]
+[replay:schema/super+probe] task 9: probe score 0.532 -> 0.622, ESS 0.96 of buffer, R max/mean 1.61
+[i_replay_prio_super_probe_oracle] task 9/10 avg_seen_acc=0.3482  per_task=[0.251, 0.326, 0.341, 0.297, 0.23, 0.292, 0.232, 0.33, 0.835]
+[replay:schema/super+probe] task 10: probe score 0.418 -> 0.620, ESS 0.98 of buffer, R max/mean 1.52
+[i_replay_prio_super_probe_oracle] task 10/10 avg_seen_acc=0.3531  per_task=[0.246, 0.293, 0.38, 0.331, 0.335, 0.257, 0.248, 0.316, 0.365, 0.76]
+
+[i_replay_prio_super_probe_oracle] done.
+  average_accuracy   = 0.3531
+  average_forgetting = 0.4331
+  retained_accuracy  = 0.3250
+  vs null model (seen): avg 0.0100 (ratio 35.31), retained 0.0157 (ratio 20.68)
+  results -> results/i_replay_prio_super_probe_oracle
+
+real	12m40.110s
+user	28m51.825s
+sys	7m20.317s
+end 2026-09-15T15:46:46-04:00
