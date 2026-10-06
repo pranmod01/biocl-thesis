@@ -59,10 +59,11 @@ def build_coarse_net(num_coarse: int = NUM_COARSE, arch: str = "small") -> nn.Mo
 
 
 def load_coarse_net(ckpt_path: str, device) -> nn.Module:
-    """Rebuild the net named by the checkpoint's `arch` (checkpoints written before the
-    field existed are the small CNN) and load its weights."""
+    """Rebuild the net named by the checkpoint's `arch` and head size `num_out`
+    (checkpoints written before those fields existed are the 20-way small CNN) and
+    load its weights."""
     state = torch.load(ckpt_path, map_location=device)
-    arch = state.get("arch", "small") if "model" in state else "small"
-    net = build_coarse_net(arch=arch)
+    meta = state if "model" in state else {}
+    net = build_coarse_net(meta.get("num_out", NUM_COARSE), meta.get("arch", "small"))
     net.load_state_dict(state["model"] if "model" in state else state)
     return net.to(device)

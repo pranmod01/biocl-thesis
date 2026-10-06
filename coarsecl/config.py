@@ -153,6 +153,10 @@ class CoarseTrainCfg:
     lr: float = 0.1
     momentum: float = 0.9
     weight_decay: float = 5e-4
+    # Transfer experiment only (train_coarse --split-fold k; see coarsecl/transfer/folds.py).
+    label_mode: str = "coarse"  # coarse (15 known superclasses) | fine (45-way)
+    shuffle_frac: float = 0.0  # coarse only: fraction of classes whose group labels are
+    # permuted; 1.0 = random grouping into 3s, the semantics-free control
 
 
 @dataclass
@@ -245,6 +249,13 @@ class Config:
             raise ValueError("coarse.trained.crossfit must be >= 0")
         if self.coarse.trained.crossfit and "{fold}" not in self.coarse.trained.ckpt:
             raise ValueError("coarse.trained.crossfit needs a '{fold}' placeholder in ckpt")
+        ct = self.coarse_train
+        if ct.label_mode not in ("coarse", "fine"):
+            raise ValueError("coarse_train.label_mode must be 'coarse' or 'fine'")
+        if not 0.0 <= ct.shuffle_frac <= 1.0:
+            raise ValueError("coarse_train.shuffle_frac must be in [0, 1]")
+        if ct.shuffle_frac and ct.label_mode != "coarse":
+            raise ValueError("coarse_train.shuffle_frac only applies to label_mode: coarse")
         if self.coarse.trained.continual:
             raise NotImplementedError(
                 "coarse.trained.continual is a dormant hook; only the upfront-"

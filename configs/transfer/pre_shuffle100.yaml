@@ -1,0 +1,15 @@
+# Transfer experiment pretraining (coarsecl/transfer/folds.py). One net per fold x seed:
+#   python -m coarsecl.coarse.train_coarse --config configs/transfer/pre_shuffle100.yaml --split-fold k --seed s
+# Shuffle control: 100% of classes permute group labels (100 = random grouping into 3s).
+run:
+  name: pre_shuffle100
+data:
+  num_workers: 8
+coarse:
+  trained:
+    ckpt: checkpoints/transfer/pre_shuffle100_f{fold}_s{seed}.pt
+coarse_train:
+  arch: resnet18
+  epochs: 150
+  label_mode: coarse
+  shuffle_frac: 1.00

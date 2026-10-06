@@ -1,0 +1,14 @@
+# Transfer experiment pretraining (coarsecl/transfer/folds.py). One net per fold x seed:
+#   python -m coarsecl.coarse.train_coarse --config configs/transfer/pre_coarse.yaml --split-fold k --seed s
+# 15 known superclasses, real grouping: the condition under test.
+run:
+  name: pre_coarse
+data:
+  num_workers: 8
+coarse:
+  trained:
+    ckpt: checkpoints/transfer/pre_coarse_f{fold}_s{seed}.pt
+coarse_train:
+  arch: resnet18
+  epochs: 150
+  label_mode: coarse

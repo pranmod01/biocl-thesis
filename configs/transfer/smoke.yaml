@@ -1,0 +1,13 @@
+# Pipeline check for the transfer pretraining path: small CNN, 1 epoch.
+#   python -m coarsecl.coarse.train_coarse --config configs/transfer/smoke.yaml --split-fold 0
+run:
+  name: transfer_smoke
+  device: cpu
+coarse:
+  trained:
+    ckpt: checkpoints/transfer/smoke_f{fold}_s{seed}.pt
+coarse_train:
+  arch: small
+  epochs: 1
+  label_mode: coarse
+  shuffle_frac: 0.5
