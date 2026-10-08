@@ -1,0 +1,9 @@
+# Few-shot evaluation, validation split: pick tap and probe weight decay here, then
+# run eval_test.yaml with those fixed. Queries are reserved train images; the test
+# split is never touched.
+#   python -m coarsecl.transfer.evaluate --config configs/transfer/eval_val.yaml [--only COND]
+run:
+  name: transfer_eval_val
+transfer_eval:
+  split: val
+  probe_wd: [1.0e-4, 1.0e-3, 1.0e-2]

@@ -160,6 +160,35 @@ class CoarseTrainCfg:
 
 
 @dataclass
+class TransferEvalCfg:
+    """Few-shot evaluation of frozen pretrained nets (coarsecl/transfer/evaluate.py).
+
+    Every checkpoint ckpt.format(condition, fold, seed) is read out with NCM and a
+    linear probe on episodes over its fold's held-out classes. `scratch` is a
+    randomly initialised net (no checkpoint), the floor."""
+
+    conditions: list = field(default_factory=lambda: [
+        "pre_coarse", "pre_shuffle25", "pre_shuffle50", "pre_shuffle100", "pre_fine", "scratch"])
+    ckpt: str = "checkpoints/transfer/{condition}_f{fold}_s{seed}.pt"
+    folds: list = field(default_factory=lambda: [0, 1, 2, 3])
+    seeds: list = field(default_factory=lambda: [0, 1, 2])
+    # val: queries are reserved TRAIN images (for picking tap / probe settings);
+    # test: queries are the test split. Support always comes from the unreserved train
+    # images, so val and test share one support pool and max k = 500 - val_per_class.
+    split: str = "val"
+    val_per_class: int = 100
+    split_seed: int = 0  # which train images are reserved; fixed across episode draws
+    taps: list = field(default_factory=lambda: ["layer2", "layer3", "layer4"])  # avg-pooled
+    ks: list = field(default_factory=lambda: [1, 5, 10, 25, 50, 100, 400])
+    episodes: int = 20  # support draws per class set and k
+    cross_sets: int = 20  # 5-way cross-superclass class sets per arm (sanity check)
+    episode_seed: int = 0
+    probe_wd: list = field(default_factory=lambda: [1e-3])  # one probe readout per value
+    probe_steps: int = 300
+    probe_lr: float = 0.05
+
+
+@dataclass
 class Config:
     run: RunCfg = field(default_factory=RunCfg)
     data: DataCfg = field(default_factory=DataCfg)
@@ -170,6 +199,7 @@ class Config:
     cl: CLCfg = field(default_factory=CLCfg)
     train: TrainCfg = field(default_factory=TrainCfg)
     coarse_train: CoarseTrainCfg = field(default_factory=CoarseTrainCfg)
+    transfer_eval: TransferEvalCfg = field(default_factory=TransferEvalCfg)
 
     # -- (de)serialization -------------------------------------------------
     @staticmethod
@@ -256,6 +286,17 @@ class Config:
             raise ValueError("coarse_train.shuffle_frac must be in [0, 1]")
         if ct.shuffle_frac and ct.label_mode != "coarse":
             raise ValueError("coarse_train.shuffle_frac only applies to label_mode: coarse")
+        te = self.transfer_eval
+        if te.split not in ("val", "test"):
+            raise ValueError("transfer_eval.split must be 'val' or 'test'")
+        if not 0 < te.val_per_class < 500:
+            raise ValueError("transfer_eval.val_per_class must be in (0, 500)")
+        if max(te.ks) > 500 - te.val_per_class:
+            raise ValueError(f"transfer_eval.ks: max k {max(te.ks)} exceeds the "
+                             f"{500 - te.val_per_class} unreserved train images per class")
+        for t in te.taps:
+            if t not in ("layer1", "layer2", "layer3", "layer4"):
+                raise ValueError(f"transfer_eval.taps: unknown tap {t!r}")
         if self.coarse.trained.continual:
             raise NotImplementedError(
                 "coarse.trained.continual is a dormant hook; only the upfront-"
