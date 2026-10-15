@@ -1,0 +1,10 @@
+# Pipeline check for coarsecl/transfer/evaluate.py on the checkpoints that exist.
+run:
+  name: _transfer_eval_dev
+  device: cuda
+transfer_eval:
+  split: val
+  conditions: [pre_coarse, scratch]
+  folds: [0]
+  seeds: [0]
+  probe_wd: [1.0e-3]

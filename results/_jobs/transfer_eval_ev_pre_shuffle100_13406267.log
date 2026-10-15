@@ -1,0 +1,186 @@
+cuda ok NVIDIA RTX PRO 6000 Blackwell Server Edition
+[eval] pre_shuffle100 f0 s0: sibling k=1
+arm                    known  novel
+tap    readout                     
+layer2 ncm             0.613  0.598
+       probe_wd0.0001  0.610  0.598
+       probe_wd0.001   0.612  0.598
+       probe_wd0.01    0.613  0.598
+layer3 ncm             0.648  0.611
+       probe_wd0.0001  0.647  0.609
+       probe_wd0.001   0.648  0.610
+       probe_wd0.01    0.648  0.611
+layer4 ncm             0.611  0.584
+       probe_wd0.0001  0.610  0.583
+       probe_wd0.001   0.611  0.584
+       probe_wd0.01    0.611  0.584
+[eval] pre_shuffle100 f1 s0: sibling k=1
+arm                    known  novel
+tap    readout                     
+layer2 ncm             0.610  0.595
+       probe_wd0.0001  0.610  0.594
+       probe_wd0.001   0.610  0.594
+       probe_wd0.01    0.610  0.595
+layer3 ncm             0.638  0.628
+       probe_wd0.0001  0.637  0.627
+       probe_wd0.001   0.639  0.628
+       probe_wd0.01    0.638  0.628
+layer4 ncm             0.616  0.588
+       probe_wd0.0001  0.613  0.586
+       probe_wd0.001   0.615  0.587
+       probe_wd0.01    0.616  0.588
+[eval] pre_shuffle100 f2 s0: sibling k=1
+arm                    known  novel
+tap    readout                     
+layer2 ncm             0.573  0.604
+       probe_wd0.0001  0.573  0.604
+       probe_wd0.001   0.572  0.604
+       probe_wd0.01    0.573  0.604
+layer3 ncm             0.595  0.639
+       probe_wd0.0001  0.594  0.637
+       probe_wd0.001   0.595  0.640
+       probe_wd0.01    0.595  0.639
+layer4 ncm             0.581  0.587
+       probe_wd0.0001  0.580  0.587
+       probe_wd0.001   0.581  0.587
+       probe_wd0.01    0.581  0.587
+[eval] pre_shuffle100 f3 s0: sibling k=1
+arm                    known  novel
+tap    readout                     
+layer2 ncm             0.590  0.604
+       probe_wd0.0001  0.591  0.603
+       probe_wd0.001   0.590  0.604
+       probe_wd0.01    0.590  0.604
+layer3 ncm             0.620  0.636
+       probe_wd0.0001  0.622  0.636
+       probe_wd0.001   0.621  0.636
+       probe_wd0.01    0.620  0.636
+layer4 ncm             0.623  0.597
+       probe_wd0.0001  0.622  0.596
+       probe_wd0.001   0.623  0.597
+       probe_wd0.01    0.623  0.597
+[eval] pre_shuffle100 f0 s1: sibling k=1
+arm                    known  novel
+tap    readout                     
+layer2 ncm             0.613  0.597
+       probe_wd0.0001  0.612  0.596
+       probe_wd0.001   0.613  0.597
+       probe_wd0.01    0.613  0.597
+layer3 ncm             0.645  0.611
+       probe_wd0.0001  0.645  0.611
+       probe_wd0.001   0.644  0.611
+       probe_wd0.01    0.645  0.611
+layer4 ncm             0.594  0.575
+       probe_wd0.0001  0.593  0.573
+       probe_wd0.001   0.594  0.575
+       probe_wd0.01    0.594  0.575
+[eval] pre_shuffle100 f1 s1: sibling k=1
+arm                    known  novel
+tap    readout                     
+layer2 ncm             0.613  0.598
+       probe_wd0.0001  0.611  0.597
+       probe_wd0.001   0.612  0.597
+       probe_wd0.01    0.613  0.598
+layer3 ncm             0.640  0.624
+       probe_wd0.0001  0.641  0.625
+       probe_wd0.001   0.640  0.624
+       probe_wd0.01    0.640  0.624
+layer4 ncm             0.616  0.596
+       probe_wd0.0001  0.615  0.594
+       probe_wd0.001   0.616  0.595
+       probe_wd0.01    0.616  0.596
+[eval] pre_shuffle100 f2 s1: sibling k=1
+arm                    known  novel
+tap    readout                     
+layer2 ncm             0.576  0.608
+       probe_wd0.0001  0.574  0.608
+       probe_wd0.001   0.575  0.608
+       probe_wd0.01    0.576  0.608
+layer3 ncm             0.598  0.637
+       probe_wd0.0001  0.598  0.634
+       probe_wd0.001   0.598  0.636
+       probe_wd0.01    0.598  0.637
+layer4 ncm             0.591  0.583
+       probe_wd0.0001  0.590  0.582
+       probe_wd0.001   0.591  0.583
+       probe_wd0.01    0.591  0.583
+[eval] pre_shuffle100 f3 s1: sibling k=1
+arm                    known  novel
+tap    readout                     
+layer2 ncm             0.595  0.608
+       probe_wd0.0001  0.596  0.609
+       probe_wd0.001   0.596  0.608
+       probe_wd0.01    0.595  0.608
+layer3 ncm             0.630  0.641
+       probe_wd0.0001  0.633  0.640
+       probe_wd0.001   0.631  0.641
+       probe_wd0.01    0.630  0.641
+layer4 ncm             0.603  0.594
+       probe_wd0.0001  0.603  0.593
+       probe_wd0.001   0.603  0.594
+       probe_wd0.01    0.603  0.594
+[eval] pre_shuffle100 f0 s2: sibling k=1
+arm                    known  novel
+tap    readout                     
+layer2 ncm             0.611  0.596
+       probe_wd0.0001  0.610  0.594
+       probe_wd0.001   0.611  0.596
+       probe_wd0.01    0.611  0.596
+layer3 ncm             0.647  0.614
+       probe_wd0.0001  0.643  0.612
+       probe_wd0.001   0.648  0.614
+       probe_wd0.01    0.647  0.614
+layer4 ncm             0.604  0.586
+       probe_wd0.0001  0.601  0.585
+       probe_wd0.001   0.603  0.586
+       probe_wd0.01    0.604  0.586
+[eval] pre_shuffle100 f1 s2: sibling k=1
+arm                    known  novel
+tap    readout                     
+layer2 ncm             0.613  0.600
+       probe_wd0.0001  0.615  0.601
+       probe_wd0.001   0.613  0.600
+       probe_wd0.01    0.613  0.600
+layer3 ncm             0.639  0.629
+       probe_wd0.0001  0.640  0.630
+       probe_wd0.001   0.640  0.629
+       probe_wd0.01    0.639  0.629
+layer4 ncm             0.614  0.591
+       probe_wd0.0001  0.611  0.589
+       probe_wd0.001   0.614  0.591
+       probe_wd0.01    0.614  0.591
+[eval] pre_shuffle100 f2 s2: sibling k=1
+arm                    known  novel
+tap    readout                     
+layer2 ncm             0.580  0.606
+       probe_wd0.0001  0.581  0.607
+       probe_wd0.001   0.579  0.606
+       probe_wd0.01    0.580  0.606
+layer3 ncm             0.603  0.639
+       probe_wd0.0001  0.601  0.637
+       probe_wd0.001   0.602  0.639
+       probe_wd0.01    0.603  0.639
+layer4 ncm             0.581  0.604
+       probe_wd0.0001  0.580  0.603
+       probe_wd0.001   0.581  0.604
+       probe_wd0.01    0.581  0.604
+[eval] pre_shuffle100 f3 s2: sibling k=1
+arm                    known  novel
+tap    readout                     
+layer2 ncm             0.598  0.610
+       probe_wd0.0001  0.600  0.614
+       probe_wd0.001   0.599  0.611
+       probe_wd0.01    0.598  0.610
+layer3 ncm             0.625  0.642
+       probe_wd0.0001  0.627  0.642
+       probe_wd0.001   0.625  0.642
+       probe_wd0.01    0.625  0.642
+layer4 ncm             0.620  0.599
+       probe_wd0.0001  0.619  0.597
+       probe_wd0.001   0.620  0.599
+       probe_wd0.01    0.620  0.599
+
+real	12m53.383s
+user	9m39.843s
+sys	1m35.078s
+DONE rc=0

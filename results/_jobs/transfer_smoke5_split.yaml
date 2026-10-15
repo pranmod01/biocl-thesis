@@ -1,0 +1,12 @@
+# Smoke check (pickup 10-06 §3): split path, small CNN, 5 epochs, must climb above 1/15.
+run:
+  name: transfer_smoke5_split
+  device: cuda
+coarse:
+  trained:
+    ckpt: checkpoints/transfer/smoke5_f{fold}_s{seed}.pt
+coarse_train:
+  arch: small
+  epochs: 5
+  label_mode: coarse
+  shuffle_frac: 0.5

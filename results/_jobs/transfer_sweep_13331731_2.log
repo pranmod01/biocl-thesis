@@ -1,0 +1,32 @@
+task 2: pre_coarse fold 0 seed 2
+cuda True NVIDIA L40S
+Traceback (most recent call last):
+  File "/usr/lib64/python3.9/runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib64/python3.9/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/insomnia001/home/pm3361/biocl-thesis-transfer/coarsecl/coarse/train_coarse.py", line 178, in <module>
+    main()
+  File "/insomnia001/home/pm3361/biocl-thesis-transfer/coarsecl/coarse/train_coarse.py", line 124, in main
+    net = build_coarse_net(num_out, arch=tc.arch).to(device)
+  File "/insomnia001/home/pm3361/biocl-thesis-transfer/.venv/lib64/python3.9/site-packages/torch/nn/modules/module.py", line 1369, in to
+    return self._apply(convert)
+  File "/insomnia001/home/pm3361/biocl-thesis-transfer/.venv/lib64/python3.9/site-packages/torch/nn/modules/module.py", line 928, in _apply
+    module._apply(fn)
+  File "/insomnia001/home/pm3361/biocl-thesis-transfer/.venv/lib64/python3.9/site-packages/torch/nn/modules/module.py", line 928, in _apply
+    module._apply(fn)
+  File "/insomnia001/home/pm3361/biocl-thesis-transfer/.venv/lib64/python3.9/site-packages/torch/nn/modules/module.py", line 955, in _apply
+    param_applied = fn(param)
+  File "/insomnia001/home/pm3361/biocl-thesis-transfer/.venv/lib64/python3.9/site-packages/torch/nn/modules/module.py", line 1355, in convert
+    return t.to(
+torch.AcceleratorError: CUDA error: uncorrectable ECC error encountered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+[coarse] fold 0: 45 pretrain classes, coarse labels (15-way), shuffle_frac=0.0, sibling agreement=1.000
+
+real	0m23.643s
+user	0m5.852s
+sys	0m1.401s
+DONE

@@ -1,0 +1,186 @@
+cuda ok NVIDIA RTX PRO 6000 Blackwell Server Edition
+[eval] pre_coarse f0 s0: sibling k=1
+arm                    known  novel
+tap    readout                     
+layer2 ncm             0.612  0.599
+       probe_wd0.0001  0.611  0.600
+       probe_wd0.001   0.611  0.599
+       probe_wd0.01    0.612  0.599
+layer3 ncm             0.646  0.619
+       probe_wd0.0001  0.643  0.615
+       probe_wd0.001   0.646  0.618
+       probe_wd0.01    0.646  0.619
+layer4 ncm             0.625  0.598
+       probe_wd0.0001  0.625  0.597
+       probe_wd0.001   0.625  0.598
+       probe_wd0.01    0.625  0.598
+[eval] pre_coarse f1 s0: sibling k=1
+arm                    known  novel
+tap    readout                     
+layer2 ncm             0.609  0.599
+       probe_wd0.0001  0.610  0.599
+       probe_wd0.001   0.609  0.599
+       probe_wd0.01    0.609  0.599
+layer3 ncm             0.640  0.632
+       probe_wd0.0001  0.636  0.630
+       probe_wd0.001   0.640  0.632
+       probe_wd0.01    0.640  0.632
+layer4 ncm             0.589  0.605
+       probe_wd0.0001  0.588  0.604
+       probe_wd0.001   0.589  0.605
+       probe_wd0.01    0.589  0.605
+[eval] pre_coarse f2 s0: sibling k=1
+arm                    known  novel
+tap    readout                     
+layer2 ncm             0.572  0.607
+       probe_wd0.0001  0.574  0.609
+       probe_wd0.001   0.572  0.607
+       probe_wd0.01    0.572  0.607
+layer3 ncm             0.599  0.639
+       probe_wd0.0001  0.595  0.638
+       probe_wd0.001   0.598  0.639
+       probe_wd0.01    0.599  0.639
+layer4 ncm             0.585  0.585
+       probe_wd0.0001  0.584  0.585
+       probe_wd0.001   0.585  0.585
+       probe_wd0.01    0.585  0.585
+[eval] pre_coarse f3 s0: sibling k=1
+arm                    known  novel
+tap    readout                     
+layer2 ncm             0.590  0.604
+       probe_wd0.0001  0.588  0.604
+       probe_wd0.001   0.589  0.604
+       probe_wd0.01    0.590  0.604
+layer3 ncm             0.622  0.635
+       probe_wd0.0001  0.625  0.636
+       probe_wd0.001   0.623  0.635
+       probe_wd0.01    0.622  0.635
+layer4 ncm             0.581  0.610
+       probe_wd0.0001  0.580  0.609
+       probe_wd0.001   0.581  0.610
+       probe_wd0.01    0.581  0.610
+[eval] pre_coarse f0 s1: sibling k=1
+arm                    known  novel
+tap    readout                     
+layer2 ncm             0.612  0.597
+       probe_wd0.0001  0.613  0.597
+       probe_wd0.001   0.612  0.597
+       probe_wd0.01    0.612  0.597
+layer3 ncm             0.649  0.614
+       probe_wd0.0001  0.646  0.611
+       probe_wd0.001   0.649  0.613
+       probe_wd0.01    0.649  0.614
+layer4 ncm             0.626  0.596
+       probe_wd0.0001  0.625  0.596
+       probe_wd0.001   0.626  0.596
+       probe_wd0.01    0.626  0.596
+[eval] pre_coarse f1 s1: sibling k=1
+arm                    known  novel
+tap    readout                     
+layer2 ncm             0.612  0.599
+       probe_wd0.0001  0.614  0.601
+       probe_wd0.001   0.614  0.599
+       probe_wd0.01    0.612  0.599
+layer3 ncm             0.643  0.631
+       probe_wd0.0001  0.643  0.630
+       probe_wd0.001   0.643  0.630
+       probe_wd0.01    0.643  0.631
+layer4 ncm             0.589  0.604
+       probe_wd0.0001  0.587  0.603
+       probe_wd0.001   0.589  0.604
+       probe_wd0.01    0.589  0.604
+[eval] pre_coarse f2 s1: sibling k=1
+arm                    known  novel
+tap    readout                     
+layer2 ncm             0.577  0.603
+       probe_wd0.0001  0.576  0.602
+       probe_wd0.001   0.577  0.603
+       probe_wd0.01    0.577  0.603
+layer3 ncm             0.599  0.637
+       probe_wd0.0001  0.596  0.636
+       probe_wd0.001   0.599  0.637
+       probe_wd0.01    0.599  0.637
+layer4 ncm             0.585  0.581
+       probe_wd0.0001  0.584  0.581
+       probe_wd0.001   0.585  0.581
+       probe_wd0.01    0.585  0.581
+[eval] pre_coarse f3 s1: sibling k=1
+arm                    known  novel
+tap    readout                     
+layer2 ncm             0.594  0.607
+       probe_wd0.0001  0.595  0.610
+       probe_wd0.001   0.594  0.608
+       probe_wd0.01    0.594  0.607
+layer3 ncm             0.626  0.638
+       probe_wd0.0001  0.626  0.638
+       probe_wd0.001   0.626  0.638
+       probe_wd0.01    0.626  0.638
+layer4 ncm             0.584  0.608
+       probe_wd0.0001  0.582  0.608
+       probe_wd0.001   0.584  0.609
+       probe_wd0.01    0.584  0.608
+[eval] pre_coarse f0 s2: sibling k=1
+arm                    known  novel
+tap    readout                     
+layer2 ncm             0.614  0.598
+       probe_wd0.0001  0.611  0.599
+       probe_wd0.001   0.613  0.599
+       probe_wd0.01    0.614  0.598
+layer3 ncm             0.650  0.616
+       probe_wd0.0001  0.649  0.614
+       probe_wd0.001   0.650  0.616
+       probe_wd0.01    0.650  0.616
+layer4 ncm             0.625  0.598
+       probe_wd0.0001  0.625  0.598
+       probe_wd0.001   0.626  0.598
+       probe_wd0.01    0.625  0.598
+[eval] pre_coarse f1 s2: sibling k=1
+arm                    known  novel
+tap    readout                     
+layer2 ncm             0.612  0.600
+       probe_wd0.0001  0.613  0.602
+       probe_wd0.001   0.613  0.600
+       probe_wd0.01    0.612  0.600
+layer3 ncm             0.647  0.634
+       probe_wd0.0001  0.643  0.631
+       probe_wd0.001   0.646  0.633
+       probe_wd0.01    0.647  0.634
+layer4 ncm             0.591  0.607
+       probe_wd0.0001  0.589  0.606
+       probe_wd0.001   0.590  0.607
+       probe_wd0.01    0.591  0.607
+[eval] pre_coarse f2 s2: sibling k=1
+arm                    known  novel
+tap    readout                     
+layer2 ncm             0.574  0.607
+       probe_wd0.0001  0.576  0.607
+       probe_wd0.001   0.574  0.607
+       probe_wd0.01    0.574  0.607
+layer3 ncm             0.599  0.632
+       probe_wd0.0001  0.596  0.630
+       probe_wd0.001   0.598  0.632
+       probe_wd0.01    0.599  0.632
+layer4 ncm             0.587  0.582
+       probe_wd0.0001  0.584  0.582
+       probe_wd0.001   0.587  0.582
+       probe_wd0.01    0.587  0.582
+[eval] pre_coarse f3 s2: sibling k=1
+arm                    known  novel
+tap    readout                     
+layer2 ncm             0.596  0.608
+       probe_wd0.0001  0.598  0.609
+       probe_wd0.001   0.597  0.608
+       probe_wd0.01    0.596  0.608
+layer3 ncm             0.626  0.636
+       probe_wd0.0001  0.627  0.637
+       probe_wd0.001   0.627  0.636
+       probe_wd0.01    0.626  0.636
+layer4 ncm             0.585  0.609
+       probe_wd0.0001  0.584  0.609
+       probe_wd0.001   0.585  0.609
+       probe_wd0.01    0.585  0.609
+
+real	12m44.686s
+user	9m39.629s
+sys	1m34.258s
+DONE rc=0

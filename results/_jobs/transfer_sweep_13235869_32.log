@@ -1,0 +1,7 @@
+task 32: pre_shuffle50 fold 2 seed 2
+cuda True NVIDIA RTX A6000
+[coarse] fold 2: 45 pretrain classes, coarse labels (15-way), shuffle_frac=0.5, sibling agreement=0.289
+[coarse] epoch 1/150  test_acc=0.1962
+[coarse] epoch 2/150  test_acc=0.2491
+[coarse] epoch 3/150  test_acc=0.2838
+[coarse] epoch 4/150  test_acc=0.3091

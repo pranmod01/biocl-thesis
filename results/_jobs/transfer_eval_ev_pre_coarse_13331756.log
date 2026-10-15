@@ -1,0 +1,44 @@
+cuda True NVIDIA L40S
+Traceback (most recent call last):
+  File "/usr/lib64/python3.9/runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib64/python3.9/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/insomnia001/home/pm3361/biocl-thesis-transfer/coarsecl/transfer/evaluate.py", line 157, in <module>
+    main()
+  File "/insomnia001/home/pm3361/biocl-thesis-transfer/coarsecl/transfer/evaluate.py", line 141, in main
+    net, meta = build_net(condition, te.ckpt.format(
+  File "/insomnia001/home/pm3361/biocl-thesis-transfer/coarsecl/transfer/evaluate.py", line 78, in build_net
+    return load_coarse_net(path, device), meta
+  File "/insomnia001/home/pm3361/biocl-thesis-transfer/coarsecl/models/coarse_net.py", line 65, in load_coarse_net
+    state = torch.load(ckpt_path, map_location=device)
+  File "/insomnia001/home/pm3361/biocl-thesis-transfer/.venv/lib64/python3.9/site-packages/torch/serialization.py", line 1521, in load
+    return _load(
+  File "/insomnia001/home/pm3361/biocl-thesis-transfer/.venv/lib64/python3.9/site-packages/torch/serialization.py", line 2119, in _load
+    result = unpickler.load()
+  File "/insomnia001/home/pm3361/biocl-thesis-transfer/.venv/lib64/python3.9/site-packages/torch/_weights_only_unpickler.py", line 532, in load
+    self.append(self.persistent_load(pid))
+  File "/insomnia001/home/pm3361/biocl-thesis-transfer/.venv/lib64/python3.9/site-packages/torch/serialization.py", line 2083, in persistent_load
+    typed_storage = load_tensor(
+  File "/insomnia001/home/pm3361/biocl-thesis-transfer/.venv/lib64/python3.9/site-packages/torch/serialization.py", line 2049, in load_tensor
+    wrap_storage = restore_location(storage, location)
+  File "/insomnia001/home/pm3361/biocl-thesis-transfer/.venv/lib64/python3.9/site-packages/torch/serialization.py", line 1864, in restore_location
+    return default_restore_location(storage, str(map_location))
+  File "/insomnia001/home/pm3361/biocl-thesis-transfer/.venv/lib64/python3.9/site-packages/torch/serialization.py", line 698, in default_restore_location
+    result = fn(storage, location)
+  File "/insomnia001/home/pm3361/biocl-thesis-transfer/.venv/lib64/python3.9/site-packages/torch/serialization.py", line 637, in _deserialize
+    return obj.to(device=device)
+  File "/insomnia001/home/pm3361/biocl-thesis-transfer/.venv/lib64/python3.9/site-packages/torch/storage.py", line 291, in to
+    return _to(self, device, non_blocking)
+  File "/insomnia001/home/pm3361/biocl-thesis-transfer/.venv/lib64/python3.9/site-packages/torch/_utils.py", line 101, in _to
+    untyped_storage = torch.UntypedStorage(self.size(), device=device)
+torch.AcceleratorError: CUDA error: uncorrectable ECC error encountered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+real	0m7.511s
+user	0m6.805s
+sys	0m2.371s
+DONE

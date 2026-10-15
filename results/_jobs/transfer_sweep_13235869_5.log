@@ -1,0 +1,6 @@
+task 5: pre_coarse fold 1 seed 2
+cuda True NVIDIA RTX PRO 6000 Blackwell Server Edition
+[coarse] fold 1: 45 pretrain classes, coarse labels (15-way), shuffle_frac=0.0, sibling agreement=1.000
+[coarse] epoch 1/150  test_acc=0.2709
+[coarse] epoch 2/150  test_acc=0.2978
+[coarse] epoch 3/150  test_acc=0.3811

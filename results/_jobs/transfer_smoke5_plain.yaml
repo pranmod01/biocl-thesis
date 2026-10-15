@@ -1,0 +1,10 @@
+# Control for the smoke check: plain 20-way path (no --split-fold), same settings.
+run:
+  name: transfer_smoke5_plain
+  device: cuda
+coarse:
+  trained:
+    ckpt: checkpoints/transfer/smoke5_plain.pt
+coarse_train:
+  arch: small
+  epochs: 5

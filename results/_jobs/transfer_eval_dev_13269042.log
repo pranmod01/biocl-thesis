@@ -1,0 +1,23 @@
+[eval] pre_coarse f0 s0: sibling k=1
+arm                   known  novel
+tap    readout                    
+layer2 ncm            0.612  0.599
+       probe_wd0.001  0.611  0.599
+layer3 ncm            0.646  0.619
+       probe_wd0.001  0.646  0.618
+layer4 ncm            0.625  0.598
+       probe_wd0.001  0.625  0.598
+[eval] scratch f0 s0: sibling k=1
+arm                   known  novel
+tap    readout                    
+layer2 ncm            0.556  0.555
+       probe_wd0.001  0.556  0.555
+layer3 ncm            0.553  0.551
+       probe_wd0.001  0.553  0.551
+layer4 ncm            0.550  0.547
+       probe_wd0.001  0.550  0.547
+
+real	2m54.426s
+user	1m16.095s
+sys	0m21.887s
+DONE

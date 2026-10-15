@@ -1,0 +1,10 @@
+{
+ "fold": 1,
+ "seed": 0,
+ "label_mode": "coarse",
+ "shuffle_frac": 0.0,
+ "sibling_agreement": 1.0,
+ "train_acc": 0.9999555555555556,
+ "heldout_super_acc": 0.5253333333333333,
+ "test_acc": 0.8755555555555555
+}

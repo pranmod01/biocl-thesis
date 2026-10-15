@@ -1,0 +1,55 @@
+cuda True NVIDIA RTX PRO 6000 Blackwell Server Edition
+=== split fold 0, shuffle 0.5, 5 ep ===
+[coarse] fold 0: 45 pretrain classes, coarse labels (15-way), shuffle_frac=0.5, sibling agreement=0.333
+[coarse] epoch 1/5  test_acc=0.1300
+[coarse] epoch 2/5  test_acc=0.1453
+[coarse] epoch 3/5  test_acc=0.1820
+[coarse] epoch 4/5  test_acc=0.1880
+[coarse] epoch 5/5  test_acc=0.1904
+[coarse] fold=0  seed=0  label_mode=coarse  shuffle_frac=0.5000  sibling_agreement=0.3333  train_acc=0.1932  heldout_super_acc=0.1110
+[coarse] saved checkpoint -> checkpoints/transfer/smoke5_f0_s0.pt  (final test_acc=0.1904)
+=== plain 20-way, 5 ep ===
+[coarse] epoch 1/5  test_acc=0.1306
+[coarse] epoch 2/5  test_acc=0.1953
+[coarse] epoch 3/5  test_acc=0.2093
+[coarse] epoch 4/5  test_acc=0.2563
+[coarse] epoch 5/5  test_acc=0.2842
+[coarse] saved checkpoint -> checkpoints/transfer/smoke5_plain.pt  (final test_acc=0.2842)
+=== test_cl_methods ===
+pre-boundary: both inert  OK
+buffer: 500 idx, 500 unique, 50 classes (want 500/50 seen)
+replay loss = 4.0686 (grad_fn=True)
+ewc penalty = 0.000000  fisher_max = 1.489e-02  anchored_params = 62
+ewc penalty after perturbation = 28.5326
+after task 2: 500 idx over 100 classes
+
+ALL CHECKS PASSED
+
+--- replay mask regression ---
+  mask given to replay CE covers 100 classes (current seen=100, buffer-time=50)
+  replay competes against current-task classes  OK
+
+ALL CHECKS PASSED
+
+--- priority replay ---
+  schema: buffer=500, score mean 0.947, p range [0.95, 1.03] x uniform  OK
+  hardness: buffer=500, score mean 0.978, p range [0.98, 1.01] x uniform  OK
+
+ALL CHECKS PASSED
+
+--- superclass priority ---
+  probes=0 schema=oracle: replay 500 + probe 0, R max/mean 1.04  OK
+  probes=2 schema=oracle: replay 400 + probe 100, R max/mean 1.04  OK
+  probes=2 schema=trained: replay 400 + probe 100, R max/mean 1.03  OK
+
+ALL CHECKS PASSED
+
+--- noisy source ---
+  rate=0.0: corrupted 0.0000  OK
+  rate=0.1: corrupted 0.0995  OK
+  rate=0.34: corrupted 0.3367  OK
+  rate=0.95: corrupted 0.9502  OK
+  fixed per image across loader passes, oracle at rate 0, uid offsets  OK
+
+ALL CHECKS PASSED
+DONE

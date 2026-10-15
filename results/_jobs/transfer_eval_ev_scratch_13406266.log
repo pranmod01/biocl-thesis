@@ -1,0 +1,186 @@
+cuda ok NVIDIA RTX PRO 6000 Blackwell Server Edition
+[eval] scratch f0 s0: sibling k=1
+arm                    known  novel
+tap    readout                     
+layer2 ncm             0.556  0.555
+       probe_wd0.0001  0.555  0.555
+       probe_wd0.001   0.556  0.555
+       probe_wd0.01    0.556  0.555
+layer3 ncm             0.553  0.551
+       probe_wd0.0001  0.552  0.551
+       probe_wd0.001   0.553  0.551
+       probe_wd0.01    0.553  0.551
+layer4 ncm             0.550  0.547
+       probe_wd0.0001  0.549  0.546
+       probe_wd0.001   0.550  0.547
+       probe_wd0.01    0.550  0.547
+[eval] scratch f1 s0: sibling k=1
+arm                    known  novel
+tap    readout                     
+layer2 ncm             0.547  0.540
+       probe_wd0.0001  0.546  0.540
+       probe_wd0.001   0.547  0.540
+       probe_wd0.01    0.547  0.540
+layer3 ncm             0.545  0.538
+       probe_wd0.0001  0.545  0.539
+       probe_wd0.001   0.545  0.538
+       probe_wd0.01    0.545  0.538
+layer4 ncm             0.537  0.534
+       probe_wd0.0001  0.537  0.535
+       probe_wd0.001   0.537  0.534
+       probe_wd0.01    0.537  0.534
+[eval] scratch f2 s0: sibling k=1
+arm                    known  novel
+tap    readout                     
+layer2 ncm             0.547  0.552
+       probe_wd0.0001  0.547  0.552
+       probe_wd0.001   0.546  0.552
+       probe_wd0.01    0.547  0.552
+layer3 ncm             0.543  0.550
+       probe_wd0.0001  0.543  0.550
+       probe_wd0.001   0.543  0.550
+       probe_wd0.01    0.543  0.550
+layer4 ncm             0.541  0.546
+       probe_wd0.0001  0.541  0.546
+       probe_wd0.001   0.541  0.546
+       probe_wd0.01    0.541  0.546
+[eval] scratch f3 s0: sibling k=1
+arm                    known  novel
+tap    readout                     
+layer2 ncm             0.547  0.555
+       probe_wd0.0001  0.548  0.554
+       probe_wd0.001   0.547  0.555
+       probe_wd0.01    0.547  0.555
+layer3 ncm             0.542  0.551
+       probe_wd0.0001  0.543  0.551
+       probe_wd0.001   0.542  0.551
+       probe_wd0.01    0.542  0.551
+layer4 ncm             0.535  0.546
+       probe_wd0.0001  0.536  0.547
+       probe_wd0.001   0.535  0.546
+       probe_wd0.01    0.535  0.546
+[eval] scratch f0 s1: sibling k=1
+arm                    known  novel
+tap    readout                     
+layer2 ncm             0.554  0.546
+       probe_wd0.0001  0.552  0.547
+       probe_wd0.001   0.554  0.546
+       probe_wd0.01    0.554  0.546
+layer3 ncm             0.548  0.543
+       probe_wd0.0001  0.549  0.543
+       probe_wd0.001   0.548  0.543
+       probe_wd0.01    0.548  0.543
+layer4 ncm             0.549  0.541
+       probe_wd0.0001  0.550  0.541
+       probe_wd0.001   0.549  0.541
+       probe_wd0.01    0.549  0.541
+[eval] scratch f1 s1: sibling k=1
+arm                    known  novel
+tap    readout                     
+layer2 ncm             0.541  0.537
+       probe_wd0.0001  0.541  0.537
+       probe_wd0.001   0.540  0.537
+       probe_wd0.01    0.541  0.537
+layer3 ncm             0.538  0.535
+       probe_wd0.0001  0.539  0.535
+       probe_wd0.001   0.539  0.535
+       probe_wd0.01    0.538  0.535
+layer4 ncm             0.535  0.533
+       probe_wd0.0001  0.536  0.533
+       probe_wd0.001   0.535  0.533
+       probe_wd0.01    0.535  0.533
+[eval] scratch f2 s1: sibling k=1
+arm                    known  novel
+tap    readout                     
+layer2 ncm             0.542  0.549
+       probe_wd0.0001  0.542  0.549
+       probe_wd0.001   0.542  0.549
+       probe_wd0.01    0.542  0.549
+layer3 ncm             0.539  0.549
+       probe_wd0.0001  0.539  0.549
+       probe_wd0.001   0.539  0.549
+       probe_wd0.01    0.539  0.549
+layer4 ncm             0.539  0.547
+       probe_wd0.0001  0.539  0.547
+       probe_wd0.001   0.539  0.547
+       probe_wd0.01    0.539  0.547
+[eval] scratch f3 s1: sibling k=1
+arm                    known  novel
+tap    readout                     
+layer2 ncm             0.536  0.554
+       probe_wd0.0001  0.537  0.552
+       probe_wd0.001   0.536  0.554
+       probe_wd0.01    0.536  0.554
+layer3 ncm             0.533  0.551
+       probe_wd0.0001  0.533  0.550
+       probe_wd0.001   0.533  0.551
+       probe_wd0.01    0.533  0.551
+layer4 ncm             0.529  0.549
+       probe_wd0.0001  0.529  0.549
+       probe_wd0.001   0.529  0.549
+       probe_wd0.01    0.529  0.549
+[eval] scratch f0 s2: sibling k=1
+arm                    known  novel
+tap    readout                     
+layer2 ncm             0.556  0.553
+       probe_wd0.0001  0.555  0.553
+       probe_wd0.001   0.556  0.553
+       probe_wd0.01    0.556  0.553
+layer3 ncm             0.552  0.550
+       probe_wd0.0001  0.552  0.550
+       probe_wd0.001   0.552  0.550
+       probe_wd0.01    0.552  0.550
+layer4 ncm             0.549  0.546
+       probe_wd0.0001  0.548  0.546
+       probe_wd0.001   0.549  0.546
+       probe_wd0.01    0.549  0.546
+[eval] scratch f1 s2: sibling k=1
+arm                    known  novel
+tap    readout                     
+layer2 ncm             0.546  0.544
+       probe_wd0.0001  0.546  0.543
+       probe_wd0.001   0.545  0.543
+       probe_wd0.01    0.546  0.544
+layer3 ncm             0.543  0.541
+       probe_wd0.0001  0.543  0.541
+       probe_wd0.001   0.543  0.541
+       probe_wd0.01    0.543  0.541
+layer4 ncm             0.538  0.538
+       probe_wd0.0001  0.539  0.537
+       probe_wd0.001   0.538  0.538
+       probe_wd0.01    0.538  0.538
+[eval] scratch f2 s2: sibling k=1
+arm                    known  novel
+tap    readout                     
+layer2 ncm             0.545  0.554
+       probe_wd0.0001  0.544  0.553
+       probe_wd0.001   0.545  0.554
+       probe_wd0.01    0.545  0.554
+layer3 ncm             0.545  0.551
+       probe_wd0.0001  0.545  0.552
+       probe_wd0.001   0.545  0.551
+       probe_wd0.01    0.545  0.551
+layer4 ncm             0.544  0.548
+       probe_wd0.0001  0.543  0.548
+       probe_wd0.001   0.544  0.548
+       probe_wd0.01    0.544  0.548
+[eval] scratch f3 s2: sibling k=1
+arm                    known  novel
+tap    readout                     
+layer2 ncm             0.544  0.556
+       probe_wd0.0001  0.544  0.554
+       probe_wd0.001   0.544  0.556
+       probe_wd0.01    0.544  0.556
+layer3 ncm             0.543  0.551
+       probe_wd0.0001  0.543  0.551
+       probe_wd0.001   0.543  0.551
+       probe_wd0.01    0.543  0.551
+layer4 ncm             0.539  0.546
+       probe_wd0.0001  0.538  0.546
+       probe_wd0.001   0.539  0.546
+       probe_wd0.01    0.539  0.546
+
+real	15m31.278s
+user	9m25.819s
+sys	1m35.301s
+DONE rc=0
