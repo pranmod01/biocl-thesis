@@ -1,0 +1,36 @@
+cuda: NVIDIA RTX PRO 6000 Blackwell Server Edition
+########## RUN i_replay_decay_oracle ##########
+[i_replay_decay_oracle_super] task 1/10 avg_seen_acc=0.6600  per_task=[0.66]
+[i_replay_decay_oracle_super]   superclass scale: avg_seen_super_acc=0.6690  per_task=[0.669]  coarse_source_acc=1.0000
+[i_replay_decay_oracle_super] task 2/10 avg_seen_acc=0.5795  per_task=[0.496, 0.663]
+[i_replay_decay_oracle_super]   superclass scale: avg_seen_super_acc=0.6610  per_task=[0.6, 0.722]  coarse_source_acc=1.0000
+[i_replay_decay_oracle_super] task 3/10 avg_seen_acc=0.6160  per_task=[0.517, 0.61, 0.721]
+[i_replay_decay_oracle_super]   superclass scale: avg_seen_super_acc=0.7050  per_task=[0.598, 0.713, 0.804]  coarse_source_acc=1.0000
+[i_replay_decay_oracle_super] task 4/10 avg_seen_acc=0.5713  per_task=[0.501, 0.539, 0.632, 0.613]
+[i_replay_decay_oracle_super]   superclass scale: avg_seen_super_acc=0.6597  per_task=[0.553, 0.698, 0.69, 0.698]  coarse_source_acc=1.0000
+[i_replay_decay_oracle_super] task 5/10 avg_seen_acc=0.5862  per_task=[0.533, 0.574, 0.656, 0.579, 0.589]
+[i_replay_decay_oracle_super]   superclass scale: avg_seen_super_acc=0.6580  per_task=[0.601, 0.714, 0.729, 0.613, 0.633]  coarse_source_acc=1.0000
+[i_replay_decay_oracle_super] task 6/10 avg_seen_acc=0.5295  per_task=[0.436, 0.523, 0.55, 0.466, 0.468, 0.734]
+[i_replay_decay_oracle_super]   superclass scale: avg_seen_super_acc=0.6363  per_task=[0.564, 0.643, 0.644, 0.585, 0.525, 0.857]  coarse_source_acc=1.0000
+[i_replay_decay_oracle_super] task 7/10 avg_seen_acc=0.5454  per_task=[0.438, 0.545, 0.588, 0.536, 0.492, 0.55, 0.669]
+[i_replay_decay_oracle_super]   superclass scale: avg_seen_super_acc=0.6626  per_task=[0.556, 0.685, 0.679, 0.603, 0.622, 0.756, 0.737]  coarse_source_acc=1.0000
+[i_replay_decay_oracle_super] task 8/10 avg_seen_acc=0.5266  per_task=[0.461, 0.471, 0.555, 0.551, 0.51, 0.5, 0.503, 0.662]
+[i_replay_decay_oracle_super]   superclass scale: avg_seen_super_acc=0.6423  per_task=[0.58, 0.619, 0.65, 0.604, 0.624, 0.708, 0.602, 0.751]  coarse_source_acc=1.0000
+[i_replay_decay_oracle_super] task 9/10 avg_seen_acc=0.3781  per_task=[0.309, 0.394, 0.376, 0.309, 0.252, 0.362, 0.261, 0.304, 0.836]
+[i_replay_decay_oracle_super]   superclass scale: avg_seen_super_acc=0.5433  per_task=[0.471, 0.53, 0.563, 0.463, 0.455, 0.652, 0.378, 0.502, 0.876]  coarse_source_acc=1.0000
+[i_replay_decay_oracle_super] task 10/10 avg_seen_acc=0.3623  per_task=[0.243, 0.324, 0.379, 0.341, 0.331, 0.24, 0.267, 0.317, 0.345, 0.836]
+[i_replay_decay_oracle_super]   superclass scale: avg_seen_super_acc=0.5174  per_task=[0.46, 0.499, 0.426, 0.507, 0.439, 0.637, 0.447, 0.427, 0.445, 0.887]  coarse_source_acc=1.0000
+
+[i_replay_decay_oracle_super] done.
+  average_accuracy   = 0.3623
+  average_forgetting = 0.3733
+  retained_accuracy  = 0.4474
+  vs null model (seen): avg 0.0100 (ratio 36.23), retained 0.0157 (ratio 28.47)
+  superclass scale:  avg 0.5174  retained 0.5791  (null retained 0.0555)
+  coarse source alone: 1.0000
+  results -> results/i_replay_decay_oracle_super
+
+real	9m43.801s
+user	18m32.271s
+sys	4m45.588s
+=== DONE ===

@@ -42,14 +42,16 @@ def main() -> None:
     cfg = load_config(args.config, args.base, overrides or None)
     if args.seed is not None and args.name is None:
         cfg.run.name = f"{cfg.run.name}_s{args.seed}"
-    acc_matrix = run_continual(cfg)
+    matrices = run_continual(cfg)
     metrics = compute_metrics(
-        acc_matrix,
+        matrices["fine"],
         task_classes=task_class_order(cfg.data.num_tasks, cfg.data.classes_per_task,
                                       cfg.data.order_seed),
         kind=null_kind(conditioning_for(cfg), cfg.coarse.source,
                        cfg.conditioning.eval_withhold, cfg.coarse.soft.smooth,
                        cfg.coarse.noisy.rate),
+        super_matrix=matrices["super"],
+        source_matrix=matrices["source"],
     )
     path = save_run(cfg, metrics)
 
@@ -65,6 +67,12 @@ def main() -> None:
               f"(ratio {metrics['retained_accuracy_vs_null']:.2f})")
     else:
         print("  vs null model: no closed form for this condition")
+    null_super = metrics.get("null_super_retained_accuracy")
+    print(f"  superclass scale:  avg {metrics['super_average_accuracy']:.4f}  "
+          f"retained {metrics['super_retained_accuracy']:.4f}"
+          + (f"  (null retained {null_super:.4f})" if null_super is not None else ""))
+    if metrics.get("coarse_source_accuracy") is not None:
+        print(f"  coarse source alone: {metrics['coarse_source_accuracy']:.4f}")
     print(f"  results -> {path}")
 
 

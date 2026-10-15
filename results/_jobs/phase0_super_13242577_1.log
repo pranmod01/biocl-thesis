@@ -1,0 +1,35 @@
+cuda: NVIDIA RTX PRO 6000 Blackwell Server Edition
+########## RUN i_replay_baseline_hippo ##########
+[i_replay_baseline_hippo_super] task 1/10 avg_seen_acc=0.6510  per_task=[0.651]
+[i_replay_baseline_hippo_super]   superclass scale: avg_seen_super_acc=0.6670  per_task=[0.667]
+[i_replay_baseline_hippo_super] task 2/10 avg_seen_acc=0.4560  per_task=[0.659, 0.253]
+[i_replay_baseline_hippo_super]   superclass scale: avg_seen_super_acc=0.5555  per_task=[0.685, 0.426]
+[i_replay_baseline_hippo_super] task 3/10 avg_seen_acc=0.5300  per_task=[0.409, 0.422, 0.759]
+[i_replay_baseline_hippo_super]   superclass scale: avg_seen_super_acc=0.6330  per_task=[0.49, 0.61, 0.799]
+[i_replay_baseline_hippo_super] task 4/10 avg_seen_acc=0.5012  per_task=[0.348, 0.462, 0.494, 0.701]
+[i_replay_baseline_hippo_super]   superclass scale: avg_seen_super_acc=0.5890  per_task=[0.406, 0.624, 0.58, 0.746]
+[i_replay_baseline_hippo_super] task 5/10 avg_seen_acc=0.5608  per_task=[0.476, 0.53, 0.597, 0.525, 0.676]
+[i_replay_baseline_hippo_super]   superclass scale: avg_seen_super_acc=0.6348  per_task=[0.573, 0.675, 0.662, 0.559, 0.705]
+[i_replay_baseline_hippo_super] task 6/10 avg_seen_acc=0.5147  per_task=[0.419, 0.46, 0.517, 0.46, 0.478, 0.754]
+[i_replay_baseline_hippo_super]   superclass scale: avg_seen_super_acc=0.6228  per_task=[0.561, 0.599, 0.598, 0.584, 0.529, 0.866]
+[i_replay_baseline_hippo_super] task 7/10 avg_seen_acc=0.5349  per_task=[0.437, 0.564, 0.574, 0.504, 0.525, 0.518, 0.622]
+[i_replay_baseline_hippo_super]   superclass scale: avg_seen_super_acc=0.6494  per_task=[0.556, 0.688, 0.676, 0.572, 0.622, 0.725, 0.707]
+[i_replay_baseline_hippo_super] task 8/10 avg_seen_acc=0.4555  per_task=[0.35, 0.46, 0.478, 0.43, 0.401, 0.409, 0.316, 0.8]
+[i_replay_baseline_hippo_super]   superclass scale: avg_seen_super_acc=0.5892  per_task=[0.502, 0.59, 0.592, 0.502, 0.558, 0.658, 0.474, 0.838]
+[i_replay_baseline_hippo_super] task 9/10 avg_seen_acc=0.4208  per_task=[0.354, 0.405, 0.399, 0.394, 0.337, 0.4, 0.337, 0.38, 0.781]
+[i_replay_baseline_hippo_super]   superclass scale: avg_seen_super_acc=0.5780  per_task=[0.5, 0.554, 0.601, 0.54, 0.514, 0.649, 0.457, 0.538, 0.849]
+[i_replay_baseline_hippo_super] task 10/10 avg_seen_acc=0.4460  per_task=[0.342, 0.417, 0.494, 0.434, 0.427, 0.403, 0.388, 0.412, 0.459, 0.684]
+[i_replay_baseline_hippo_super]   superclass scale: avg_seen_super_acc=0.5945  per_task=[0.515, 0.574, 0.574, 0.564, 0.55, 0.705, 0.535, 0.531, 0.609, 0.788]
+
+[i_replay_baseline_hippo_super] done.
+  average_accuracy   = 0.4460
+  average_forgetting = 0.2822
+  retained_accuracy  = 0.4445
+  vs null model (seen): avg 0.0100 (ratio 44.60), retained 0.0157 (ratio 28.29)
+  superclass scale:  avg 0.5945  retained 0.5769  (null retained 0.0555)
+  results -> results/i_replay_baseline_hippo_super
+
+real	8m39.970s
+user	17m29.099s
+sys	4m22.477s
+=== DONE ===

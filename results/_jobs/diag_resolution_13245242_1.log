@@ -1,0 +1,15 @@
+cuda: NVIDIA H100 NVL
+[fine_r16_s0] ep 10/80 train_acc=0.5061 (52s)
+[fine_r16_s0] ep 20/80 train_acc=0.5971 (99s)
+[fine_r16_s0] ep 30/80 train_acc=0.6612 (147s)
+[fine_r16_s0] ep 40/80 train_acc=0.7360 (195s)
+[fine_r16_s0] ep 50/80 train_acc=0.8380 (242s)
+[fine_r16_s0] ep 60/80 train_acc=0.9673 (290s)
+[fine_r16_s0] ep 70/80 train_acc=0.9985 (338s)
+[fine_r16_s0] ep 80/80 train_acc=0.9992 (385s)
+[RES] fine_r16_s0  test_acc=0.6911  super_acc=0.7873  last_epoch_train_acc=0.9992
+
+real	6m49.898s
+user	21m18.604s
+sys	1m14.458s
+=== DONE ===

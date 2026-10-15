@@ -4,12 +4,13 @@ It names no concrete coarse source, conditioning mechanism or CL method: all thr
 arrive already built from config. A fresh optimizer per task; by default only the
 current task's data is seen (older classes act as negatives through the masked
 cross-entropy), unless `cl.methods` adds replay/EWC on top.
-Returns the lower-triangular accuracy matrix A[i][j] = acc on task j after task i.
+Returns the lower-triangular accuracy matrix A[i][j] = acc on task j after task i,
+plus the same matrix at superclass scale and the coarse source's own accuracy.
 """
 
 from __future__ import annotations
 
-from typing import List
+from typing import Dict, List
 
 import torch
 import torch.nn.functional as F
@@ -37,8 +38,10 @@ def _build_optimizer(params, cfg: Config):
 
 
 def run_continual(cfg: Config, return_model: bool = False):
-    """Run the continual loop and return the accuracy matrix. If return_model, also
-    return (model, stream, device) so diagnostics can probe the trained weights."""
+    """Run the continual loop and return {"fine", "super", "source"} accuracy
+    matrices (see evaluate.py; "source" is None without a coarse signal). If
+    return_model, also return (model, stream, device) so diagnostics can probe the
+    trained weights."""
     set_seed(cfg.run.seed)
     device = resolve_device(cfg.run.device)
 
@@ -49,7 +52,7 @@ def run_continual(cfg: Config, return_model: bool = False):
     model = build_classifier(cfg).to(device)
     cl_methods = build_cl_methods(cfg, device)
 
-    acc_matrix: List[List[float]] = []
+    matrices: Dict[str, List[List[float]]] = {"fine": [], "super": [], "source": []}
 
     for task_id in range(cfg.data.num_tasks):
         seen = stream.seen_classes(task_id)
@@ -101,13 +104,16 @@ def run_continual(cfg: Config, return_model: bool = False):
         for method in cl_methods:
             method.after_task(model, task_id, stream, coarse_source, device)
 
-        row = [
+        evals = [
             evaluate_task(model, stream.test_subset(j), coarse_source, seen_mask,
                           device, num_workers=cfg.data.num_workers,
                           withhold=cfg.conditioning.eval_withhold)
             for j in range(task_id + 1)
         ]
-        acc_matrix.append(row)
+        for scale in matrices:
+            matrices[scale].append([e[scale] for e in evals])
+        row = matrices["fine"][-1]
+        super_row = matrices["super"][-1]
         seen_avg = sum(row) / len(row)
         rot_note = ""
         if rot.enabled:
@@ -117,7 +123,16 @@ def run_continual(cfg: Config, return_model: bool = False):
             rot_note = f"  rot_acc={rot_correct / max(rot_total, 1):.3f}"
         print(f"[{cfg.run.name}] task {task_id + 1}/{cfg.data.num_tasks} "
               f"avg_seen_acc={seen_avg:.4f}  per_task={[round(a, 3) for a in row]}{rot_note}")
+        source_note = ""
+        if evals[0]["source"] is not None:
+            source_acc = sum(e["source"] for e in evals) / len(evals)
+            source_note = f"  coarse_source_acc={source_acc:.4f}"
+        print(f"[{cfg.run.name}]   superclass scale: "
+              f"avg_seen_super_acc={sum(super_row) / len(super_row):.4f}  "
+              f"per_task={[round(a, 3) for a in super_row]}{source_note}")
 
+    if matrices["source"][0][0] is None:
+        matrices["source"] = None
     if return_model:
-        return acc_matrix, model, stream, device
-    return acc_matrix
+        return matrices, model, stream, device
+    return matrices

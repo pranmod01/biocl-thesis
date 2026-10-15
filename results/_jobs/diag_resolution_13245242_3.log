@@ -1,0 +1,15 @@
+cuda: NVIDIA H100 NVL
+[coarse_r32_s0] ep 10/80 train_acc=0.6238 (48s)
+[coarse_r32_s0] ep 20/80 train_acc=0.7308 (96s)
+[coarse_r32_s0] ep 30/80 train_acc=0.7811 (144s)
+[coarse_r32_s0] ep 40/80 train_acc=0.8310 (191s)
+[coarse_r32_s0] ep 50/80 train_acc=0.8890 (239s)
+[coarse_r32_s0] ep 60/80 train_acc=0.9653 (286s)
+[coarse_r32_s0] ep 70/80 train_acc=0.9984 (334s)
+[coarse_r32_s0] ep 80/80 train_acc=0.9994 (382s)
+[RES] coarse_r32_s0  test_acc=0.8357  last_epoch_train_acc=0.9994
+
+real	6m27.139s
+user	20m51.646s
+sys	1m14.698s
+=== DONE ===

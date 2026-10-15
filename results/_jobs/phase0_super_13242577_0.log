@@ -1,0 +1,35 @@
+cuda: NVIDIA RTX A6000
+########## RUN a_baseline ##########
+[a_baseline_super] task 1/10 avg_seen_acc=0.6880  per_task=[0.688]
+[a_baseline_super]   superclass scale: avg_seen_super_acc=0.7030  per_task=[0.703]
+[a_baseline_super] task 2/10 avg_seen_acc=0.4165  per_task=[0.0, 0.833]
+[a_baseline_super]   superclass scale: avg_seen_super_acc=0.5500  per_task=[0.249, 0.851]
+[a_baseline_super] task 3/10 avg_seen_acc=0.2940  per_task=[0.0, 0.0, 0.882]
+[a_baseline_super]   superclass scale: avg_seen_super_acc=0.4220  per_task=[0.122, 0.227, 0.917]
+[a_baseline_super] task 4/10 avg_seen_acc=0.2045  per_task=[0.0, 0.0, 0.0, 0.818]
+[a_baseline_super]   superclass scale: avg_seen_super_acc=0.3207  per_task=[0.029, 0.261, 0.167, 0.826]
+[a_baseline_super] task 5/10 avg_seen_acc=0.1770  per_task=[0.0, 0.0, 0.0, 0.0, 0.885]
+[a_baseline_super]   superclass scale: avg_seen_super_acc=0.2448  per_task=[0.174, 0.04, 0.078, 0.039, 0.893]
+[a_baseline_super] task 6/10 avg_seen_acc=0.1412  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.847]
+[a_baseline_super]   superclass scale: avg_seen_super_acc=0.2737  per_task=[0.19, 0.077, 0.089, 0.27, 0.098, 0.918]
+[a_baseline_super] task 7/10 avg_seen_acc=0.1234  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.864]
+[a_baseline_super]   superclass scale: avg_seen_super_acc=0.2524  per_task=[0.145, 0.123, 0.079, 0.084, 0.283, 0.183, 0.87]
+[a_baseline_super] task 8/10 avg_seen_acc=0.1123  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.898]
+[a_baseline_super]   superclass scale: avg_seen_super_acc=0.2610  per_task=[0.233, 0.095, 0.159, 0.081, 0.234, 0.239, 0.147, 0.9]
+[a_baseline_super] task 9/10 avg_seen_acc=0.0981  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.883]
+[a_baseline_super]   superclass scale: avg_seen_super_acc=0.2831  per_task=[0.171, 0.153, 0.317, 0.227, 0.242, 0.23, 0.08, 0.239, 0.889]
+[a_baseline_super] task 10/10 avg_seen_acc=0.0878  per_task=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.878]
+[a_baseline_super]   superclass scale: avg_seen_super_acc=0.2249  per_task=[0.214, 0.167, 0.0, 0.22, 0.063, 0.376, 0.188, 0.065, 0.043, 0.913]
+
+[a_baseline_super] done.
+  average_accuracy   = 0.0878
+  average_forgetting = 0.8442
+  retained_accuracy  = 0.0000
+  vs null model (seen): avg 0.0100 (ratio 8.78), retained 0.0157 (ratio 0.00)
+  superclass scale:  avg 0.2249  retained 0.1598  (null retained 0.0555)
+  results -> results/a_baseline_super
+
+real	11m14.277s
+user	20m27.616s
+sys	7m31.567s
+=== DONE ===

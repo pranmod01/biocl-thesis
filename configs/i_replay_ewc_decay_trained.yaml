@@ -1,0 +1,8 @@
+# i_replay_decay_trained plus EWC, at base EWC settings (lambda 5000, untuned). Compare
+# vs i_replay_ewc_baseline (same machinery, no coarse: 0.178 avg / 0.100 retained) and
+# vs i_replay_decay_trained (no EWC: 0.272 / 0.362). EWC at this lambda has so far only
+# hurt replay, so read this as the decay-trained effect on top of that substrate.
+run: {name: i_replay_ewc_decay_trained}
+coarse: {source: trained}
+conditioning: {mechanism: decay}
+cl: {methods: [replay, ewc]}

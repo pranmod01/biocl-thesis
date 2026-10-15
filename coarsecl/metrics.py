@@ -30,6 +30,13 @@ within its own mask (which recency bias makes entirely possible — it
 systematically prefers the most recently learned member of the candidate set).
 Compare like with like: null_average_accuracy against average_accuracy,
 null_retained_accuracy against retained_accuracy.
+
+SUPERCLASS SCALE. The same fine predictions are also scored by superclass (see
+train/evaluate.py) and summarised under `super_*` keys, with their own null: a
+uniform guess over the seen classes lands in the true superclass with probability
+(#seen classes in it) / (#seen), and a superclass-masked null always does (1.0).
+Fine forgetting with super retained well above its null means the model still
+routes old images to the right branch and loses only the leaf.
 """
 
 from __future__ import annotations
@@ -69,11 +76,13 @@ def null_kind(mechanism: str, source: str, eval_withhold: bool = False,
 
 
 def null_acc_matrix(task_classes: List[List[int]], kind: str,
-                    fine_to_coarse: Optional[List[int]] = None) -> List[List[float]]:
+                    fine_to_coarse: Optional[List[int]] = None,
+                    scale: str = "fine") -> List[List[float]]:
     """Expected accuracy matrix of a model that learned nothing but is scored
-    through the same masking as the real run. Pure combinatorics on the class order."""
+    through the same masking as the real run. Pure combinatorics on the class order.
+    scale="super" scores whether the guess lands in the true superclass."""
     n = len(task_classes)
-    if kind == "superclass" and fine_to_coarse is None:
+    if fine_to_coarse is None:
         from .data.cifar100 import fine_to_coarse_tensor
         fine_to_coarse = fine_to_coarse_tensor().tolist()
 
@@ -82,7 +91,15 @@ def null_acc_matrix(task_classes: List[List[int]], kind: str,
         seen = [c for t in range(i + 1) for c in task_classes[t]]
         row = []
         for j in range(i + 1):
-            if kind == "seen":
+            if scale == "super":
+                if kind == "superclass":
+                    cell = 1.0  # the guess is confined to the true superclass
+                else:
+                    accs = [sum(1 for k in seen
+                                if fine_to_coarse[k] == fine_to_coarse[c]) / len(seen)
+                            for c in task_classes[j]]
+                    cell = sum(accs) / len(accs)
+            elif kind == "seen":
                 cell = 1.0 / len(seen)
             else:
                 # per true class: 1 / (# seen classes in its superclass)
@@ -95,9 +112,21 @@ def null_acc_matrix(task_classes: List[List[int]], kind: str,
     return matrix
 
 
+def _summary(matrix: List[List[float]]) -> Dict[str, float]:
+    """avg / AIA / retained of one lower-triangular matrix."""
+    n = len(matrix)
+    curve = [sum(r) / len(r) for r in matrix]
+    old = [matrix[i][j] for i in range(n) for j in range(i)]
+    return {"average_accuracy": sum(matrix[-1]) / n,
+            "average_incremental_accuracy": sum(curve) / n,
+            "retained_accuracy": sum(old) / len(old) if old else 0.0}
+
+
 def compute_metrics(acc_matrix: List[List[float]],
                     task_classes: Optional[List[List[int]]] = None,
-                    kind: Optional[str] = None) -> Dict:
+                    kind: Optional[str] = None,
+                    super_matrix: Optional[List[List[float]]] = None,
+                    source_matrix: Optional[List[List[float]]] = None) -> Dict:
     n = len(acc_matrix)
     final_row = acc_matrix[-1]
 
@@ -145,5 +174,19 @@ def compute_metrics(acc_matrix: List[List[float]],
             out[f"{key}_vs_null"] = (out[key] / denom) if denom > 0 else None
     else:
         out["null_kind"] = kind  # None = no closed-form null for this condition
+
+    if super_matrix is not None:
+        out["super_acc_matrix"] = super_matrix
+        out["super_avg_acc_curve"] = [sum(r) / len(r) for r in super_matrix]
+        for key, val in _summary(super_matrix).items():
+            out[f"super_{key}"] = val
+        if task_classes is not None and kind is not None:
+            for key, val in _summary(null_acc_matrix(task_classes, kind,
+                                                     scale="super")).items():
+                out[f"null_super_{key}"] = val
+    if source_matrix is not None:
+        # the coarse signal's own accuracy; a constant per class for a fixed source,
+        # so the final row (every class) is the reference value
+        out["coarse_source_accuracy"] = sum(source_matrix[-1]) / n
 
     return out

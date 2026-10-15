@@ -1,0 +1,15 @@
+cuda: NVIDIA RTX A6000
+[fine_r32_s0] ep 10/80 train_acc=0.5835 (107s)
+[fine_r32_s0] ep 20/80 train_acc=0.6742 (212s)
+[fine_r32_s0] ep 30/80 train_acc=0.7326 (319s)
+[fine_r32_s0] ep 40/80 train_acc=0.7990 (426s)
+[fine_r32_s0] ep 50/80 train_acc=0.8920 (532s)
+[fine_r32_s0] ep 60/80 train_acc=0.9808 (639s)
+[fine_r32_s0] ep 70/80 train_acc=0.9993 (746s)
+[fine_r32_s0] ep 80/80 train_acc=0.9995 (850s)
+[RES] fine_r32_s0  test_acc=0.7657  super_acc=0.8566  last_epoch_train_acc=0.9995
+
+real	14m17.201s
+user	42m2.391s
+sys	1m42.590s
+=== DONE ===
